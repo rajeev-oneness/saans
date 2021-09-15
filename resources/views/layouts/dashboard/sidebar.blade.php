@@ -95,6 +95,27 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('video.view') }}" class="nav-link">
+              <p>
+                Video
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('manar.view') }}" class="nav-link">
+              <p>
+                Manar
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('company.manager.view') }}" class="nav-link">
+              <p>
+                Company Manager
+              </p>
+            </a>
+          </li>
           @endif
           <!-- <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">

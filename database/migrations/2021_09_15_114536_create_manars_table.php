@@ -15,6 +15,11 @@ class CreateManarsTable extends Migration
     {
         Schema::create('manars', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('sub_title');
+            $table->string('image');
+            $table->enum('status',array('0','1'))->default('1')->comment('1 = Active, 0 = Inactive');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

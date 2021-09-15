@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Principal Product Edit</h1>
+            <h1>Company Manager Edit</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -20,7 +20,7 @@
         <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Principal Product</h3>
+              <h3 class="card-title">Company Manager</h3>
             <div class="card-tools">
                 <a class="headerbuttonforAdd addBlogCategory" href="{{route('principal.product.view')}}">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
@@ -30,34 +30,18 @@
             </div>
             </div>
              <div class="card-body">
-                     <form method="POST" action="{{ route('update.principal.product', ['id' => $PrincipalPro->id]) }}" enctype="multipart/form-data">
+                     <form method="POST" action="{{ route('update.company.manager', ['id' => $comManager->id]) }}" enctype="multipart/form-data">
                         @csrf
                        @method('PUT')
                         <div class="form-group required">
-                            <label for="image" class="control-label">Image</label>
-                            <input type="file" class="form-control-file" name="image" value="{{$PrincipalPro->image}}" id="image">
+                            <label for="image" class="control-label">Logo</label>
+                            <input type="file" class="form-control-file" name="logo" value="{{$comManager->logo}}" id="logo">
                         </div>
                         <div class="form-group required">
-                          <label for="name" class="control-label">Name</label>
-                          <input type="text" class="form-control" name="name" id="name" value="{{$PrincipalPro->name}}"  placeholder="Course name" required>
+                          <label for="redirect_link" class="control-label">Redirect Link</label>
+                          <input type="text" class="form-control" name="redirect_link" id="redirect_link" value="{{$comManager->redirect_link}}"  placeholder="Redirect Link" required>
                         </div>
-                         <div class="form-group required">
-                            <label for="principal" class="control-label">Select Principal</label>
-                            <select class="form-control" id="principal" name="principalId" required>
-                                @foreach ($principals as $principal)
-                                    <option value="{{$principal->id}}" {{ $PrincipalPro->id == $PrincipalPro->principalId ? 'selected' : '' }}>{{$principal->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group required">
-                            <label for="description" class="control-label">Description</label>
-                            <textarea class="form-control" name="description" id="description" rows="3" required>{{$PrincipalPro->description}}</textarea>
-                        </div>
-                        <div class="form-group required">
-                            <label for="redirect_link" class="control-label">Link</label>
-                            <input type="text" class="form-control" name="redirect_link" value="{{$PrincipalPro->redirect_link}}" id="duration"  placeholder="Link" required>
-                          </div>
-                        <button type="submit" class="btn btn-primary">Update Principal Product</button>
+                        <button type="submit" class="btn btn-primary">Update Company Manager</button>
                       </form>
                 </div>
             <!-- /.card-body -->

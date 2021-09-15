@@ -7,6 +7,9 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PrincipalController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\PrincipalProductController;
+use App\Http\Controllers\Admin\VideoController;
+use App\Http\Controllers\Admin\ManarController;
+use App\Http\Controllers\Admin\CompanyManagerController;
 
 
 /*
@@ -80,6 +83,30 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     Route::get('/principal-product/edit/{id}', [PrincipalProductController::class,'edit'])->name('edit.principal.product');
     Route::put('/principal-product/update/{id}', [PrincipalProductController::class,'update'])->name('update.principal.product');
     Route::get('/principal-product/delete/{id}', [PrincipalProductController::class,'destroy'])->name('delete.principal.product');
+
+     // ---------------Product----------------------
+    Route::get('/video', [VideoController::class,'index'])->name('video.view');
+    Route::get('/video/add', [VideoController::class,'create'])->name('add.video');
+    Route::post('/video/add', [VideoController::class,'store'])->name('add.video');
+    Route::get('/video/edit/{id}', [VideoController::class,'edit'])->name('edit.video');
+    Route::put('/video/update/{id}', [VideoController::class,'update'])->name('update.video');
+    Route::get('/video/delete/{id}', [VideoController::class,'destroy'])->name('delete.video');
+
+     // ---------------Product----------------------
+    Route::get('/manar', [ManarController::class,'index'])->name('manar.view');
+    Route::get('/manar/add', [ManarController::class,'create'])->name('add.manar');
+    Route::post('/manar/add', [ManarController::class,'store'])->name('add.manar');
+    Route::get('/manar/edit/{id}', [ManarController::class,'edit'])->name('edit.manar');
+    Route::put('/manar/update/{id}', [ManarController::class,'update'])->name('update.manar');
+    Route::get('/manar/delete/{id}', [ManarController::class,'destroy'])->name('delete.manar');
+
+     // ---------------Product----------------------
+    Route::get('/company-manager', [CompanyManagerController::class,'index'])->name('company.manager.view');
+    Route::get('/company-manager/add', [CompanyManagerController::class,'create'])->name('add.company.manager');
+    Route::post('/company-manager/add', [CompanyManagerController::class,'store'])->name('add.company.manager');
+    Route::get('/company-manager/edit/{id}', [CompanyManagerController::class,'edit'])->name('edit.company.manager');
+    Route::put('/company-manager/update/{id}', [CompanyManagerController::class,'update'])->name('update.company.manager');
+    Route::get('/company-manager/delete/{id}', [CompanyManagerController::class,'destroy'])->name('delete.company.manager');
 });
 
 

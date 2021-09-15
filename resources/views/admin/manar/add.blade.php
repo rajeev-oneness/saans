@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Principal Product Add</h1>
+            <h1>Manar Add</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Principal Product Add</li>
+              <li class="breadcrumb-item active">Manar Add</li>
             </ol>
           </div>
         </div>
@@ -25,21 +25,21 @@
         @if (Session::get('success'))                        
             <div class="alert alert-success"> {{Session::get('success')}} </div>
         @endif
-        <form action="{{ route('add.principal.product') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('add.manar') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div>
             <div class="row">
                 <div class="col-md-12">
                 <div class="card card-primary">
                     <div class="card-header">
-                    <h3 class="card-title">Principal Product</h3>
+                    <h3 class="card-title">Manar</h3>
 
                    <!--  <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                         <i class="fas fa-minus"></i></button>
                     </div> -->
                      <div class="card-tools">
-                        <a class="headerbuttonforAdd addBlogCategory" href="{{route('principal.product.view')}}">
+                        <a class="headerbuttonforAdd addBlogManar" href="{{route('manar.view')}}">
                                     <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
                                 </a>
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -48,23 +48,18 @@
                     </div>
                     <div class="card-body">
                     <div class="form-group">
-                        <label for="name">Principal Product Name</label>
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  >
-                        @error('name')
+                        <label for="title">Title</label>
+                        <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}"  placeholder="Title">
+                        @error('title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror   
                     </div>
-                    <div class="form-group required">
-                        <label for="principalId" class="control-label">Select Principal</label>
-                        <select class="form-control @error('principalId') is-invalid @enderror" id="principalId" name="principalId" value="{{ old('principalId') }}"required>
-                            <option disabled selected>Select Principal</option>
-                            @foreach ($principals as $principal)
-                                <option value="{{$principal->id}}">{{$principal->name}}</option>
-                            @endforeach
-                        </select>
-                         @error('principalId')
+                    <div class="form-group">
+                        <label for="sub_title">Sub Title</label>
+                        <input id="sub_title" type="text" class="form-control @error('sub_title') is-invalid @enderror" name="sub_title" value="{{ old('sub_title') }}"  >
+                        @error('sub_title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -79,37 +74,6 @@
                             </span>
                         @enderror   
                     </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}"  >
-                        @error('description')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror   
-                    </div>
-                    <div class="form-group">
-                        <label for="redirect_link">Link</label>
-                        <input id="redirect_link" type="text" class="form-control @error('redirect_link') is-invalid @enderror" name="redirect_link" value="{{ old('redirect_link') }}"  >
-                        @error('redirect_link')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror   
-                    </div>
-                 <!--    <div class="form-group">
-                        <label for="inputStatus">Status</label>
-                        <select class="form-control custom-select" name="status" id="status" class="form-control @error('status') is-invalid @enderror" value="{{ old('status') }}"  >
-                        <option selected disabled>Select one</option>
-                        <option value="1">Active</option>
-                        <option value="0">Inactive</option>
-                        </select>
-                         @error('status')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div> -->
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -119,7 +83,7 @@
             <div class="row">
                 <div class="col-12">
                 <a href="#" class="btn btn-secondary">Cancel</a>
-                <button type="submit"  class="btn btn-success float-right">Create New Principal Product</button>
+                <button type="submit"  class="btn btn-success float-right">Create New Manar</button>
                 </div>
             </div>
             </div>
