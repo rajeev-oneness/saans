@@ -61,12 +61,16 @@
                     @else
                     <td>Inactive</td>
                     @endif
-                    <td><a href="{{route('edit.category',['id' => $category->id])}}">Edit</a> | <a href="{{ route('delete.category', ['id' => $category->id]) }}" class="text-danger delete-confirm">Delete</a></td>
+                    <td><a href="{{route('edit.category',['id' => $category->id])}}">Edit</a> | 
+                      <a href="#" class="text-danger delete-confirm" data-id="{{$category->id}}">Delete</a></td>
                 </tr>
                 @endforeach
 
             </tbody>
         </table>
+        <div>
+            {{ $categories->links() }}
+        </div>
       </div>
       <!-- /.card-body -->
     </div>
@@ -77,26 +81,34 @@
  </div>
  <!-- /.content-wrapper -->
  @section('script')
-<!--   <script type="text/javascript">
-      $(document).ready(function() {
-          $('#example4').DataTable();
-      });
-      $('.delete-confirm').on('click', function (event) {
-          event.preventDefault();
-          const url = "category/delete/";
-          const id = $(this).data('id');
-          swal({
+ <!-- const url = "category/delete/"; -->
+     
+  <script>
+      $('.delete-confirm').on('click', function (e) {
+        var id = $(this).data('id');
+        swal({
               title: 'Are you sure?',
-              text: 'This record will be permanantly deleted!',
-              icon: 'warning',
-              buttons: ["Cancel", "Yes!"],
-              }).then(function(value) {
-              if (value) {
-                  swal("Deleted!", "Successful!", "success");
-                  window.location.href = url + id;
-                  }
-              });
+              text: "You won't be able to revert this!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, delete it!'
+        }).then(function () {
+          $.ajax({
+            type: "POST",
+            url: "{{url('/category/delete')}}",
+            data: {id:id},
+            success: function (data) {
+              swal(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            }
           });
-  </script> -->
+      });
+    });
+  </script>
 @stop
 @endsection

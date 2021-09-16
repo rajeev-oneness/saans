@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PrincipalProductController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\ManarController;
 use App\Http\Controllers\Admin\CompanyManagerController;
+use App\Http\Controllers\Front\FrontController;
 
 
 /*
@@ -23,17 +24,23 @@ use App\Http\Controllers\Admin\CompanyManagerController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('/', function () {
-    return redirect('login');
+    return view('front.index');
 });
+// Route::get('/', function () {
+//     return redirect('login');
+// });
 
 
 Auth::routes(['register'=> false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', [FrontController::class,'index'])->name('front.home');
+Route::get('/about-us', [FrontController::class,'about'])->name('front.about-us');
+Route::get('/contact', [FrontController::class,'contact'])->name('front.contact');
+Route::get('/product', [FrontController::class,'product'])->name('front.product');
+Route::get('/principal', [FrontController::class,'principal'])->name('front.principal');
 
 
 

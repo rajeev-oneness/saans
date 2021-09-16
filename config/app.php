@@ -175,7 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        // UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+
+        // RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
     ],
 
@@ -232,7 +234,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
 
-        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+        // 'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+
+        // 'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 
 
     ],

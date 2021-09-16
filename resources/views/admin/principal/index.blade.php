@@ -67,6 +67,9 @@
 
             </tbody>
         </table>
+        <div>
+            {{ $principals->links() }}
+        </div>        
       </div>
       <!-- /.card-body -->
     </div>

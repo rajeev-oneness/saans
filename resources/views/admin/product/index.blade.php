@@ -83,6 +83,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div>
+                            {{ $products->links() }}
+                        </div>
                     </div>
                 </div>
       <!-- /.card-body -->

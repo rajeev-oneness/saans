@@ -71,6 +71,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div>
+                            {{ $manars->links() }}
+                        </div>
                     </div>
                 </div>
       <!-- /.card-body -->

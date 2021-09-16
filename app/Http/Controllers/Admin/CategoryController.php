@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use Alert;
 
+
 class CategoryController extends Controller
 {
     /**
@@ -16,7 +17,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::get();
+        $categories = Category::paginate(5);
         return view('admin.category.index',compact('categories'));
     }
 

@@ -16,7 +16,7 @@ class PrincipalProductController extends Controller
      */
     public function index()
     {
-        $priproducts = PrincipalProduct::get();
+        $priproducts = PrincipalProduct::paginate(10);
         return view('admin.principal-product.index',compact('priproducts'));
     }
 

@@ -15,7 +15,7 @@ class CompanyManagerController extends Controller
      */
     public function index()
     {
-        $comManagers = companyManager::get();
+        $comManagers = companyManager::paginate(10);
         return view('admin.company-manager.index',compact('comManagers'));
     }
 

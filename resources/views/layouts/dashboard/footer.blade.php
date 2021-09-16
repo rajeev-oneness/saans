@@ -4,7 +4,7 @@
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.0.5
     </div>
-  </foot -->er>
+  </foot -->
 
 
 
@@ -49,12 +49,16 @@
 <script src="{{url ('plugins/summernote/summernote-bs4.min.js') }}"></script>
 <!-- overlayScrollbars -->
 <script src="{{url ('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<!-- sweetalert2 -->
+<!-- <script src="{{ url('plugins/sweetalert2/sweetalert2.all.min.js') }}"></script> -->
 <!-- AdminLTE App -->
 <script src="{{url ('admin_js/adminlte.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{url ('admin_js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{url ('admin_js/demo.js') }}"></script>
+
+
 
 <!-- <script type="text/javascript" src="{{asset('design/js/sweetalert.min.js')}}"></script> -->
 <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->

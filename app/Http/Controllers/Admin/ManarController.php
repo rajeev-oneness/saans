@@ -15,7 +15,7 @@ class ManarController extends Controller
      */
     public function index()
     {
-        $manars = Manar::get();
+        $manars = Manar::paginate(10);
         return view('admin.manar.index',compact('manars'));
     }
 
