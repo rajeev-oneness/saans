@@ -39,8 +39,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [FrontController::class,'index'])->name('front.home');
 Route::get('/about-us', [FrontController::class,'about'])->name('front.about-us');
 Route::get('/contact', [FrontController::class,'contact'])->name('front.contact');
-Route::get('/product', [FrontController::class,'product'])->name('front.product');
-Route::get('/principal', [FrontController::class,'principal'])->name('front.principal');
+Route::get('/product/{id}', [FrontController::class,'categorylWiseProduct'])->name('front.category.product');
+// Route::get('/principal', [FrontController::class,'principal'])->name('front.principal');
+Route::get('/principal/{id}', [FrontController::class,'principalWiseProduct'])->name('front.principal.product');
+Route::get('/principal-details/{id}', [FrontController::class,'ProductDetails'])->name('front.product.details');
 
 
 

@@ -28,7 +28,11 @@ $principals = App\Models\Principal::get();
             <!-- <a href="medical-products.html" class="dropdown-item">Medical Products</a>  -->
 
             @foreach($categories as $category)
-             <a href="{{ url('product')}}" class="dropdown-item">{{$category->name}}</a> 
+            <ul>
+              <a class="dropdown-item" href="{{ route('front.category.product', ["id"=> $category->id] ) }}" >{{$category->name}}</a>
+            </ul>
+
+             <!-- <a href="{{ url('product')}}" class="dropdown-item">{{$category->name}}</a>  -->
             @endforeach        
           </div>
         </li> 
@@ -37,7 +41,9 @@ $principals = App\Models\Principal::get();
                                     </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
             @foreach($principals as $principal)
-            <a href="{{ url('principal')}}" class="dropdown-item">{{$principal->name}}</a> 
+            <ul>
+              <a class="dropdown-item" href="{{ route('front.principal.product', ["id"=> $principal->id] ) }}" >{{$principal->name}}</a>
+            </ul>
             @endforeach
             <!-- <a href="hirox.html"  class="dropdown-item"> Hirox</a> 
             <a href="ostec-corporate-group.html" class="dropdown-item">Ostec Corporate Group</a>
