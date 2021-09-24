@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PrincipalController;
@@ -10,7 +11,8 @@ use App\Http\Controllers\Admin\PrincipalProductController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\ManarController;
 use App\Http\Controllers\Admin\CompanyManagerController;
-use App\Http\Controllers\Front\FrontController;
+use App\Http\Controllers\Admin\AboutCompanyController;
+use App\Http\Controllers\Admin\AboutUsController;
 
 
 /*
@@ -42,7 +44,8 @@ Route::get('/contact', [FrontController::class,'contact'])->name('front.contact'
 Route::get('/product/{id}', [FrontController::class,'categorylWiseProduct'])->name('front.category.product');
 // Route::get('/principal', [FrontController::class,'principal'])->name('front.principal');
 Route::get('/principal/{id}', [FrontController::class,'principalWiseProduct'])->name('front.principal.product');
-Route::get('/principal-details/{id}', [FrontController::class,'ProductDetails'])->name('front.product.details');
+Route::get('/product-details/{id}', [FrontController::class,'ProductDetails'])->name('front.product.details');
+Route::get('/principal-details/{id}', [FrontController::class,'PrincipalDetails'])->name('front.principal.product.details');
 
 
 
@@ -109,13 +112,32 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     Route::put('/manar/update/{id}', [ManarController::class,'update'])->name('update.manar');
     Route::get('/manar/delete/{id}', [ManarController::class,'destroy'])->name('delete.manar');
 
-     // ---------------Product----------------------
+     // ---------------Company Manager----------------------
     Route::get('/company-manager', [CompanyManagerController::class,'index'])->name('company.manager.view');
     Route::get('/company-manager/add', [CompanyManagerController::class,'create'])->name('add.company.manager');
     Route::post('/company-manager/add', [CompanyManagerController::class,'store'])->name('add.company.manager');
     Route::get('/company-manager/edit/{id}', [CompanyManagerController::class,'edit'])->name('edit.company.manager');
     Route::put('/company-manager/update/{id}', [CompanyManagerController::class,'update'])->name('update.company.manager');
     Route::get('/company-manager/delete/{id}', [CompanyManagerController::class,'destroy'])->name('delete.company.manager');
+
+    // ------------------------About Company-----------------------------
+    Route::get('/about-company', [AboutCompanyController::class,'index'])->name('about.company.view');
+    Route::get('/about-company/add', [AboutCompanyController::class,'create'])->name('add.about.company');
+    Route::post('/about-company/add', [AboutCompanyController::class,'store'])->name('add.about.company');
+    Route::get('/about-company/edit/{id}', [AboutCompanyController::class,'edit'])->name('edit.about.company');
+    Route::put('/about-company/update/{id}', [AboutCompanyController::class,'update'])->name('update.about.company');
+    Route::get('/about-company/delete/{id}', [AboutCompanyController::class,'destroy'])->name('delete.about.company');
+
+
+     // ------------------------About Us-----------------------------
+     Route::get('/about_us', [AboutUsController::class,'index'])->name('about_us.view');
+     Route::get('/about_us/add', [AboutUsController::class,'create'])->name('add.about_us');
+     Route::post('/about_us/add', [AboutUsController::class,'store'])->name('add.about_us');
+     Route::get('/about_us/edit/{id}', [AboutUsController::class,'edit'])->name('edit.about_us');
+     Route::put('/about_us/update/{id}', [AboutUsController::class,'update'])->name('update.about_us');
+     Route::get('/about_us/delete/{id}', [AboutUsController::class,'destroy'])->name('delete.about_us');
+
+
 });
 
 

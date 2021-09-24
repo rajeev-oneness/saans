@@ -20,8 +20,8 @@
             <div class="product-grid8">
                 <div class="product-image8">
                     <a href="product-details.html">
-                        <img class="pic-1 img-fluid" src="images/pro1.jpg">
-                        <img class="pic-2 img-fluid" src="images/pro1.jpg">
+                        <img class="pic-1 img-fluid" src="{{ asset($dt->image1) }}">
+                        <!-- <img class="pic-2 img-fluid" src="images/pro1.jpg"> -->
                     </a>
                 </div>
                 <div class="product-content">    

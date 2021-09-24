@@ -116,6 +116,20 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('about.company.view') }}" class="nav-link">
+              <p>
+                About Company
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('about_us.view') }}" class="nav-link">
+              <p>
+                About Us
+              </p>
+            </a>
+          </li>
           @endif
           <!-- <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">

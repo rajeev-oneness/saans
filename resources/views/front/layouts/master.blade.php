@@ -46,7 +46,212 @@
     });
   });
   </script>
-  </script> 
+  </script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    if($('.bbb_viewed_slider').length) {
+      var viewedSlider = $('.bbb_viewed_slider');
+      viewedSlider.owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        nav: false,
+        dots: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          575: {
+            items: 1
+          },
+          768: {
+            items: 1
+          },
+          991: {
+            items: 2
+          },
+          1199: {
+            items: 4
+          }
+        }
+      });
+      if($('.bbb_viewed_prev').length) {
+        var prev = $('.bbb_viewed_prev');
+        prev.on('click', function() {
+          viewedSlider.trigger('prev.owl.carousel');
+        });
+      }
+      if($('.bbb_viewed_next').length) {
+        var next = $('.bbb_viewed_next');
+        next.on('click', function() {
+          viewedSlider.trigger('next.owl.carousel');
+        });
+      }
+    }
+  });
+  </script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    if($('.bbb_viewed_slider2').length) {
+      var viewedSlider = $('.bbb_viewed_slider2');
+      viewedSlider.owlCarousel({
+        loop: true,
+        margin: 30,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        nav: false,
+        dots: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          575: {
+            items: 1
+          },
+          768: {
+            items: 1
+          },
+          991: {
+            items: 2
+          },
+          1199: {
+            items: 1
+          }
+        }
+      });
+      if($('.bbb_viewed_prev2').length) {
+        var prev = $('.bbb_viewed_prev2');
+        prev.on('click', function() {
+          viewedSlider.trigger('prev.owl.carousel');
+        });
+      }
+      if($('.bbb_viewed_next2').length) {
+        var next = $('.bbb_viewed_next2');
+        next.on('click', function() {
+          viewedSlider.trigger('next.owl.carousel');
+        });
+      }
+    }
+    if($('.products-boxes').length) {
+      var viewedSlider = $('.products-boxes');
+      viewedSlider.owlCarousel({
+        loop: true,
+        margin: 15,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        nav: false,
+        dots: false,
+        responsive: {
+          1280: {
+            items: 3
+          },
+          0: {
+            items: 2
+          },
+          991: {
+            items: 2
+          },
+          480: {
+            items: 1
+          },
+          360: {
+            items: 1
+          },
+          320: {
+            items: 1
+          }
+        }
+      });
+      if($('.bbb_viewed_prev3').length) {
+        var prev = $('.bbb_viewed_prev3');
+        prev.on('click', function() {
+          viewedSlider.trigger('prev.owl.carousel');
+        });
+      }
+      if($('.bbb_viewed_next3').length) {
+        var next = $('.bbb_viewed_next3');
+        next.on('click', function() {
+          viewedSlider.trigger('next.owl.carousel');
+        });
+      }
+    }
+    if($('.feature-boxes').length) {
+      var viewedSlider = $('.feature-boxes');
+      viewedSlider.owlCarousel({
+        items: 3,
+        loop: true,
+        dots: false,
+        margin: 5,
+        autoplay: false,
+        nav: true,
+        slideTransition: 'linear',
+        autoplayTimeout: 0,
+        URLhashListener: false,
+        autoplaySpeed: 7000,
+        autoplayHoverPause: true,
+        responsive: {
+          // breakpoint from 0 up
+          1280: {
+            items: 2
+          },
+          0: {
+            items: 1
+          },
+          991: {
+            items: 1
+          },
+          480: {
+            items: 1
+          },
+          360: {
+            items: 1
+          },
+          320: {
+            items: 1
+          }
+        }
+      });
+      $(".owl-prev").html('<i class="fa fa-angle-double-left"></i>');
+      $(".owl-next").html('<i class="fa fa-angle-double-right"></i>');
+    }
+    if($('.logo-boxes').length) {
+      var viewedSlider = $('.logo-boxes');
+      viewedSlider.owlCarousel({
+        items: 3,
+        loop: true,
+        dots: false,       
+        autoplay: true,
+        slideTransition: 'linear',
+        autoplayTimeout: 0,
+        URLhashListener: false,
+        autoplaySpeed: 7000,
+        autoplayHoverPause: true,
+        responsive: {
+          // breakpoint from 0 up
+          1280: {
+            items: 4
+          },
+          0: {
+            items: 1
+          },
+          991: {
+            items: 2
+          },
+          480: {
+            items: 2
+          },
+          360: {
+            items: 1
+          },
+          320: {
+            items: 1
+          }
+        }
+      });
+    }
+  });
+  </script>
   <script type="text/javascript">
   jQuery(document).ready(function($) {
     new WOW().init();

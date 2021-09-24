@@ -37,6 +37,7 @@
   <section id="products">
     <div class="container">
       <div class="row">
+        @foreach($categories as $category)
         <div class="col-lg-4 wow fadeInDown" data-wow-duration="2s">
           <div class="pro-box">
             <div class="pro-icon">
@@ -44,12 +45,13 @@
             <div class="pro-bg"> </div>
             <div class="pro-box-img"> <img src="{{ asset('front/images/pro1.jpg')}}" alt="" class="img-fluid mx-auto d-block w-75"> </div>
             <div class="bbb_viewed_content text-center">
-              <p class="p-name">Analytical Product</p>
+              <p class="p-name">{{$category->name}}</p>
               <p>Hitachi High Technology has developed a wide range of Scanning electron microscopes including Standard and Variable-Pressure Scanning Electron <a href="#" class=""><i class="fa fa-angle-double-right ml-2"></i></a></p>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 wow fadeInUp" data-wow-duration="2s">
+        @endforeach
+        <!-- <div class="col-lg-4 wow fadeInUp" data-wow-duration="2s">
           <div class="pro-box">
             <div class="pro-bg"> </div>
             <div class="pro-icon"> <img src="images/icon1.png" class="img-fluid mx-auto d-block w-50"> </div>
@@ -70,7 +72,7 @@
               <p>Hitachi High Technology has developed a wide range of Scanning electron microscopes including Standard and Variable-Pressure Scanning Electron <a href="#" class=""><i class="fa fa-angle-double-right ml-2"></i></a></p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -171,24 +173,11 @@
             </div>
             <div class="bbb_viewed_slider_container">
               <div class="owl-carousel owl-theme bbb_viewed_slider">
+                @foreach($videos as $video)
                 <div class="owl-item">
-                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/7U4SV--iBNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe width="100%" height="315" src="{{$video->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="owl-item">
-                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/7U4SV--iBNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="owl-item">
-                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/7U4SV--iBNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="owl-item">
-                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/7U4SV--iBNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="owl-item">
-                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/7U4SV--iBNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="owl-item">
-                  <iframe width="100%" height="315" src="https://www.youtube.com/embed/7U4SV--iBNQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+                @endforeach
               </div>
             </div>
           </div>
@@ -219,11 +208,15 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
+
+        
               <div class="owl-carousel owl-theme logo-boxes">
+                @foreach($logoes as $logo)
                 <div class="owl-item">
-                  <div class=""> <img src="images/logo1.png" alt="" class="img-fluid mx-auto d-block w-75"> </div>
+                  <div class=""> <img src="{{ asset($logo->logo) }}" alt="" class="img-fluid mx-auto d-block w-75"> </div>
                 </div>
-                <div class="owl-item">
+                @endforeach
+                <!-- <div class="owl-item">
                   <div class=""> <img src="images/logo3.png" alt="" class="img-fluid mx-auto d-block w-75"> </div>
                 </div>
                 <div class="owl-item">
@@ -234,7 +227,7 @@
                 </div>
                 <div class="owl-item">
                   <div class=""> <img src="images/logo6.png" alt="" class="img-fluid mx-auto d-block w-75"> </div>
-                </div>
+                </div> -->
               </div>
         </div>
       </div>

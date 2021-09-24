@@ -8,13 +8,18 @@ use App\Models\Product;
 use App\Models\Principal;
 use App\Models\Category;
 use App\Models\PrincipalProduct;
+use App\Models\companyManager;
+use App\Models\Video;
 
 class FrontController extends Controller
 {
 
     public function index()
     {
-        return view('front.index');
+        $logoes = companyManager::get();
+        $videos = Video::get();
+        $categories = Category::get();
+        return view('front.index',compact('logoes','videos','categories'));
     }
     public function about()
     {
@@ -40,7 +45,8 @@ class FrontController extends Controller
     }
     public function ProductDetails($id)
     {
-        $product = Product::where('categoryId', $id)->find($id);
+        $product = Product::where('id', $id)->find($id);
+        // dd($product);
         return view('front.product-details',compact('product'));
        
     }
@@ -52,14 +58,19 @@ class FrontController extends Controller
     // }
    public function principalWiseProduct($id)
     {
-        $data = PrincipalProduct::orderBy('id', 'desc')
-                ->join('principals', 'principals.id', '=', 'principal_products.principalId')
-                ->select('principals.*', 'principals.name as pri_name')
-                ->where('principalId', $id)
+        $data = PrincipalProduct::where('principalId', $id)
                 ->paginate(6);
 
         $principalName = Principal::where('id', '=', $id)->select('name')->first();
-        return view('front.neosacn-bave', compact('data','principalName'));
+        return view('front.principal-product-details', compact('data','principalName'));
+    }
+
+    public function PrincipalDetails($id)
+    {
+        // $priProduct = PrincipalProduct::where('id', $id)->find($id);
+        // // dd($product);
+        // return view('front.principal-product-details',compact('priProduct'));
+       
     }
     // public function about()
     // {

@@ -30,16 +30,16 @@
           <div class="preview col-lg-6 col-sm-5">  
           <div class="card">
             <div class="preview-pic tab-content">
-              <div class="tab-pane active" id="pic-1"><img src="images/pro-1-details.jpg" /></div>
-              <div class="tab-pane" id="pic-2"><img src="images/pro-2-details.jpg" /></div>
-              <div class="tab-pane" id="pic-3"><img src="images/pro-3-details.jpg" /></div>
+              <div class="tab-pane active" id="pic-1"><img src="{{ asset($product->image1) }}" /></div>
+              <div class="tab-pane" id="pic-2"><img src="{{ asset($product->image2) }}" /></div>
+              <div class="tab-pane" id="pic-3"><img src="i{{ asset($product->image3) }}" /></div>
             </div>
           </div>
 
             <ul class="preview-thumbnail nav nav-tabs">
-              <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="images/pro-1-details.jpg" /></a></li>
-              <li><a data-target="#pic-2" data-toggle="tab"><img src="images/pro-2-details.jpg" /></a></li>
-              <li><a data-target="#pic-3" data-toggle="tab"><img src="images/pro-3-details.jpg" /></a></li>              
+              <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{ asset($product->image1) }}" /></a></li>
+              <li><a data-target="#pic-2" data-toggle="tab"><img src="{{ asset($product->image2) }}" /></a></li>
+              <li><a data-target="#pic-3" data-toggle="tab"><img src="{{ asset($product->image3) }}" /></a></li>              
             </ul>            
           </div>
           <div class="details col-lg-6 col-sm-7">
@@ -94,7 +94,7 @@
            <h3 class="product-title">Feature</h3>
             <div class="d-sm-flex justify-content-between flex-sm-wrap flex-lg-nowrap bg-light p-3 mb-4">
                 <div class="tab-text">
-                   <h4>Robust Stage for Flexibility in Sample Size, Shape, and Weight</h4>
+                   <h4>{{$product->feature}}</h4>
                    <ul class="tab-point">
                     <li>The specimen exchange sequence prevents potential damage to the system or the sample.</li>
 <li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
@@ -156,7 +156,7 @@
          <div class="sv-tab-panel">
            <h3 class="product-title">Substantially Larger Specimen Chamber 
 Accommodates Oversized and Heavy Samples</h3>
-              <h4>Robust Stage for Flexibility in Sample Size, Shape, and Weight</h4>
+              <h4>{{$product->larger_specification}}</h4>
               <h5>The specimen exchange sequence prevents potential damage to the system or the sample.</h5>
             <div class="d-sm-flex justify-content-between align-items-center flex-sm-wrap flex-lg-nowrap mt-4">
                 <div class="tab-text">

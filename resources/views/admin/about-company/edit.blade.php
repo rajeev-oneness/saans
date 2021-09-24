@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Manar Edit</h1>
+            <h1>About Company Edit</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -20,9 +20,9 @@
         <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Manar</h3>
+              <h3 class="card-title">About Company</h3>
             <div class="card-tools">
-                <a class="headerbuttonforAdd addBlogCategory" href="{{route('manar.view')}}">
+                <a class="headerbuttonforAdd addBlogCategory" href="{{route('about.company.view')}}">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
                         </a>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -30,39 +30,39 @@
             </div>
             </div>
              <div class="card-body">
-                     <form method="POST" action="{{ route('update.manar', ['id' => $manar->id]) }}" enctype="multipart/form-data">
+                     <form method="POST" action="{{ route('update.about.company', ['id' => $aboutCompany->id]) }}" enctype="multipart/form-data">
                         @csrf
                        @method('PUT')
                         <div class="form-group required">
                             <label for="image" class="control-label">Image</label>
-                            <input type="file" class="form-control-file @error('image') is-invalid @enderror" name="image" value="{{$manar->image}}" id="image">
+                            <input type="file" class="form-control-file @error('image') is-invalid @enderror" name="image" value="{{$aboutCompany->image}}" id="image">
                             @error('image')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror    
                         </div>
-                        <div class="form-group required">
-                          <label for="title" class="control-label">Title</label>
-                          <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="name" value="{{$manar->title}}"  placeholder="Title" required>
 
-                            @error('title')
+                        <div class="form-group">
+                            <label for="content">Content</label>
+                            <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" style="min-height: 100px;max-height: 300px" placeholder="Content">{{$aboutCompany->content}}</textarea>
+                            @error('content')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror   
+                        </div>
+                        <div class="form-group required">
+                            <label for="extra_info" class="control-label">Extra Info</label>
+                            <input class="form-control @error('extra_info') is-invalid @enderror" name="extra_info" id="extra_info" rows="3" value="{{$aboutCompany->extra_info}}" placeholder="Extra Info">
+                            @error('extra_info')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
-                        <div class="form-group required">
-                            <label for="sub_title" class="control-label">Sub Title</label>
-                            <input class="form-control @error('image') is-invalid @enderror" name="sub_title" id="sub_title" rows="3" value="{{$manar->sub_title}}" >
-                            @error('sub_title')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
 
                         </div>
-                        <button type="submit" class="btn btn-primary">Update Manar</button>
+                        <button type="submit" class="btn btn-primary">Update About Company</button>
                       </form>
                 </div>
             <!-- /.card-body -->
