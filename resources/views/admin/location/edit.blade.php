@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Manar Edit</h1>
+            <h1>Location Edit</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -20,9 +20,9 @@
         <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Manar</h3>
+              <h3 class="card-title">Location</h3>
             <div class="card-tools">
-                <a class="headerbuttonforAdd addBlogCategory" href="{{route('manar.view')}}">
+                <a class="headerbuttonforAdd addBlogLocation" href="{{route('location.view')}}">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
                         </a>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -30,39 +30,38 @@
             </div>
             </div>
              <div class="card-body">
-                     <form method="POST" action="{{ route('update.manar', ['id' => $manar->id]) }}" enctype="multipart/form-data">
+                     <form method="POST" action="{{ route('update.location', ['id' => $location->id]) }}" enctype="multipart/form-data">
                         @csrf
                        @method('PUT')
                         <div class="form-group required">
-                            <label for="image" class="control-label">Image</label>
-                            <input type="file" class="form-control-file @error('image') is-invalid @enderror" name="image" value="{{$manar->image}}" id="image">
-                            @error('image')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror    
-                        </div>
-                        <div class="form-group required">
-                          <label for="title" class="control-label">Title</label>
-                          <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="name" value="{{$manar->title}}"  placeholder="Title" required>
-
-                            @error('title')
+                            <label for="office_type" class="control-label">Office Type</label>
+                            <input class="form-control @error('office_type') is-invalid @enderror" name="office_type" id="office_type" rows="3" value="{{$location->office_type}}" >
+                            @error('office_type')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                         <div class="form-group required">
-                            <label for="sub_title" class="control-label">Sub Title</label>
-                            <input class="form-control @error('sub_title') is-invalid @enderror" name="sub_title" id="sub_title" rows="3" value="{{$manar->sub_title}}" >
-                            @error('sub_title')
+                          <label for="address" class="control-label">Address</label>
+                          <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" id="address" value="{{$location->address}}"  placeholder="Address" required>
+
+                            @error('address')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-
                         </div>
-                        <button type="submit" class="btn btn-primary">Update Manar</button>
+                        <div class="form-group required">
+                            <label for="phone" class="control-label">Phone</label>
+                            <input class="form-control @error('phone') is-invalid @enderror" name="phone" id="phone" rows="3" value="{{$location->phone}}" >
+                            @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Location</button>
                       </form>
                 </div>
             <!-- /.card-body -->

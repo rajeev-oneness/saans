@@ -130,6 +130,27 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('location.view') }}" class="nav-link">
+              <p>
+                Location
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('contact_us.view') }}" class="nav-link">
+              <p>
+                Contact Us
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('contact.details.view') }}" class="nav-link">
+              <p>
+                Contact Details
+              </p>
+            </a>
+          </li>
           @endif
           <!-- <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">

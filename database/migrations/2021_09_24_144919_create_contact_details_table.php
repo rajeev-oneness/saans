@@ -22,6 +22,7 @@ class CreateContactDetailsTable extends Migration
             $table->string('facebook_link');
             $table->string('twiter_link');
             $table->string('banar');
+            $table->enum('status',array('0','1'))->default('1')->comment('1 = Active, 0 = Inactive');
             $table->softDeletes();
             $table->timestamps();
         });

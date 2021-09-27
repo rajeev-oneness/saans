@@ -15,10 +15,21 @@
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="2s">
           <div class="heading">
-            <h4>ABOUT OUR COMPANY<span><img src="{{ asset('front/images/icon.png') }}" class="img-fluid"></span></h4>
-            <h1>Welcome to <span>SAANS Analytical instruments pvt. ltd.</span></h1> </div>
-          <p>Sophisticated Analysis for the Application of Natural Science(SAANS) Analytical Instruments is incorporated with highly skilled professionals in the field of Analytical research, Lifescience and Clinical support. We represent a number of well -known foreign principles and Indian Manufactures all over India. We promise our customers for the best after sales support so that our customers can perform an uninterrupted work.</p>
-          <p><b>Our core team is formed with highly qualified professionals including M Techs, MBAs and Phd holders to provide consultation in the area of Analytical instrumentation.</b> We have qualified Engineers to troubleshoot customer’s equipment issues and provide solution at shortest possible time frame.</p> <a href="#" class="btn btn-read">learn more</a> </div>
+            <h4>ABOUT OUR COMPANY<span><img src="{{ asset('front/images/icon.png') }}" class="img-fluid"></span></h4> </div>
+            <!-- <h1>Welcome to <span>SAANS Analytical instruments pvt. ltd.</span></h1> </div>
+          <p>Sophisticated Analysis for the Application of Natural Science(SAANS) 
+            Analytical Instruments is incorporated with highly skilled professionals in the f
+            ield of Analytical research, Lifescience and Clinical support. We represent a number of 
+             -known foreign principles and Indian Manufactures all over India. We promise our customers 
+             for the best after sales support so that our customers can perform an uninterrupted work.</p>
+          <p><b>Our core team is formed with highly qualified professionals including M Techs, MBAs and Phd 
+            holders to provide consultation in the area of Analytical instrumentation.</b> We have qualified
+             Engineers to troubleshoot customer’s equipment issues and provide solution at shortest possible time frame.</p> -->
+            
+             <div>{!! $aboutCompany->content !!}<div>
+          <a href="#" class="btn btn-read">learn more</a>
+          
+        </div>
       </div>
     </div>
   </section>

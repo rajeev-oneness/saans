@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\PrincipalProduct;
 use App\Models\companyManager;
 use App\Models\Video;
+use App\Models\AboutCompany;
 
 class FrontController extends Controller
 {
@@ -19,7 +20,9 @@ class FrontController extends Controller
         $logoes = companyManager::get();
         $videos = Video::get();
         $categories = Category::get();
-        return view('front.index',compact('logoes','videos','categories'));
+        $aboutCompany = AboutCompany::latest()->first();
+        // dd($aboutCompany);exit;
+        return view('front.index',compact('logoes','videos','categories','aboutCompany'));
     }
     public function about()
     {

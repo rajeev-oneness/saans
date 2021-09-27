@@ -15,10 +15,19 @@ class CreateContactUsTable extends Migration
     {
         Schema::create('contact_us', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('message');
+            $table->enum('contact_type',array('0','1'))->default('1');
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('office_type')->nullable();
+            $table->string('message')->nullable();
+            $table->string('blog_link')->nullable();
+            $table->string('google_link')->nullable();
+            $table->string('facebook_link')->nullable();
+            $table->string('twiter_link')->nullable();
+            $table->string('email_us')->nullable();
+            $table->enum('status',array('0','1'))->default('1')->comment('1 = Active, 0 = Inactive');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -59,6 +59,8 @@
 <script src="{{url ('admin_js/demo.js') }}"></script>
 
 
+<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
+
 
 <!-- <script type="text/javascript" src="{{asset('design/js/sweetalert.min.js')}}"></script> -->
 <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->

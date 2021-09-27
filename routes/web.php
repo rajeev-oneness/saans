@@ -13,6 +13,9 @@ use App\Http\Controllers\Admin\ManarController;
 use App\Http\Controllers\Admin\CompanyManagerController;
 use App\Http\Controllers\Admin\AboutCompanyController;
 use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\ContactDetailsController;
 
 
 /*
@@ -137,7 +140,30 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
      Route::put('/about_us/update/{id}', [AboutUsController::class,'update'])->name('update.about_us');
      Route::get('/about_us/delete/{id}', [AboutUsController::class,'destroy'])->name('delete.about_us');
 
+     // ------------------------Location-----------------------------
+     Route::get('/location', [LocationController::class,'index'])->name('location.view');
+     Route::get('/location/add', [LocationController::class,'create'])->name('add.location');
+     Route::post('/location/add', [LocationController::class,'store'])->name('add.location');
+     Route::get('/location/edit/{id}', [LocationController::class,'edit'])->name('edit.location');
+     Route::put('/location/update/{id}', [LocationController::class,'update'])->name('update.location');
+     Route::get('/location/delete/{id}', [LocationController::class,'destroy'])->name('delete.location');
 
+     // ------------------------Contact Us-----------------------------
+     Route::get('/contact_us', [ContactUsController::class,'index'])->name('contact_us.view');
+     Route::get('/contact_us/add', [ContactUsController::class,'create'])->name('add.contact_us');
+     Route::post('/contact_us/add', [ContactUsController::class,'store'])->name('add.contact_us');
+     Route::get('/contact_us/edit/{id}', [ContactUsController::class,'edit'])->name('edit.contact_us');
+     Route::put('/contact_us/update/{id}', [ContactUsController::class,'update'])->name('update.contact_us');
+     Route::get('/contact_us/delete/{id}', [ContactUsController::class,'destroy'])->name('delete.contact_us');
+
+      // ------------------------Contact Details-----------------------------
+      Route::get('/contact-details', [ContactDetailsController::class,'index'])->name('contact.details.view');
+      Route::get('/contact-details/add', [ContactDetailsController::class,'create'])->name('add.contact.details');
+      Route::post('/contact-details/add/store', [ContactDetailsController::class,'store'])->name('add.contact.details.store');
+      Route::get('/contact-details/edit/{id}', [ContactDetailsController::class,'edit'])->name('edit.contact.details');
+      Route::put('/contact-details/update/{id}', [ContactDetailsController::class,'update'])->name('update.contact.details');
+      Route::get('/contact-details/delete/{id}', [ContactDetailsController::class,'destroy'])->name('delete.contact.details');
+     
 });
 
 

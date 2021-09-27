@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Location;
+use App\Models\ContactUs;
 
-class LocationController extends Controller
+class ContactUsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $locations = Location::paginate(10);
-        return view('admin.location.index',compact('locations'));
+        $contactUs = ContactUs::paginate(10);
+        return view('admin.contact_us.index',compact('contactUs'));
     }
 
     /**
@@ -26,7 +26,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        return view('admin.location.add');
+        return view('admin.contact_us.add');
     }
 
     /**
@@ -38,17 +38,19 @@ class LocationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'office_type' => 'required',
-            'address' => 'required',
+            'name' => 'required',
+            'email' => 'required',
             'phone' => 'required',
+            'message' => 'required',
         ]);
-        $location = new Location;
-        $location->office_type = $request->input('office_type');
-        $location->address = $request->input('address');
-        $location->phone = $request->input('phone');
+        $contactUs = new ContactUs;
+        $contactUs->name = $request->input('name');
+        $contactUs->email = $request->input('email');
+        $contactUs->phone = $request->input('phone');
+        $contactUs->message = $request->input('message');
         // $category->status = 1;
-        $location->save();
-        return redirect('admin/location/add')->with('success','Location Added Successfully');
+        $contactUs->save();
+        return redirect('admin/contact_us/add')->with('success','Contact Added Successfully');
     }
 
     /**
@@ -70,8 +72,8 @@ class LocationController extends Controller
      */
     public function edit($id)
     {
-        $location = Location::find($id);
-        return view('admin.location.edit',compact('location'));
+        $contactUs = ContactUs::find($id);
+        return view('admin.contact_us.edit',compact('contactUs'));
     }
 
     /**
@@ -84,17 +86,19 @@ class LocationController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'office_type' => 'required',
-            'address' => 'required',
+            'name' => 'required',
+            'email' => 'required',
             'phone' => 'required',
+            'message' => 'required',
         ]);
         
-        Location::where('id', $id)->update([
-            'office_type' => $request->office_type,
-            'address' => $request->address,
-            'phone' => $request->phone
+        ContactUs::where('id', $id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message
         ]);
-        return redirect('admin/location')->with('success','Location Updated Successfully');
+        return redirect('admin/contact_us')->with('success','Contact Updated Successfully');
     }
 
     /**
@@ -105,7 +109,7 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        Location::where('id', $id)->delete();
-        return redirect()->route('location.view');
+        ContactUs::where('id', $id)->delete();
+        return redirect()->route('contact_us.view');
     }
 }
