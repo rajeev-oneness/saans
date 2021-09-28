@@ -45,7 +45,7 @@
 
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" style="min-height: 100px;max-height: 300px" placeholder="Content">{{$aboutCompany->content}}</textarea>
+                            <textarea name="content" id="content" class="ckeditor form-control @error('content') is-invalid @enderror" style="min-height: 100px;max-height: 300px" placeholder="Content">{{$aboutCompany->content}}</textarea>
                             @error('content')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -101,4 +101,5 @@
             });
         });
     </script>
+     
 @endsection

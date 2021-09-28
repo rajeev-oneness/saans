@@ -485,7 +485,11 @@ video starts****************************************/
 #logo{
     background: #f4f4f4;
 }
-
+.logo-slider-img{
+  width: 208px !important;
+  height: 98px !important;
+  object-fit: contain;
+}
  .bbb_viewed_prev {
      margin-right: 15px
  }
@@ -553,8 +557,11 @@ video starts****************************************/
     right: 45%;
     top: 100%;
 }
-.feature-img{
+.feature-img img{
     flex: 1;
+    width: 226px !important;
+    height: 115px !important;
+    object-fit: contain;
 }
 .feature-text{
     flex: 1;

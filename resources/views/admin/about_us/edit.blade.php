@@ -63,7 +63,7 @@
 
                         <div class="form-group">
                             <label for="content">Content One</label>
-                            <textarea name="content1" id="content1" class="form-control @error('content1') is-invalid @enderror" style="min-height: 100px;max-height: 300px" placeholder="Content">{{$aboutus->content1}}</textarea>
+                            <textarea name="content1" id="content1" class="ckeditor form-control @error('content1') is-invalid @enderror" style="min-height: 100px;max-height: 300px" placeholder="Content">{{$aboutus->content1}}</textarea>
                             @error('content1')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="form-group">
                             <label for="content2">Content Two</label>
-                            <textarea name="content2" id="content2" class="form-control @error('content2') is-invalid @enderror" style="min-height: 100px;max-height: 300px" placeholder="Content">{{$aboutus->content2}}</textarea>
+                            <textarea name="content2" id="content2" class="ckeditor form-control @error('content2') is-invalid @enderror" style="min-height: 100px;max-height: 300px" placeholder="Content">{{$aboutus->content2}}</textarea>
                             @error('content1')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

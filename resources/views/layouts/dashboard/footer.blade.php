@@ -65,6 +65,11 @@
 <!-- <script type="text/javascript" src="{{asset('design/js/sweetalert.min.js')}}"></script> -->
 <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
 
+<script type="text/javascript">
+        $(document).ready(function() {
+        $('.ckeditor').ckeditor();
+        });
+</script>
 </body>
 </html>
 

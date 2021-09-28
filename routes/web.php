@@ -5,11 +5,12 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\PrincipalController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\PrincipalProductController;
 use App\Http\Controllers\Admin\VideoController;
-use App\Http\Controllers\Admin\ManarController;
+use App\Http\Controllers\Admin\BanarController;
 use App\Http\Controllers\Admin\CompanyManagerController;
 use App\Http\Controllers\Admin\AboutCompanyController;
 use App\Http\Controllers\Admin\AboutUsController;
@@ -74,6 +75,15 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     Route::put('/category/update/{id}', [CategoryController::class,'update'])->name('update.category');
     Route::get('/category/delete/{id}', [CategoryController::class,'destroy'])->name('delete.category');
 
+    // -----------------Sub Category-----------------
+    Route::get('/sub-category', [SubCategoryController::class,'index'])->name('sub-category.view');
+    Route::get('/sub-category/add', [SubCategoryController::class,'create'])->name('add.sub-category');
+    Route::post('/sub-category/add', [SubCategoryController::class,'store'])->name('add.sub-category');
+    Route::get('/sub-category/edit/{id}', [SubCategoryController::class,'edit'])->name('edit.sub-category');
+    Route::put('/sub-category/update/{id}', [SubCategoryController::class,'update'])->name('update.sub-category');
+    Route::get('/sub-category/delete/{id}', [SubCategoryController::class,'destroy'])->name('delete.sub-category');
+    
+    
     // ----------------------Principals------------
     Route::get('/principal', [PrincipalController::class,'index'])->name('principal.view');
     Route::get('/principal/add', [PrincipalController::class,'create'])->name('add.principal');
@@ -108,12 +118,12 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     Route::get('/video/delete/{id}', [VideoController::class,'destroy'])->name('delete.video');
 
      // ---------------Product----------------------
-    Route::get('/manar', [ManarController::class,'index'])->name('manar.view');
-    Route::get('/manar/add', [ManarController::class,'create'])->name('add.manar');
-    Route::post('/manar/add', [ManarController::class,'store'])->name('add.manar');
-    Route::get('/manar/edit/{id}', [ManarController::class,'edit'])->name('edit.manar');
-    Route::put('/manar/update/{id}', [ManarController::class,'update'])->name('update.manar');
-    Route::get('/manar/delete/{id}', [ManarController::class,'destroy'])->name('delete.manar');
+    Route::get('/banar', [BanarController::class,'index'])->name('banar.view');
+    Route::get('/banar/add', [BanarController::class,'create'])->name('add.banar');
+    Route::post('/banar/add', [BanarController::class,'store'])->name('add.banar');
+    Route::get('/banar/edit/{id}', [BanarController::class,'edit'])->name('edit.banar');
+    Route::put('/banar/update/{id}', [BanarController::class,'update'])->name('update.banar');
+    Route::get('/banar/delete/{id}', [BanarController::class,'destroy'])->name('delete.banar');
 
      // ---------------Company Manager----------------------
     Route::get('/company-manager', [CompanyManagerController::class,'index'])->name('company.manager.view');

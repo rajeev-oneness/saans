@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Manar;
+use App\Models\Banar;
 
-class ManarController extends Controller
+class BanarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ManarController extends Controller
      */
     public function index()
     {
-        $manars = Manar::paginate(10);
-        return view('admin.manar.index',compact('manars'));
+        $banars = Banar::paginate(10);
+        return view('admin.banar.index',compact('banars'));
     }
 
     /**
@@ -26,7 +26,7 @@ class ManarController extends Controller
      */
     public function create()
     {
-        return view('admin.manar.add');
+        return view('admin.banar.add');
     }
 
     /**
@@ -45,13 +45,13 @@ class ManarController extends Controller
         $fileName = time().'.'.$request->image->extension();
         $request->image->move(public_path('uploads/'), $fileName);
         $image ='uploads/'.$fileName;
-        $manar = new Manar;
-        $manar->title = $request->input('title');
-        $manar->sub_title = $request->input('sub_title');
-        $manar->image = $image;
+        $banar = new Banar;
+        $banar->title = $request->input('title');
+        $banar->sub_title = $request->input('sub_title');
+        $banar->image = $image;
         // $category->status = 1;
-        $manar->save();
-        return redirect('admin/manar/add')->with('success','Manar Added Successfully');
+        $banar->save();
+        return redirect('admin/banar/add')->with('success','Banar Added Successfully');
     }
 
     /**
@@ -73,8 +73,8 @@ class ManarController extends Controller
      */
     public function edit($id)
     {
-        $manar = Manar::find($id);
-        return view('admin.manar.edit',compact('manar'));
+        $banar = Banar::find($id);
+        return view('admin.banar.edit',compact('banar'));
     }
 
     /**
@@ -96,15 +96,15 @@ class ManarController extends Controller
             $fileName = time().'.'.$request->image->extension();
             $request->image->move(public_path('uploads/'), $fileName);
             $image ='uploads/'.$fileName;
-            Manar::where('id', $id)->update([
+            Banar::where('id', $id)->update([
                 'image' => $image,
             ]);
         }
-        Manar::where('id', $id)->update([
+        Banar::where('id', $id)->update([
             'title' => $request->title,
             'sub_title' => $request->sub_title
         ]);
-        return redirect('admin/manar')->with('success','Manar Updated Successfully');
+        return redirect('admin/banar')->with('success','Banar Updated Successfully');
     }
 
     /**
@@ -115,7 +115,7 @@ class ManarController extends Controller
      */
     public function destroy($id)
     {
-        Manar::where('id', $id)->delete();
-        return redirect()->route('manar.view');
+        Banar::where('id', $id)->delete();
+        return redirect()->route('banar.view');
     }
 }

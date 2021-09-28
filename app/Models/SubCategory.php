@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Manar extends Model
+class SubCategory extends Model
 {
     use HasFactory,SoftDeletes;
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category', 'categoryId', 'id');
+    }
 }

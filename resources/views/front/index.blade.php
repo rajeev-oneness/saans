@@ -3,15 +3,53 @@
 
 
 @section('content')
+  
+<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="d-sm-flex flex-sm-wrap flex-lg-nowrap gg align-items-center justify-content-between">
+            <div class="left"> 
+     <div class="order-div2">
+            <div class="px-15">
+              <!-- <p class="head">We supply all kind of commonly use<span> biological systems Collection</span> <span class="animate-border border-black"></span></p> -->
+              <p class="head"><span>{{$banar->title}}</span> <span class="animate-border border-black"></span></p>
+              <!-- <p class="sub-head">Also we are into marketing of all kind of Optical Microscope including Metallurgical, Polarizing, Stereo Zoom, and Spectrophotometer for pharmaceutical industry.</p> <a href="#" class="btn btn-read mt-2">Contact Us<i class="fa fa-arrow-circle-right"></i></a> <a href="#" class="btn btn-read mt-2">Learn more</a> </div> -->
+              <p class="sub-head">{{$banar->sub_title}}</p> <a href="#" class="btn btn-read mt-2">Contact Us<i class="fa fa-arrow-circle-right"></i></a> <a href="#" class="btn btn-read mt-2">Learn more</a> </div>
+          </div>
+  </div>
+           <div class="right">
+     <div class="banner-img-bg"> <img src="{{ asset($banar->image) }}" class="img-fluid mx-auto clip-polygon" alt="slide"> </div>
+  </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+    <div class="d-sm-flex flex-sm-wrap flex-lg-nowrap align-items-center justify-content-between">
+            <div class="left"> 
+     <div class="order-div2">
+            <div class="px-15">
+              <p class="head">We supply all kind of commonly use<span> biological systems Collection</span> <span class="animate-border border-black"></span></p>
+              <p class="sub-head">Also we are into marketing of all kind of Optical Microscope including Metallurgical, Polarizing, Stereo Zoom, and Spectrophotometer for pharmaceutical industry.</p> <a href="#" class="btn btn-read mt-2">Contact Us<i class="fa fa-arrow-circle-right"></i></a> <a href="#" class="btn btn-read mt-2">Learn more</a> </div>
+          </div>
+  </div>
+           <div class="right">
+     <div class="banner-img-bg"> <img src="{{ asset('front/images/banner3.jpg') }}" class="img-fluid mx-auto clip-polygon" alt="slide"> </div>
+  </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+  </div>
  <section id="about">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 wow fadeInLeft" data-wow-duration="2s">
           <div class="about-box">
-            <p><span>06+</span>
-              <br/>YEARS OF WORKING EXPERIENCE IN THIS FIELD</p>
+            <!-- <p><span>06+</span>
+              <br/>YEARS OF WORKING EXPERIENCE IN THIS FIELD</p> -->
+              <p><span>{{$aboutCompany->extra_info}}</span></p>
           </div>
-          <div class="about-img"> <img src="{{ asset('front/images/about.png') }}" class="img-fluid mx-auto"> </div>
+          <div class="about-img"> <img src="{{ asset($aboutCompany->image) }}" class="img-fluid mx-auto"> </div>
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="2s">
           <div class="heading">
@@ -27,7 +65,7 @@
              Engineers to troubleshoot customer’s equipment issues and provide solution at shortest possible time frame.</p> -->
             
              <div>{!! $aboutCompany->content !!}<div>
-          <a href="#" class="btn btn-read">learn more</a>
+          <a href="{{ url('/about-us') }}" class="btn btn-read">learn more</a>
           
         </div>
       </div>
@@ -48,16 +86,20 @@
   <section id="products">
     <div class="container">
       <div class="row">
-        @foreach($categories as $category)
+        @foreach($categories_data as $category)
+        
         <div class="col-lg-4 wow fadeInDown" data-wow-duration="2s">
           <div class="pro-box">
             <div class="pro-icon">
               <!-- <i class="fa fa-cog"></i> --><img src="{{ asset('front/images/icon2.png') }}" alt="" class="img-fluid mx-auto d-block w-50"> </div>
             <div class="pro-bg"> </div>
-            <div class="pro-box-img"> <img src="{{ asset('front/images/pro1.jpg')}}" alt="" class="img-fluid mx-auto d-block w-75"> </div>
+            <div class="pro-box-img"> <img src="{{ asset($category->latestProduct->image1) }}" alt="" class="img-fluid mx-auto d-block w-75"> </div>
             <div class="bbb_viewed_content text-center">
               <p class="p-name">{{$category->name}}</p>
-              <p>Hitachi High Technology has developed a wide range of Scanning electron microscopes including Standard and Variable-Pressure Scanning Electron <a href="#" class=""><i class="fa fa-angle-double-right ml-2"></i></a></p>
+              <!-- php
+              $category->product = App\Models\Product::where('id', '=', $category->id)->latest()->first();
+              endphp -->
+              <p>{{$category->latestProduct->description}} <a href="#" class=""><i class="fa fa-angle-double-right ml-2"></i></a></p>
             </div>
           </div>
         </div>
@@ -92,31 +134,23 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="owl-carousel owl-theme feature-boxes">
+            @foreach($products as $product)
             <div class="owl-item">
               <div class="d-sm-flex justify-content-between align-items-center bg-feature">
-                <div class="feature-img"> <img src="{{ asset('front/images/f1.png') }}" class="img-fluid mx-auto"> </div>
+                <div class="feature-img"> <img src="{{ asset($product->image1) }}" class="img-fluid mx-auto"> </div>
                 <div class="feature-text">
-                  <h4>TM 3030</h4>
-                  <ul>
+                  <h4>{{$product->name}}</h4>
+                  <div>{{$product->description}}</div>
+                  <!-- <ul>
                     <li>Magnification: 15 to 60,000×(digital zoom: 2×, 4×)</li>
                     <li> Observation condition: 5kV/15kV/EDX</li>
                     <li>Observation mode: Standard mode</li>
-                  </ul> <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
+                  </ul> -->
+                   <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
               </div>
             </div>
-            <div class="owl-item">
-              <div class="d-sm-flex justify-content-between align-items-center bg-feature">
-                <div class="feature-img"> <img src="images/f1.png" class="img-fluid mx-auto"> </div>
-                <div class="feature-text">
-                  <h4>TM 3030</h4>
-                  <ul>
-                    <li>Magnification: 15 to 60,000×(digital zoom: 2×, 4×)</li>
-                    <li> Observation condition: 5kV/15kV/EDX</li>
-                    <li>Observation mode: Standard mode</li>
-                  </ul> <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
-              </div>
-            </div>
-            <div class="owl-item">
+            @endforeach
+            <!-- <div class="owl-item">
               <div class="d-sm-flex justify-content-between align-items-center bg-feature">
                 <div class="feature-img"> <img src="images/f1.png" class="img-fluid mx-auto"> </div>
                 <div class="feature-text">
@@ -164,6 +198,18 @@
                   </ul> <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
               </div>
             </div>
+            <div class="owl-item">
+              <div class="d-sm-flex justify-content-between align-items-center bg-feature">
+                <div class="feature-img"> <img src="images/f1.png" class="img-fluid mx-auto"> </div>
+                <div class="feature-text">
+                  <h4>TM 3030</h4>
+                  <ul>
+                    <li>Magnification: 15 to 60,000×(digital zoom: 2×, 4×)</li>
+                    <li> Observation condition: 5kV/15kV/EDX</li>
+                    <li>Observation mode: Standard mode</li>
+                  </ul> <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
+              </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -174,7 +220,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="sub-heading text-center wow bounce" data-wow-duration="2s">
-            <h2><span>HITACHI'S</span> PRODUCTS</h2> </div>
+            <h2><span>LATEST</span> VIDEOS</h2> </div>
           <div class="bbb_main_container">
             <div class="bbb_viewed_title_container">
               <div class="bbb_viewed_nav_container">
@@ -224,7 +270,7 @@
               <div class="owl-carousel owl-theme logo-boxes">
                 @foreach($logoes as $logo)
                 <div class="owl-item">
-                  <div class=""> <img src="{{ asset($logo->logo) }}" alt="" class="img-fluid mx-auto d-block w-75"> </div>
+                  <div class=""> <img src="{{ asset($logo->logo) }}" alt="" class="img-fluid mx-auto d-block w-75 logo-slider-img"> </div>
                 </div>
                 @endforeach
                 <!-- <div class="owl-item">
@@ -245,63 +291,5 @@
     </div>
   </section>
   <!-- newsletter part end -->
-  <section id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-2 col-sm-6 wow slideInLeft" data-wow-duration="2s">
-          <p class="footer-heading">Quick links</p> <span class="animate-border border-black"></span>
-          <ul class="footer-list">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">  Products</a></li>
-            <li><a href="#">  My Account</a></li>
-            <li><a href="#">  Contact Us</a></li>
-          </ul>
-          <ul class="social">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-sm-6 wow slideInRight" data-wow-duration="2s">
-          <p class="footer-heading">STORE INFORMATION</p> <span class="animate-border border-black"></span>
-          <ul class="footer-address">
-            <li><span><i class="fa fa-map-marker"></i></span>1417, Rajdanga Main Road Block EF-40, Kolkata 700107, West Bengal, India</li>
-            <li><span><i class="fa fa-phone"></i></span><a href="tel:+91 3340001735" class="phone">+91 3340001735</a></li>
-            <li><span><i class="fa fa-envelope"></i></span><a href="">sales@saansanalytical.com</a> </li>
-            <li><span><i class="fa fa-envelope"></i></span><a href="">support@saansanalytical.com</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-sm-6 wow slideInLeft" data-wow-duration="2s">
-          <p class="footer-heading">Analytical </p> <span class="animate-border border-black"></span>
-          <ul class="footer-list">
-            <li><a href="#">Scanning Electron Microscope</a></li>
-            <li><a href="#">Universal Testing Machine</a></li>
-            <li><a href="#">Fatigue Testing Machine</a></li>
-            <li><a href="#">Micro XRF System</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-sm-6 wow slideInRight" data-wow-duration="2s">
-          <p class="footer-heading">Medical</p> <span class="animate-border border-black"></span>
-          <ul class="footer-list">
-            <li><a href="#">Scanning Electron Microscope</a></li>
-            <li><a href="#">Universal Testing Machine</a></li>
-            <li><a href="#">Fatigue Testing Machine</a></li>
-            <li><a href="#">Micro XRF</a></li>
-            <li><a href="#">Atomic Absorption Spectroscopy</a></li>
-            <li><a href="#"> Atomic Fluorescence  Spectroscopy</a></li>
-          </ul>
-        </div>
-        <!--      <div class="col-lg-3 col-sm-6">           
-               <p class="footer-heading">Life Science</p>
-             <ul class="footer-list">
-             <li><a class="#">Optical Microscope</a></li>
-             <li><a class="#">UV VIS Spectrophotometer</a></li>
-             <li><a class="#">Centrifuge</a></li>
-             <li><a class="#">Weighing Balance</a></li>
-             <li><a class="#">Moisture Analysis</a></li>
-            </ul>             
-         </div> --></div>
-    </div>
-  </section>
+  
 @endsection

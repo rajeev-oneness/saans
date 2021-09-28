@@ -58,7 +58,7 @@
                                 @foreach ($aboutCompanies as $key => $aboutCompany)
                                 <tr>
                                     <td>{{$key + 1}}</td>
-                                    <td><img src="{{asset('assets/about-company/'.$aboutCompany->image)}}" width="60" /></td>
+                                    <td><img src="{{asset($aboutCompany->image)}}" width="60" /></td>
                                     <td>{{$aboutCompany->content}}</td>
                                     <td>{{$aboutCompany->extra_info}}</td>
                                     @if($aboutCompany->status==1)

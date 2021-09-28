@@ -62,37 +62,4 @@ $principals = App\Models\Principal::get();
   </dvi>
 </nav>
   </header>
-  <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="d-sm-flex flex-sm-wrap flex-lg-nowrap gg align-items-center justify-content-between">
-            <div class="left"> 
-     <div class="order-div2">
-            <div class="px-15">
-              <p class="head">We supply all kind of commonly use<span> biological systems Collection</span> <span class="animate-border border-black"></span></p>
-              <p class="sub-head">Also we are into marketing of all kind of Optical Microscope including Metallurgical, Polarizing, Stereo Zoom, and Spectrophotometer for pharmaceutical industry.</p> <a href="#" class="btn btn-read mt-2">Contact Us<i class="fa fa-arrow-circle-right"></i></a> <a href="#" class="btn btn-read mt-2">Learn more</a> </div>
-          </div>
-  </div>
-           <div class="right">
-     <div class="banner-img-bg"> <img src="{{ asset('front/images/banner4.jpg') }}" class="img-fluid mx-auto clip-polygon" alt="slide"> </div>
-  </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-    <div class="d-sm-flex flex-sm-wrap flex-lg-nowrap align-items-center justify-content-between">
-            <div class="left"> 
-     <div class="order-div2">
-            <div class="px-15">
-              <p class="head">We supply all kind of commonly use<span> biological systems Collection</span> <span class="animate-border border-black"></span></p>
-              <p class="sub-head">Also we are into marketing of all kind of Optical Microscope including Metallurgical, Polarizing, Stereo Zoom, and Spectrophotometer for pharmaceutical industry.</p> <a href="#" class="btn btn-read mt-2">Contact Us<i class="fa fa-arrow-circle-right"></i></a> <a href="#" class="btn btn-read mt-2">Learn more</a> </div>
-          </div>
-  </div>
-           <div class="right">
-     <div class="banner-img-bg"> <img src="{{ asset('front/images/banner3.jpg') }}" class="img-fluid mx-auto clip-polygon" alt="slide"> </div>
-  </div>
-        </div>
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
-    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
-  </div>
+  

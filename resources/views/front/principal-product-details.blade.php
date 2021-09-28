@@ -14,10 +14,10 @@
         <div class="col-md-4 col-sm-6">
             <div class="box-principal">
                 <div class="box-img">
-                  <img class="pic-1 img-fluid" src="images/n60_banner1.jpg">
+                  <img class="pic-1 img-fluid" src="{{ asset($dt->image) }}">
               </div>
               <h4>{{$dt->name}}</h4>
-              <p>Compact, accessible micro-CT scanner</p>
+              <p>{{$dt->description}}</p>
               <a class="btn btn-read" href="#">View Details</a>
             </div>
         </div>

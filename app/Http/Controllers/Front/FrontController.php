@@ -11,22 +11,34 @@ use App\Models\PrincipalProduct;
 use App\Models\companyManager;
 use App\Models\Video;
 use App\Models\AboutCompany;
-
+use App\Models\AboutUs;
+use App\Models\Banar;
 class FrontController extends Controller
 {
 
     public function index()
     {
-        $logoes = companyManager::get();
-        $videos = Video::get();
-        $categories = Category::get();
+        $banar = Banar::latest()->first();
         $aboutCompany = AboutCompany::latest()->first();
-        // dd($aboutCompany);exit;
-        return view('front.index',compact('logoes','videos','categories','aboutCompany'));
+        $categories = Category::get();
+        $categories_data = [];
+        foreach($categories as $category){
+            $category->latestProduct = Product::where('categoryId', $category->id)->latest()->first();
+            if($category->latestProduct){
+                $categories_data[] = $category;
+            }
+        }
+        $products = Product::limit(10)->latest()->get();
+        $logoes = companyManager::latest()->get();
+        $videos = Video::latest()->get();
+        $product = Product::first();
+        return view('front.index',compact('logoes','videos','categories_data','aboutCompany','product','products','banar'));
     }
     public function about()
     {
-        return view('front.about');
+        $aboutUs = AboutUs::latest()->first();
+        $categories = Category::get();
+        return view('front.about',compact('aboutUs','categories'));
     }
     public function contact()
     {

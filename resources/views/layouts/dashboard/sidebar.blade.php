@@ -103,9 +103,9 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('manar.view') }}" class="nav-link">
+            <a href="{{ route('banar.view') }}" class="nav-link">
               <p>
-                Manar
+                Banar
               </p>
             </a>
           </li>
@@ -148,6 +148,13 @@
             <a href="{{ route('contact.details.view') }}" class="nav-link">
               <p>
                 Contact Details
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('sub-category.view') }}" class="nav-link">
+              <p>
+                Sub Category
               </p>
             </a>
           </li>

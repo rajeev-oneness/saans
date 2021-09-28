@@ -49,7 +49,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="content1">Content One</label>
-                                <textarea name="content1" id="content1" class="form-control @error('content1') is-invalid @enderror" value="{{ old('content1') }}" style="min-height: 100px;max-height: 300px" placeholder="Content One"></textarea>
+                                <textarea name="content1" id="content1" class="ckeditor form-control @error('content1') is-invalid @enderror" value="{{ old('content1') }}" style="min-height: 100px;max-height: 300px" placeholder="Content One"></textarea>
                                 @error('content1')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -58,7 +58,7 @@
                             </div> 
                             <div class="form-group">
                                 <label for="content2">Content Two</label>
-                                <textarea name="content2" id="content2" class="form-control @error('content2') is-invalid @enderror" value="{{ old('content2') }}" style="min-height: 100px;max-height: 300px" placeholder="Content Two"></textarea>
+                                <textarea name="content2" id="content2" class="ckeditor form-control @error('content2') is-invalid @enderror" value="{{ old('content2') }}" style="min-height: 100px;max-height: 300px" placeholder="Content Two"></textarea>
                                 @error('content2')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

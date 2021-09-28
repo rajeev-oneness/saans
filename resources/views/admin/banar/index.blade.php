@@ -8,12 +8,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Manar</h1>
+          <h1>Banar</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Manar</li>
+            <li class="breadcrumb-item active">Banar</li>
           </ol>
         </div>
       </div>
@@ -26,10 +26,10 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Manar</h3>
+        <h3 class="card-title">Banar</h3>
 
         <div class="card-tools">
-            <a class="headerbuttonforAdd addBlogManar" href="{{ url('admin/manar/add') }}">
+            <a class="headerbuttonforAdd addBlogbanar" href="{{ url('admin/banar/add') }}">
                 <i class="fa fa-plus" aria-hidden="true"></i>Add
             </a>
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -55,24 +55,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($manars as $key => $manar)
+                                @foreach ($banars as $key => $banar)
                                 <tr>
                                     <td>{{$key + 1}}</td>
-                                    <td><img src="{{asset($manar->image)}}" width="60" /></td>
-                                    <td>{{$manar->title}}</td>
-                                    <td>{{$manar->sub_title}}</td>
-                                    @if($manar->status==1)
+                                    <td><img src="{{asset($banar->image)}}" width="60" /></td>
+                                    <td>{{$banar->title}}</td>
+                                    <td>{{$banar->sub_title}}</td>
+                                    @if($banar->status==1)
                                     <td>Active</td>
                                     @else
                                     <td>Inactive</td>
                                     @endif
-                                    <td><a href="{{route('edit.manar',['id' => $manar->id])}}">Edit</a> |  <a href="{{ route('delete.manar', ['id' => $manar->id]) }}" class="text-danger delete-confirm">Delete</a></td>
+                                    <td><a href="{{route('edit.banar',['id' => $banar->id])}}">Edit</a> |  <a href="{{ route('delete.banar', ['id' => $banar->id]) }}" class="text-danger delete-confirm">Delete</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
                         <div>
-                            {{ $manars->links() }}
+                            {{ $banars->links() }}
                         </div>
                     </div>
                 </div>

@@ -43,8 +43,8 @@ class AboutCompanyController extends Controller
             'image' => 'mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         $fileName = time().'.'.$request->image->extension();
-        $request->image->move(public_path('uploads/about-company'), $fileName);
-        $image ='uploads/about-company'.$fileName;
+        $request->image->move(public_path('uploads/about-company/'), $fileName);
+        $image ='uploads/about-company/'.$fileName;
         $manar = new AboutCompany;
         $manar->content = $request->input('content');
         $manar->extra_info = $request->input('extra_info');
@@ -94,8 +94,8 @@ class AboutCompanyController extends Controller
          if($request->hasFile('image')) {
            
             $fileName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('uploads/'), $fileName);
-            $image ='uploads/about-company'.$fileName;
+            $request->image->move(public_path('uploads/about-company/'), $fileName);
+            $image ='uploads/about-company/'.$fileName;
             AboutCompany::where('id', $id)->update([
                 'image' => $image,
             ]);
