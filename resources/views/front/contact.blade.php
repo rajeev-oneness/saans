@@ -38,7 +38,8 @@
 
            <div class="single-contact-info bg-light p-3 mt-3">                
                   <h4>Email Us</h4>                 
-                  <p><a href="#">sales@saansanalytical.com</a> / <a href="#">support@saansanalytical.com</a></p>
+                  <!-- <p><a href="#">sales@saansanalytical.com</a> / <a href="#">support@saansanalytical.com</a></p> -->
+                  <p><a href="#">{{}}</a> / <a href="#">support@saansanalytical.com</a></p>
                </div>
                <!-- /.single-contact-info -->
                          </div>
@@ -48,13 +49,16 @@
                   <h2><span>Location</span></h2>
                </div>
             <div class="contact-info">
+              @foreach($contacts as $contact)
                <div class="single-contact-info bg-light p-3 mb-3">
-                  <h4>Registered Office</h4>                 
-                  <p>1417, Rajdanga Main Road Block EF-40, Kolkata 700107, West Bengal, India</p>
+                  <h4>{{$contact->office_type}}</h4>                 
+                  <!-- <p>1417, Rajdanga Main Road Block EF-40, Kolkata 700107, West Bengal, India</p> -->
+                  <p>{{$contact->address}}</p>
                   <h6>Phone / fax</h6>                 
-                  <p><a href="#">+91 3340001735</a></p>
+                  <p><a href="#">+91 {{$contact->phone}}</a></p>
                </div>
-               <div class="single-contact-info bg-light p-3 mb-3">
+               @endforeach
+             <!--   <div class="single-contact-info bg-light p-3 mb-3">
                   <h4>Head office</h4>                 
                   <p>Flat 2A, Block B, santosh chember Rajarhat Newtown, Kolkata 700157 West Bengal, India</p>
                   <h6>Phone</h6>                 
@@ -63,15 +67,15 @@
                <div class="single-contact-info bg-light p-3 mb-3">
                   <h4>Mumbai Office (West Region)</h4>                 
                   <p>204, B wings, Ventana, The Walk Hiranandani Estate, Thane 400607 Mumbai, Maharashtra, India</p>
-               </div> 
+               </div> --> 
                <div class="single-contact-info">
                   <h5>Follow Us</h5>
                    <ul class="social">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-          </ul>
+                    <li><a href="{{$contact->facebook_link}}"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="{{$contact->twiter_link}}"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="{{$contact->google_link}}"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="{{$contact->blog_link}}"><i class="fa fa-rss"></i></a></li>
+                    </ul>
                </div>              
                <!-- /.single-contact-info -->
             </div>

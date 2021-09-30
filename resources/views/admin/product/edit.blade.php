@@ -66,6 +66,14 @@
                                 @endforeach
                             </select>
                         </div>
+                         <div class="form-group required">
+                            <label for="subCategoryId" class="control-label">Select Sub-Category</label>
+                            <select class="form-control" id="subCategory" name="subCategoryId" required>
+                                @foreach ($subCategories as $subCategory)
+                                    <option value="{{$subCategory->id}}" {{ $product->id == $product->subCategoryId ? 'selected' : '' }}>{{$subCategory->sub_category_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="form-group required">
                             <label for="description" class="control-label">Description</label>
                             <textarea class="form-control" name="description" id="description" rows="3" required>{{$product->description}}</textarea>

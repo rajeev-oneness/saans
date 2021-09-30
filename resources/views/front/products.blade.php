@@ -23,79 +23,84 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="heading text-center">
-               <h1>Analytical<span>Products</span></h1>
+               <!-- <h1>Analytical<span>Products</span></h1> -->
+               <h1>{{$categoryName->name}}</h1>
             </div>
         </div>
     </div>
-      <div class="row">
-        <div class="col-lg-12 bg-light p-3 mb-3 mt-3">            
-               <h4>Scanning Electron Microscope (Hitachi High Technologies)</h4>
-        </div>
-    </div>
-    <div class="row"> 
-    @foreach($data as $dt)     
-        <div class="col-md-3 col-sm-6">
-            <div class="product-grid8">
-                <div class="product-image8">
-                    <a href="product-details.html">
-                        <img class="pic-1 img-fluid" src="{{ asset($dt->image1) }}">
-                        <!-- <img class="pic-2 img-fluid" src="images/pro1.jpg"> -->
-                    </a>
+    <div>
+        @foreach($subCategories as $subCat)
+            <div class="row">
+                <div class="col-lg-12 bg-light p-3 mb-3 mt-3">            
+                       <h4>{{$subCat->sub_category_name}}</h4>
                 </div>
-                <div class="product-content">    
-                    <h3 class="title"><a href="product-details.html">{{$dt->name}}</a></h3>
-                    <a class="all-deals" href="{{ route('front.product.details',['id' => $dt->id]) }}">View Details</a>
-                </div>
+            </div>
+            <div class="row"> 
+            @foreach($subCat->allProductByCat as $dt)     
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid8">
+                        <div class="product-image8">
+                            <a href="product-details.html">
+                                <img class="pic-1 img-fluid" src="{{ asset($dt->image1) }}">
+                                <!-- <img class="pic-2 img-fluid" src="images/pro1.jpg"> -->
+                            </a>
+                        </div>
+                        <div class="product-content">    
+                            <h3 class="title"><a href="product-details.html">{{$dt->name}}</a></h3>
+                            <a class="all-deals" href="{{ route('front.product.details',['id' => $dt->id]) }}">View Details</a>
+                        </div>
 
+                    </div>
+                </div>
+                @endforeach
+
+                 <!-- <div class="col-md-3 col-sm-6">
+                    <div class="product-grid8">
+                        <div class="product-image8">
+                            <a href="product-details.html">
+                                <img class="pic-1 img-fluid" src="images/pro2.jpg">
+                                <img class="pic-2 img-fluid" src="images/pro2.jpg">
+                            </a>
+                        </div>
+                        <div class="product-content">    
+                            <h3 class="title"><a href="product-details.html">TM 3030</a></h3>
+                            <a class="all-deals" href="product-details.html">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-3 col-sm-6">
+                    <div class="product-grid8">
+                        <div class="product-image8">
+                            <a href="product-details.html">
+                                <img class="pic-1 img-fluid" src="images/pro1.jpg">
+                                <img class="pic-2 img-fluid" src="images/pro1.jpg">
+                            </a>
+                        </div>
+                        <div class="product-content">    
+                            <h3 class="title"><a href="product-details.html">TM 3030</a></h3>
+                            <a class="all-deals" href="product-details.html">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-3 col-sm-6">
+                    <div class="product-grid8">
+                        <div class="product-image8">
+                            <a href="product-details.html">
+                                <img class="pic-1 img-fluid" src="images/pro2.jpg">
+                                <img class="pic-2 img-fluid" src="images/pro2.jpg">
+                            </a>
+                        </div>
+                        <div class="product-content">    
+                            <h3 class="title"><a href="product-details.html">TM 3030</a></h3>
+                            <a class="all-deals" href="product-details.html">View Details</a>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
         @endforeach
 
-         <!-- <div class="col-md-3 col-sm-6">
-            <div class="product-grid8">
-                <div class="product-image8">
-                    <a href="product-details.html">
-                        <img class="pic-1 img-fluid" src="images/pro2.jpg">
-                        <img class="pic-2 img-fluid" src="images/pro2.jpg">
-                    </a>
-                </div>
-                <div class="product-content">    
-                    <h3 class="title"><a href="product-details.html">TM 3030</a></h3>
-                    <a class="all-deals" href="product-details.html">View Details</a>
-                </div>
-            </div>
-        </div>
-         <div class="col-md-3 col-sm-6">
-            <div class="product-grid8">
-                <div class="product-image8">
-                    <a href="product-details.html">
-                        <img class="pic-1 img-fluid" src="images/pro1.jpg">
-                        <img class="pic-2 img-fluid" src="images/pro1.jpg">
-                    </a>
-                </div>
-                <div class="product-content">    
-                    <h3 class="title"><a href="product-details.html">TM 3030</a></h3>
-                    <a class="all-deals" href="product-details.html">View Details</a>
-                </div>
-            </div>
-        </div>
-         <div class="col-md-3 col-sm-6">
-            <div class="product-grid8">
-                <div class="product-image8">
-                    <a href="product-details.html">
-                        <img class="pic-1 img-fluid" src="images/pro2.jpg">
-                        <img class="pic-2 img-fluid" src="images/pro2.jpg">
-                    </a>
-                </div>
-                <div class="product-content">    
-                    <h3 class="title"><a href="product-details.html">TM 3030</a></h3>
-                    <a class="all-deals" href="product-details.html">View Details</a>
-                </div>
-            </div>
-        </div> -->
-    </div>
-
-      <div class="row">
+    <!--   <div class="row">
         <div class="col-lg-12 bg-light p-3 mb-3 mt-3">            
                <h4>Universal Testing Machines (Sobre Ibertest)
 
@@ -159,7 +164,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 </section>   
 

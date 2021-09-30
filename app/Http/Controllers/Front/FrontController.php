@@ -13,6 +13,10 @@ use App\Models\Video;
 use App\Models\AboutCompany;
 use App\Models\AboutUs;
 use App\Models\Banar;
+use App\Models\SubCategory;
+use App\Models\ContactUs;
+
+
 class FrontController extends Controller
 {
 
@@ -42,7 +46,14 @@ class FrontController extends Controller
     }
     public function contact()
     {
-        return view('front.contact');
+        $contacts = ContactUs::where('contact_type' ,  "0")->latest()->get();
+        // dd($contacts);exit;
+        $mainContacts = $contacts->first();
+        // dd($mainContacts);exit;
+
+        // $allContacts = $contacts->get();
+        // dd($allContacts);exit;
+        return view('front.contact',compact('mainContacts','contacts'));
     }
     // public function product()
     // {
@@ -54,9 +65,22 @@ class FrontController extends Controller
     {
         $data = Product::where('categoryId', $id)
                 ->get();
+        $subCats = SubCategory::where('categoryId', $id)
+                ->get();
 
         $categoryName = Category::where('id', '=', $id)->select('name')->first();
-        return view('front.products', compact('data','categoryName'));
+        $subCategories = SubCategory::where('id', '=', $id)->get();
+
+        $sub_categories_data = [];
+        foreach($subCategories as $subCategory){
+            $subCategory->allProductByCat = Product::where('subCategoryId', $subCategory->id)->get();
+
+            if($subCategory->allProductByCat){
+                $sub_categories_data[] = $subCategory;
+
+            }
+        }
+        return view('front.products', compact('data','categoryName','subCats','sub_categories_data','subCategories'));
     }
     public function ProductDetails($id)
     {
@@ -87,9 +111,9 @@ class FrontController extends Controller
         // return view('front.principal-product-details',compact('priProduct'));
        
     }
-    // public function about()
+    // public function contact()
     // {
-    //     return view('front.about');
+    //     return view('front.contact');
     // }
     // public function about()
     // {

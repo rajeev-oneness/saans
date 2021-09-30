@@ -125,6 +125,17 @@
                                 @enderror 
                             </div>
                             <div class="form-group">
+                                <label for="subCategoryId">Sub-Category</label>
+                                <select class="form-control @error('subCategoryId') is-invalid @enderror" name="subCategoryId" id="subCategory" value="{{ old('subCategoryId') }}">
+                                
+                                </select>
+                                @error('subCategoryId')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror 
+                            </div>
+                            <div class="form-group">
                                 <label for="feature">Feature</label>
                                 <input type="text" id="feature" name="feature" class="form-control @error('feature') is-invalid @enderror">
                                 @error('feature')
@@ -160,7 +171,31 @@
     </section>
     <!-- /.content -->
   </div>
-
+@section('script')
+     <script>
+      $(document).ready(function() {
+     
+      $('#categoryId').on('change', function() {
+      var categoryId = this.value;
+      $("#subCategoryId").html('');
+      $.ajax({
+      url:"{{url('admin/get-sub-category-by-category')}}",
+      type: "POST",
+      data: {
+      categoryId: categoryId,
+      _token: '{{csrf_token()}}'
+      },
+      dataType : 'json',
+      success: function(result){
+      $.each(result.category,function(key,value){
+      $("#subCategoryId").append('<option value="'+value.id+'">'+value.sub_category_name+'</option>');
+      });
+      }
+      });
+      });
+      });
+      </script>
+@stop
 @endsection
 
 

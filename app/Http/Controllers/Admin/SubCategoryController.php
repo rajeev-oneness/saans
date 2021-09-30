@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\SubCategory;
+use App\Models\Category;
 
 class SubCategoryController extends Controller
 {
@@ -14,7 +16,8 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $subCategories=SubCategory::paginate(10);
+        return view('admin.sub-category.index',compact('subCategories'));
     }
 
     /**
@@ -24,7 +27,8 @@ class SubCategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories=Category::get();
+        return view('admin.sub-category.add',compact('categories'));
     }
 
     /**
@@ -35,7 +39,19 @@ class SubCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'sub_category_name' => 'required|string',
+            'categoryId' => 'required'
+        ]);
+      
+
+        $subCartegory = new SubCategory;
+        $subCartegory->categoryId = $request->categoryId;
+        $subCartegory->sub_category_name = $request->sub_category_name;
+        $subCartegory->save();
+
+        // return redirect()->route('product.view');
+        return redirect('admin/sub-category/add')->with('success','Sub-Category Added Successfully');
     }
 
     /**
@@ -57,7 +73,9 @@ class SubCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories=Category::get();
+        $subCategory = SubCategory::find($id);
+        return view('admin.sub-category.edit',compact('categories','subCategory'));
     }
 
     /**
@@ -69,7 +87,12 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        SubCategory::where('id', $id)->update([
+        'categoryId' => $request->categoryId,
+        'sub_category_name' =>$request->sub_category_name,
+        ]);
+        // return redirect()->route('product.view');
+        return redirect('admin/sub-category')->with('success','Sub-Category Updated Successfully');
     }
 
     /**
@@ -80,6 +103,8 @@ class SubCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subCategory=SubCategory::findOrFail($id);
+        $subCategory->delete();
+        return redirect()->route('sub-category.view');
     }
 }

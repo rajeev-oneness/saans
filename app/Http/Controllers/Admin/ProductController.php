@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\SubCategory;
 
 class ProductController extends Controller
 {
@@ -16,9 +17,18 @@ class ProductController extends Controller
      */
     public function index()
     {
+
         $products = Product::paginate(10);
         return view('admin.product.index',compact('products'));
     }
+
+    public function getSubCat(Request $request)
+    {
+        $data[] = SubCategory::where("categoryId",$request->categoryId)
+                    ->get(["sub_category_name","id"]);
+        return response()->json($data);
+    }
+   
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +38,9 @@ class ProductController extends Controller
     public function create()
     { 
         $categories=Category::get();
-        return view('admin.product.add',compact('categories'));
+        $subCategories=SubCategory::get();
+        // dd($subCategories);exit;
+        return view('admin.product.add',compact('categories','subCategories'));
     }
 
     /**
@@ -43,6 +55,7 @@ class ProductController extends Controller
             'name' => 'required|string',
             'description' => 'required',
             'categoryId' => 'required',
+            'subCategoryId' => 'required',
             'feature' => 'required',
             'larger_specification' => 'required',
             'image1' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -73,6 +86,7 @@ class ProductController extends Controller
 
         $product = new Product;
         $product->categoryId = $request->categoryId;
+        $product->subCategoryId = $request->subCategoryId;
         $product->name = $request->name;
         $product->description = $request->description;
         $product->feature = $request->feature;
@@ -109,8 +123,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $categories = Category::all();
+        $subCategories = SubCategory::all();
         $product = Product::find($id);
-        return view('admin.product.edit',compact('product','categories'));
+        return view('admin.product.edit',compact('product','categories','subCategories'));
     }
 
     /**
@@ -126,6 +141,7 @@ class ProductController extends Controller
             'name' => 'required|string',
             'description' => 'required',
             'categoryId' => 'required',
+            'subCategoryId' => 'required',
             'feature' => 'required',
             'larger_specification' => 'required',
             'image1' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -197,6 +213,7 @@ class ProductController extends Controller
 
         Product::where('id', $id)->update([
         'categoryId' => $request->categoryId,
+        'subCategoryId' => $request->subCategoryId,
         'name' =>$request->name,
         'description' => $request->description,
         'feature' => $request->feature,

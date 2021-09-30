@@ -6,12 +6,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Product</h1>
+          <h1>Sub-Category</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Product</li>
+            <li class="breadcrumb-item active">Sub-Category</li>
           </ol>
         </div>
       </div>
@@ -24,10 +24,10 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Product</h3>
+        <h3 class="card-title">Sub-Category</h3>
 
         <div class="card-tools">
-            <a class="headerbuttonforAdd addBlogCategory" href="{{ url('admin/product/add') }}">
+            <a class="headerbuttonforAdd addBlogCategory" href="{{ url('admin/sub-category/add') }}">
                 <i class="fa fa-plus" aria-hidden="true"></i>Add
             </a>
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -45,48 +45,30 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Image</th>
-                                    <th>Image</th>
-                                    <th>Image</th>
-                                    <th>Image</th>
-                                    <th>Image</th>
                                     <th>Name</th>
-                                    <th>Description</th>
                                     <th>Category</th>
-                                    <th>Sub-Category</th>
-                                    <th>Feature</th>
-                                    <th>Larger Specification</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($products as $key => $product)
+                                @foreach ($subCategories as $key => $subCategory)
                                 <tr>
                                     <td>{{$key + 1}}</td>
-                                    <td><img src="{{asset($product->image1)}}" width="60" /></td>
-                                    <td><img src="{{asset($product->image2)}}" width="60" /></td>
-                                    <td><img src="{{asset($product->image3)}}" width="60" /></td>
-                                    <td><img src="{{asset($product->image4)}}" width="60" /></td>
-                                    <td><img src="{{asset($product->image5)}}" width="60" /></td>
-                                    <td>{{$product->name}}</td>
-                                    <td>{{$product->description}}</td>
-                                    <td>{{$product->categoryDetail->name}}</td>
-                                    <td>{{$product->subCategoryDetail->sub_category_name}}</td>
-                                    <td>{{$product->feature}}</td>
-                                    <td>{{$product->larger_specification}}</td>
-                                    @if($product->status==1)
+                                    <td>{{$subCategory->sub_category_name}}</td>
+                                    <td>{{$subCategory->category->name}}</td>
+                                    @if($subCategory->status==1)
                                     <td>Active</td>
                                     @else
                                     <td>Inactive</td>
                                     @endif
-                                    <td><a href="{{route('edit.product',['id' => $product->id])}}">Edit</a> | <a href="{{ route('delete.product', ['id' => $product->id]) }}" class="text-danger delete-confirm">Delete</a></td>
+                                    <td><a href="{{route('edit.sub-category',['id' => $subCategory->id])}}">Edit</a> | <a href="{{ route('delete.sub-category', ['id' => $subCategory->id]) }}" class="text-danger delete-confirm">Delete</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
                         <div>
-                            {{ $products->links() }}
+                            {{ $subCategories->links() }}
                         </div>
                     </div>
                 </div>
@@ -99,6 +81,5 @@
  </div>
  <!-- /.content-wrapper -->
  @section('script')
-
 @stop
 @endsection

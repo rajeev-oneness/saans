@@ -1,9 +1,11 @@
 <?php
-
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+// namespace App\Http\Controllers\Admin;
+// use Route,Auth;
 use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\PrincipalController;
@@ -31,6 +33,7 @@ use App\Http\Controllers\Admin\ContactDetailsController;
 */
 
 Route::get('/', function () {
+    
     return view('front.index');
 });
 // Route::get('/', function () {
@@ -77,6 +80,8 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 
     // -----------------Sub Category-----------------
     Route::get('/sub-category', [SubCategoryController::class,'index'])->name('sub-category.view');
+    Route::post('/get-sub-category-by-category', [SubCategoryController::class,'subCategory']);
+
     Route::get('/sub-category/add', [SubCategoryController::class,'create'])->name('add.sub-category');
     Route::post('/sub-category/add', [SubCategoryController::class,'store'])->name('add.sub-category');
     Route::get('/sub-category/edit/{id}', [SubCategoryController::class,'edit'])->name('edit.sub-category');
