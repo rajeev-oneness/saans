@@ -124,7 +124,7 @@
                                     </span>
                                 @enderror 
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="subCategoryId">Sub-Category</label>
                                 <select class="form-control @error('subCategoryId') is-invalid @enderror" name="subCategoryId" id="subCategory" value="{{ old('subCategoryId') }}">
                                 
@@ -134,7 +134,16 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror 
-                            </div>
+                            </div> -->
+
+                            <div class="form-group required">
+                            <label for="subCategoryId" class="control-label">Select Sub-Category</label>
+                            <select class="form-control" id="subCategory" name="subCategoryId" required>
+                                @foreach ($subCategories as $subCategory)
+                                    <option value="{{$subCategory->id}}">{{$subCategory->sub_category_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                             <div class="form-group">
                                 <label for="feature">Feature</label>
                                 <input type="text" id="feature" name="feature" class="form-control @error('feature') is-invalid @enderror">
@@ -172,7 +181,7 @@
     <!-- /.content -->
   </div>
 @section('script')
-     <script>
+     <!-- <script>
       $(document).ready(function() {
      
       $('#categoryId').on('change', function() {
@@ -194,7 +203,7 @@
       });
       });
       });
-      </script>
+      </script> -->
 @stop
 @endsection
 

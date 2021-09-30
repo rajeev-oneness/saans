@@ -39,7 +39,8 @@
            <div class="single-contact-info bg-light p-3 mt-3">                
                   <h4>Email Us</h4>                 
                   <!-- <p><a href="#">sales@saansanalytical.com</a> / <a href="#">support@saansanalytical.com</a></p> -->
-                  <p><a href="#">{{}}</a> / <a href="#">support@saansanalytical.com</a></p>
+                  <p><a href="#">{{$mainContacts->email_us}}</a> </p>
+                  <!-- / <a href="#">support@saansanalytical.com</a></p> -->
                </div>
                <!-- /.single-contact-info -->
                          </div>
