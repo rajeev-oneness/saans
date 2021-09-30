@@ -167,7 +167,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
      Route::get('/contact_us', [ContactUsController::class,'index'])->name('contact_us.view');
      Route::get('/contact_us/add', [ContactUsController::class,'create'])->name('add.contact_us');
      Route::post('/contact_us/add', [ContactUsController::class,'store'])->name('add.contact_us');
-     Route::get('/contact_us/edit/{id}', [ContactUsController::class,'edit'])->name('edit.contact_us');
+     Route::get('/contact_us/edit', [ContactUsController::class,'edit'])->name('edit.contact_us');
      Route::put('/contact_us/update/{id}', [ContactUsController::class,'update'])->name('update.contact_us');
      Route::get('/contact_us/delete/{id}', [ContactUsController::class,'destroy'])->name('delete.contact_us');
 

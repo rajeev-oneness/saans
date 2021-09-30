@@ -137,13 +137,13 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="{{ route('contact_us.view') }}" class="nav-link">
               <p>
                 Contact Us
               </p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item has-treeview">
             <a href="{{ route('contact.details.view') }}" class="nav-link">
               <p>
@@ -493,6 +493,12 @@
                 <a href="{{route('user.profile')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Eidt Profile</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('edit.contact_us') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Contact Us</p>
                 </a>
               </li>
               <li class="nav-item d-none d-sm-inline-block">

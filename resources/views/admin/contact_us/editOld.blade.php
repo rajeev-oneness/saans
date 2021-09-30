@@ -8,13 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Contact Us</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Contact_us</li>
-            </ol>
+            <h1>Contact Us Edit</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -22,18 +16,23 @@
 
     <!-- Main content -->
     <section class="content">
-       <div class="card">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-6"><h5 class="mb-0">Heading</h5></div>
-                        
-                    </div>
-                </div>
-                <div class="card-body">
-                <form method="POST" action="{{ route('update.contact_us', ['id' => $contactUs->id]) }}" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Contact Us</h3>
+            <div class="card-tools">
+                <a class="headerbuttonforAdd addBlogContactUs" href="{{route('contact_us.view')}}">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                        </a>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fas fa-minus"></i></button>
+            </div>
+            </div>
+             <div class="card-body">
+                     <form method="POST" action="{{ route('update.contact_us', ['id' => $contactUs->id]) }}" enctype="multipart/form-data">
                         @csrf
                        @method('PUT')
-                       <input type="hidden" name="contactUsId" value="{{$contactUs->id}}">
                         <div class="form-group required">
                             <label for="name" class="control-label">Name</label>
                             <input class="form-control @error('name') is-invalid @enderror" name="name" id="name" rows="3" value="{{$contactUs->name}}" >
@@ -44,15 +43,43 @@
                             @enderror
                         </div>
                         <div class="form-group required">
-                          <label for="email_us" class="control-label">Email Us</label>
-                          <input type="text" class="form-control @error('email_us') is-invalid @enderror" name="email_us" id="email_us" value="{{$contactUs->email_us}}"  placeholder="Email Us" required>
-                            @error('email_us')
+                          <label for="email" class="control-label">Email</label>
+                          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" value="{{$contactUs->email}}"  placeholder="Address" required>
+
+                            @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
-                        
+                        <div class="form-group required">
+                            <label for="phone" class="control-label">Phone</label>
+                            <input class="form-control @error('phone') is-invalid @enderror" name="phone" id="phone" rows="3" value="{{$contactUs->phone}}" >
+                            @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group required">
+                            <label for="office_type" class="control-label">Office Type</label>
+                            <input class="form-control @error('office_type') is-invalid @enderror" name="office_type" id="office_type" rows="3" value="{{$contactUs->office_type}}" >
+                            @error('office_type')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group required">
+                          <label for="address" class="control-label">Address</label>
+                          <input type="text" class="form-control @error('address') is-invalid @enderror" name="address" id="address" value="{{$contactUs->address}}"  placeholder="Address" required>
+
+                            @error('address')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
                         <div class="form-group required">
                             <label for="blog_link" class="control-label">Blog Link</label>
                             <input class="form-control @error('blog_link') is-invalid @enderror" name="blog_link" id="phone" rows="3" value="{{$contactUs->blog_link}}" >
@@ -98,82 +125,43 @@
                                 </span>
                             @enderror
                         </div>
-                        <h3 class="card-title">Location</h3>
-                        <table>
-                            @php $countLocation = count($contactUs->location); $j=0; @endphp
-                            @foreach($contactUs->location as $location)
-                                @php $j += 1; @endphp
-                                <tr>
-                                    <td>
-                                        <input class="form-control" type="text" name="address_type[]" placeholder="Tyepe of the Address" value="{{$location->name}}">
-                                    </td>
-                                    <td>
-                                        <input class="form-control"  type="text" name="address[]" placeholder="Input Address" value="{{$location->address}}">
-                                    </td>
-                                    <td>
-                                        <input class="form-control"  type="text" name="address_phone[]" placeholder="Phone Number" value="{{$location->phone}}">
-                                    </td>
-                                    
-                                    <div class="copy hide">
-                                    <td>
-                                        @if($j == $countLocation)
-                                        <!-- <div class="input-group control-group after-add-more"> -->
-                                            <!-- <button href="javascript:void(0)" class="actionbtn addNew">+</button> -->
-                                            <a href="javascript:void(0)" class="actionbtn addNew">+</a>
-                                        </div>
-                                        @else
-                                        <!-- <a href="javascript:void(0)" class="actionbtn remove">-</a> -->
-                                            <a href="javascript:void(0)" class="actionbtn remove">-</a>
-                                        @endif
-                                    </td>
-                                    </div>
-                                </tr>
-                            @endforeach
-                        </table>
                         <button type="submit" class="btn btn-primary">Update Contact Us</button>
                       </form>
                 </div>
-                        
-
-                    <!--  <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                            <i class="fas fa-minus"></i></button>
-                        </div> -->
-                        <div class="card-tools">
-                        
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                            <i class="fas fa-minus"></i></button>
-                        </div>
-                    </div>
-                <div class="card-body">
-                        
-                </div>
-            </div>   
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+    <!--   <div class="row">
+        <div class="col-12">
+          <a href="#" class="btn btn-secondary">Cancel</a>
+          <input type="submit" value="Save Changes" class="btn btn-success float-right">
+        </div>
+      </div> -->
     </section>
     <!-- /.content -->
   </div>
-  @section('script')
-    <script type="text/javascript">
-
-
-        $(document).ready(function() {
-
-
-        $(".addNew").click(function(){ 
-            var html = $(".copy").html();
-            $(".after-add-more").after(html);
-        });
-
-
-        $("table").on("click",".remove",function(){ 
-            $(this).parents(".control-group").remove();
-        });
-
-
-        });
-
-
-    </script>
-  @stop
 @endsection
 
+
+
+
+
+@section('css')
+<style>
+    .form-group.required .control-label:after {
+    content:"*";
+    color:red;
+ }
+</style>
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(){
+                $(this).find('button[type=submit]').prop('disabled', true);
+            });
+        });
+    </script>
+@endsection

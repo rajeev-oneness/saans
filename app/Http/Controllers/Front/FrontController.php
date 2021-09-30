@@ -46,7 +46,7 @@ class FrontController extends Controller
     }
     public function contact()
     {
-        $contacts = ContactUs::where('contact_type' ,  "0")->latest()->get();
+        $contacts = ContactUs::where('type' ,  "0")->latest()->get();
         // dd($contacts);exit;
         $mainContacts = $contacts->first();
         // dd($mainContacts);exit;
