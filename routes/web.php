@@ -48,12 +48,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [FrontController::class,'index'])->name('front.home');
 Route::get('/about-us', [FrontController::class,'about'])->name('front.about-us');
 Route::get('/contact', [FrontController::class,'contact'])->name('front.contact');
+Route::post('/contact/report/add', [FrontController::class,'addContactUsReport'])->name('add.contact.report');
+
 Route::get('/product/{id}', [FrontController::class,'categorylWiseProduct'])->name('front.category.product');
 // Route::get('/principal', [FrontController::class,'principal'])->name('front.principal');
 Route::get('/principal/{id}', [FrontController::class,'principalWiseProduct'])->name('front.principal.product');
 Route::get('/product-details/{id}', [FrontController::class,'ProductDetails'])->name('front.product.details');
 Route::get('/principal-details/{id}', [FrontController::class,'PrincipalDetails'])->name('front.principal.product.details');
-
 
 
 Route::group(['middleware' => 'auth'],function(){
@@ -170,15 +171,17 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
      Route::get('/contact_us/edit', [ContactUsController::class,'edit'])->name('edit.contact_us');
      Route::put('/contact_us/update/{id}', [ContactUsController::class,'update'])->name('update.contact_us');
      Route::get('/contact_us/delete/{id}', [ContactUsController::class,'destroy'])->name('delete.contact_us');
-
-      // ------------------------Contact Details-----------------------------
+     Route::get('/contact_us/report', [ContactUsController::class,'report'])->name('contact_us.report.view');
+      
+     // ------------------------Contact Details-----------------------------
       Route::get('/contact-details', [ContactDetailsController::class,'index'])->name('contact.details.view');
       Route::get('/contact-details/add', [ContactDetailsController::class,'create'])->name('add.contact.details');
       Route::post('/contact-details/add/store', [ContactDetailsController::class,'store'])->name('add.contact.details.store');
       Route::get('/contact-details/edit/{id}', [ContactDetailsController::class,'edit'])->name('edit.contact.details');
       Route::put('/contact-details/update/{id}', [ContactDetailsController::class,'update'])->name('update.contact.details');
       Route::get('/contact-details/delete/{id}', [ContactDetailsController::class,'destroy'])->name('delete.contact.details');
-     
+        
+      
 });
 
 

@@ -71,7 +71,13 @@
               </p>
             </a>
           </li>
-
+          <li class="nav-item has-treeview">
+            <a href="{{ route('sub-category.view') }}" class="nav-link">
+              <p>
+                Sub Category
+              </p>
+            </a>
+          </li>
           <li class="nav-item has-treeview">
             <a href="{{ route('principal.view') }}" class="nav-link">
               <p>
@@ -131,9 +137,9 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('location.view') }}" class="nav-link">
+            <a href="{{ route('contact_us.report.view') }}" class="nav-link">
               <p>
-                Location
+                Contact Us Report
               </p>
             </a>
           </li>
@@ -144,20 +150,14 @@
               </p>
             </a>
           </li> -->
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="{{ route('contact.details.view') }}" class="nav-link">
               <p>
                 Contact Details
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="{{ route('sub-category.view') }}" class="nav-link">
-              <p>
-                Sub Category
-              </p>
-            </a>
-          </li>
+           -->
           @endif
           <!-- <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">

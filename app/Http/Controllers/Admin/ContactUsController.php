@@ -18,7 +18,7 @@ class ContactUsController extends Controller
         // $contactUs = ContactUs::paginate(10);
         // return view('admin.contact_us.index',compact('contactUs'));
 
-        $contactUs = ContactUs::where('type' ,  "0")->paginate(10);
+        $contactUs = ContactUs::where('type' , '0')->paginate(10);
         // dd($contactUs);exit;
         return view('admin.contact_us.index',compact('contactUs'));
     }
@@ -28,9 +28,10 @@ class ContactUsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function report()
     {
-        // return view('admin.contact_us.add');
+        $contactUsReports = ContactUs::where('type' , '1')->paginate(10);
+        return view('admin.contact_us.report', compact('contactUsReports'));
     }
 
     /**

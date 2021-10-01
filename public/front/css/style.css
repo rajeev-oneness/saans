@@ -1185,6 +1185,9 @@ flex: 1;
     padding: 50px;
     background: #eaeaea;
 }
+.contact-btn{
+  border-radius: 20px;
+}
 .single-contact-info h4{
     font-size: 20px;
     letter-spacing: 1px;

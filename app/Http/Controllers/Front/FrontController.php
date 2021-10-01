@@ -36,7 +36,7 @@ class FrontController extends Controller
         $logoes = companyManager::latest()->get();
         $videos = Video::latest()->get();
         $product = Product::first();
-        return view('front.index',compact('logoes','videos','categories_data','aboutCompany','product','products','banar'));
+        return view('front.index',compact('logoes','videos','categories_data','aboutCompany','product','products','banar',));
     }
     public function about()
     {
@@ -46,14 +46,11 @@ class FrontController extends Controller
     }
     public function contact()
     {
-        $contacts = ContactUs::where('type' ,  "0")->latest()->get();
+        $contacts = ContactUs::where('type' ,'0')->where('key','other')->latest()->get();
         // dd($contacts);exit;
         $mainContacts = $contacts->first();
-        // dd($mainContacts);exit;
-
-        // $allContacts = $contacts->get();
-        // dd($allContacts);exit;
-        return view('front.contact',compact('mainContacts','contacts'));
+        $mainContactlocations = ContactUs::where('type','0')->where('key','location')->get();
+        return view('front.contact',compact('mainContacts','contacts','mainContactlocations'));
     }
     // public function product()
     // {
@@ -65,14 +62,15 @@ class FrontController extends Controller
     {
         $data = Product::where('categoryId', $id)
                 ->get();
-        $subCats = SubCategory::where('categoryId', $id)
+        $subCats = SubCategory::where('categoryId' , '=' , $id)
                 ->get();
+                // dd($subCats);exit;
 
         $categoryName = Category::where('id', '=', $id)->select('name')->first();
-        $subCategories = SubCategory::where('id', '=', $id)->get();
-
+//         $subCategories = SubCategory::where('id', '=', $id)->get();
+// dd($subCategories);exit;
         $sub_categories_data = [];
-        foreach($subCategories as $subCategory){
+        foreach($subCats as $subCategory){
             $subCategory->allProductByCat = Product::where('subCategoryId', $subCategory->id)->get();
 
             if($subCategory->allProductByCat){
@@ -80,7 +78,7 @@ class FrontController extends Controller
 
             }
         }
-        return view('front.products', compact('data','categoryName','subCats','sub_categories_data','subCategories'));
+        return view('front.products', compact('data','categoryName','subCats','sub_categories_data'));
     }
     public function ProductDetails($id)
     {
@@ -111,10 +109,16 @@ class FrontController extends Controller
         // return view('front.principal-product-details',compact('priProduct'));
        
     }
-    // public function contact()
-    // {
-    //     return view('front.contact');
-    // }
+    public function addContactUsReport(Request $request)
+    {
+        $contactUs = new ContactUs;
+        $contactUs->name = $request->input('name');
+        $contactUs->email = $request->input('email');
+        $contactUs->phone = $request->input('phone');
+        $contactUs->message = $request->input('message');
+        $contactUs->save();
+        return redirect('/contact')->with('success','Contact Added Successfully');
+    }
     // public function about()
     // {
     //     return view('front.about');

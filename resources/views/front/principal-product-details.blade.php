@@ -18,7 +18,7 @@
               </div>
               <h4>{{$dt->name}}</h4>
               <p>{{$dt->description}}</p>
-              <a class="btn btn-read" href="#">View Details</a>
+              <a class="btn btn-read" href="{{$dt->redirect_link}}">View Details</a>
             </div>
         </div>
         @endforeach  

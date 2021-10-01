@@ -99,7 +99,7 @@
                             @enderror
                         </div>
                         <h3 class="card-title">Location</h3>
-                        <table>
+                        <table id="customFields">
                             @php $countLocation = count($contactUs->location); $j=0; @endphp
                             @foreach($contactUs->location as $location)
                                 @php $j += 1; @endphp
@@ -114,19 +114,16 @@
                                         <input class="form-control"  type="text" name="address_phone[]" placeholder="Phone Number" value="{{$location->phone}}">
                                     </td>
                                     
-                                    <div class="copy hide">
+                                    
                                     <td>
+                                        
                                         @if($j == $countLocation)
-                                        <!-- <div class="input-group control-group after-add-more"> -->
-                                            <!-- <button href="javascript:void(0)" class="actionbtn addNew">+</button> -->
                                             <a href="javascript:void(0)" class="actionbtn addNew">+</a>
-                                        </div>
                                         @else
-                                        <!-- <a href="javascript:void(0)" class="actionbtn remove">-</a> -->
                                             <a href="javascript:void(0)" class="actionbtn remove">-</a>
                                         @endif
                                     </td>
-                                    </div>
+                                    
                                 </tr>
                             @endforeach
                         </table>
@@ -142,7 +139,6 @@
                         <div class="card-tools">
                         
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                            <i class="fas fa-minus"></i></button>
                         </div>
                     </div>
                 <div class="card-body">
@@ -153,7 +149,7 @@
     <!-- /.content -->
   </div>
   @section('script')
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
 
 
         $(document).ready(function() {
@@ -173,6 +169,20 @@
         });
 
 
+    </script> -->
+
+    <script>
+        $(document).ready(function(){
+            $(document).on('click', '.addNew', function(){
+                $('.actionbtn').removeClass('addNew').addClass('remove');
+                $('.actionbtn').text('-');
+                $("#customFields").append('<tr><td><input class="form-control" type="text" name="address_type[]" placeholder="Tyepe of the Address" value="{{$location->name}}"></td><td><input class="form-control"  type="text" name="address[]" placeholder="Input Address" value="{{$location->address}}"></td><td><input class="form-control"  type="text" name="address_phone[]" placeholder="Phone Number" value="{{$location->phone}}"></td><td><a href="javascript:void(0)" class="actionbtn addNew">+</a></td></tr>');
+            });
+
+            $(document).on('click', '.remove', function(){
+                $(this).closest('tr').remove();
+            });
+        });
     </script>
   @stop
 @endsection
