@@ -30,8 +30,8 @@
             <a class="headerbuttonforAdd addBlogCategory" href="{{ url('admin/product/add') }}">
                 <i class="fa fa-plus" aria-hidden="true"></i>Add
             </a>
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fas fa-minus"></i></button>
+            <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fas fa-minus"></i></button> -->
             <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
                 <i class="fas fa-times"></i></button>
         </div>
@@ -54,6 +54,7 @@
                                     <th>Description</th>
                                     <th>Category</th>
                                     <th>Sub-Category</th>
+                                    <th>Principal</th>
                                     <th>Feature</th>
                                     <th>Larger Specification</th>
                                     <th>Status</th>
@@ -73,6 +74,7 @@
                                     <td>{{$product->description}}</td>
                                     <td>{{$product->categoryDetail->name}}</td>
                                     <td>{{$product->subCategoryDetail->sub_category_name}}</td>
+                                    <td>{{$product->principalDetail->name}}</td>
                                     <td>{{$product->feature}}</td>
                                     <td>{{$product->larger_specification}}</td>
                                     @if($product->status==1)

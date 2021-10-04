@@ -18,5 +18,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\SubCategory', 'subCategoryId', 'id');
     }
+    public function principalDetail()
+    {
+        return $this->belongsTo('App\Models\Principal', 'principalId', 'id');
+    }
 
 }

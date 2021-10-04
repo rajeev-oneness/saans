@@ -124,12 +124,12 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     Route::get('/video/delete/{id}', [VideoController::class,'destroy'])->name('delete.video');
 
      // ---------------Product----------------------
-    Route::get('/banar', [BanarController::class,'index'])->name('banar.view');
-    Route::get('/banar/add', [BanarController::class,'create'])->name('add.banar');
-    Route::post('/banar/add', [BanarController::class,'store'])->name('store.banar');
-    Route::get('/banar/edit/{id}', [BanarController::class,'edit'])->name('edit.banar');
-    Route::put('/banar/update/{id}', [BanarController::class,'update'])->name('update.banar');
-    Route::get('/banar/delete/{id}', [BanarController::class,'destroy'])->name('delete.banar');
+    Route::get('/benar', [BanarController::class,'index'])->name('banar.view');
+    Route::get('/benar/add', [BanarController::class,'create'])->name('add.banar');
+    Route::post('/benar/add', [BanarController::class,'store'])->name('store.banar');
+    Route::get('/benar/edit/{id}', [BanarController::class,'edit'])->name('edit.banar');
+    Route::put('/benar/update/{id}', [BanarController::class,'update'])->name('update.banar');
+    Route::get('/benar/delete/{id}', [BanarController::class,'destroy'])->name('delete.banar');
 
      // ---------------Company Manager----------------------
     Route::get('/company-manager', [CompanyManagerController::class,'index'])->name('company.manager.view');

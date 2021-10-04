@@ -137,13 +137,23 @@
                             </div> -->
 
                             <div class="form-group required">
-                            <label for="subCategoryId" class="control-label">Select Sub-Category</label>
-                            <select class="form-control" id="subCategory" name="subCategoryId" required>
-                                @foreach ($subCategories as $subCategory)
-                                    <option value="{{$subCategory->id}}">{{$subCategory->sub_category_name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                                <label for="subCategoryId" class="control-label">Select Sub-Category</label>
+                                <select class="form-control" id="subCategory" name="subCategoryId" required>
+                                        <option selected disabled>Select one</option>
+                                    @foreach ($subCategories as $subCategory)
+                                        <option value="{{$subCategory->id}}">{{$subCategory->sub_category_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group required">
+                                <label for="principalId" class="control-label">Select Principal</label>
+                                <select class="form-control" id="principalId" name="principalId" required>
+                                        <option selected disabled>Select one</option>
+                                    @foreach ($principals as $principal)
+                                        <option value="{{$principal->id}}">{{$principal->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div> 
                             <div class="form-group">
                                 <label for="feature">Feature</label>
                                 <input type="text" id="feature" name="feature" class="form-control @error('feature') is-invalid @enderror">

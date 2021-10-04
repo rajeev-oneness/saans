@@ -75,6 +75,14 @@
                             </select>
                         </div>
                         <div class="form-group required">
+                            <label for="principalId" class="control-label">Select Principal</label>
+                            <select class="form-control" id="principalId" name="principalId" required>
+                                @foreach ($principals as $principal)
+                                    <option value="{{$principal->id}}" {{ $product->id == $product->principalId ? 'selected' : '' }}>{{$principal->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group required">
                             <label for="description" class="control-label">Description</label>
                             <textarea class="form-control" name="description" id="description" rows="3" required>{{$product->description}}</textarea>
                         </div>

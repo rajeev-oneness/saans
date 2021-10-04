@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\Principal;
 
 class ProductController extends Controller
 {
@@ -39,8 +40,9 @@ class ProductController extends Controller
     { 
         $categories=Category::get();
         $subCategories=SubCategory::get();
+        $principals=Principal::get();
         // dd($subCategories);exit;
-        return view('admin.product.add',compact('categories','subCategories'));
+        return view('admin.product.add',compact('categories','subCategories','principals'));
     }
 
     /**
@@ -124,8 +126,9 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $subCategories = SubCategory::all();
+        $principals = Principal::all();
         $product = Product::find($id);
-        return view('admin.product.edit',compact('product','categories','subCategories'));
+        return view('admin.product.edit',compact('product','categories','subCategories','principals'));
     }
 
     /**

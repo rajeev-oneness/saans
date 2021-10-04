@@ -30,8 +30,8 @@
             <a class="headerbuttonforAdd addBlogCategory" href="{{ url('admin/about_us/add') }}">
                 <i class="fa fa-plus" aria-hidden="true"></i>Add
             </a>
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fas fa-minus"></i></button>
+            <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fas fa-minus"></i></button> -->
             <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
                 <i class="fas fa-times"></i></button>
         </div>

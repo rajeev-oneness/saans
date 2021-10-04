@@ -8,12 +8,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Banar</h1>
+          <h1>Benar</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Banar</li>
+            <li class="breadcrumb-item active">Benar</li>
           </ol>
         </div>
       </div>
@@ -26,14 +26,14 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Banar</h3>
+        <h3 class="card-title">Benar</h3>
 
         <div class="card-tools">
-            <a class="headerbuttonforAdd addBlogbanar" href="{{ url('admin/banar/add') }}">
+            <a class="headerbuttonforAdd addBlogbanar" href="{{ url('admin/benar/add') }}">
                 <i class="fa fa-plus" aria-hidden="true"></i>Add
             </a>
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fas fa-minus"></i></button>
+            <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fas fa-minus"></i></button> -->
             <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
                 <i class="fas fa-times"></i></button>
         </div>
