@@ -74,7 +74,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 // -----------------Category-----------------
     Route::get('/category', [CategoryController::class,'index'])->name('category.view');
     Route::get('/category/add', [CategoryController::class,'create'])->name('add.category');
-    Route::post('/category/add', [CategoryController::class,'store'])->name('add.category');
+    Route::post('/category/add', [CategoryController::class,'store'])->name('store.category');
     Route::get('/category/edit/{id}', [CategoryController::class,'edit'])->name('edit.category');
     Route::put('/category/update/{id}', [CategoryController::class,'update'])->name('update.category');
     Route::get('/category/delete/{id}', [CategoryController::class,'destroy'])->name('delete.category');
@@ -84,7 +84,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     Route::post('/get-sub-category-by-category', [SubCategoryController::class,'subCategory']);
 
     Route::get('/sub-category/add', [SubCategoryController::class,'create'])->name('add.sub-category');
-    Route::post('/sub-category/add', [SubCategoryController::class,'store'])->name('add.sub-category');
+    Route::post('/sub-category/add', [SubCategoryController::class,'store'])->name('store.sub-category');
     Route::get('/sub-category/edit/{id}', [SubCategoryController::class,'edit'])->name('edit.sub-category');
     Route::put('/sub-category/update/{id}', [SubCategoryController::class,'update'])->name('update.sub-category');
     Route::get('/sub-category/delete/{id}', [SubCategoryController::class,'destroy'])->name('delete.sub-category');
@@ -93,7 +93,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     // ----------------------Principals------------
     Route::get('/principal', [PrincipalController::class,'index'])->name('principal.view');
     Route::get('/principal/add', [PrincipalController::class,'create'])->name('add.principal');
-    Route::post('/principal/add', [PrincipalController::class,'store'])->name('add.principal');
+    Route::post('/principal/add', [PrincipalController::class,'store'])->name('store.principal');
     Route::get('/principal/edit/{id}', [PrincipalController::class,'edit'])->name('edit.principal');
     Route::put('/principal/update/{id}', [PrincipalController::class,'update'])->name('update.principal');
     Route::get('/principal/delete/{id}', [PrincipalController::class,'destroy'])->name('delete.principal');
@@ -101,7 +101,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     // ---------------Product----------------------
     Route::get('/product', [ProductController::class,'index'])->name('product.view');
     Route::get('/product/add', [ProductController::class,'create'])->name('add.product');
-    Route::post('/product/add', [ProductController::class,'store'])->name('add.product');
+    Route::post('/product/add', [ProductController::class,'store'])->name('store.product');
     Route::get('/product/edit/{id}', [ProductController::class,'edit'])->name('edit.product');
     Route::put('/product/update/{id}', [ProductController::class,'update'])->name('update.product');
     Route::get('/product/delete/{id}', [ProductController::class,'destroy'])->name('delete.product');
@@ -110,7 +110,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     
     Route::get('/principal-product', [PrincipalProductController::class,'index'])->name('principal.product.view');
     Route::get('/principal-product/add', [PrincipalProductController::class,'create'])->name('add.principal.product');
-    Route::post('/principal-product/add', [PrincipalProductController::class,'store'])->name('add.principal.product');
+    Route::post('/principal-product/add', [PrincipalProductController::class,'store'])->name('store.principal.product');
     Route::get('/principal-product/edit/{id}', [PrincipalProductController::class,'edit'])->name('edit.principal.product');
     Route::put('/principal-product/update/{id}', [PrincipalProductController::class,'update'])->name('update.principal.product');
     Route::get('/principal-product/delete/{id}', [PrincipalProductController::class,'destroy'])->name('delete.principal.product');
@@ -118,7 +118,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
      // ---------------Product----------------------
     Route::get('/video', [VideoController::class,'index'])->name('video.view');
     Route::get('/video/add', [VideoController::class,'create'])->name('add.video');
-    Route::post('/video/add', [VideoController::class,'store'])->name('add.video');
+    Route::post('/video/add', [VideoController::class,'store'])->name('store.video');
     Route::get('/video/edit/{id}', [VideoController::class,'edit'])->name('edit.video');
     Route::put('/video/update/{id}', [VideoController::class,'update'])->name('update.video');
     Route::get('/video/delete/{id}', [VideoController::class,'destroy'])->name('delete.video');
@@ -126,7 +126,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
      // ---------------Product----------------------
     Route::get('/banar', [BanarController::class,'index'])->name('banar.view');
     Route::get('/banar/add', [BanarController::class,'create'])->name('add.banar');
-    Route::post('/banar/add', [BanarController::class,'store'])->name('add.banar');
+    Route::post('/banar/add', [BanarController::class,'store'])->name('store.banar');
     Route::get('/banar/edit/{id}', [BanarController::class,'edit'])->name('edit.banar');
     Route::put('/banar/update/{id}', [BanarController::class,'update'])->name('update.banar');
     Route::get('/banar/delete/{id}', [BanarController::class,'destroy'])->name('delete.banar');
@@ -134,7 +134,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
      // ---------------Company Manager----------------------
     Route::get('/company-manager', [CompanyManagerController::class,'index'])->name('company.manager.view');
     Route::get('/company-manager/add', [CompanyManagerController::class,'create'])->name('add.company.manager');
-    Route::post('/company-manager/add', [CompanyManagerController::class,'store'])->name('add.company.manager');
+    Route::post('/company-manager/add', [CompanyManagerController::class,'store'])->name('store.company.manager');
     Route::get('/company-manager/edit/{id}', [CompanyManagerController::class,'edit'])->name('edit.company.manager');
     Route::put('/company-manager/update/{id}', [CompanyManagerController::class,'update'])->name('update.company.manager');
     Route::get('/company-manager/delete/{id}', [CompanyManagerController::class,'destroy'])->name('delete.company.manager');
@@ -142,7 +142,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     // ------------------------About Company-----------------------------
     Route::get('/about-company', [AboutCompanyController::class,'index'])->name('about.company.view');
     Route::get('/about-company/add', [AboutCompanyController::class,'create'])->name('add.about.company');
-    Route::post('/about-company/add', [AboutCompanyController::class,'store'])->name('add.about.company');
+    Route::post('/about-company/add', [AboutCompanyController::class,'store'])->name('store.about.company');
     Route::get('/about-company/edit/{id}', [AboutCompanyController::class,'edit'])->name('edit.about.company');
     Route::put('/about-company/update/{id}', [AboutCompanyController::class,'update'])->name('update.about.company');
     Route::get('/about-company/delete/{id}', [AboutCompanyController::class,'destroy'])->name('delete.about.company');
@@ -151,7 +151,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
      // ------------------------About Us-----------------------------
      Route::get('/about_us', [AboutUsController::class,'index'])->name('about_us.view');
      Route::get('/about_us/add', [AboutUsController::class,'create'])->name('add.about_us');
-     Route::post('/about_us/add', [AboutUsController::class,'store'])->name('add.about_us');
+     Route::post('/about_us/add', [AboutUsController::class,'store'])->name('store.about_us');
      Route::get('/about_us/edit/{id}', [AboutUsController::class,'edit'])->name('edit.about_us');
      Route::put('/about_us/update/{id}', [AboutUsController::class,'update'])->name('update.about_us');
      Route::get('/about_us/delete/{id}', [AboutUsController::class,'destroy'])->name('delete.about_us');
@@ -159,7 +159,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
      // ------------------------Location-----------------------------
      Route::get('/location', [LocationController::class,'index'])->name('location.view');
      Route::get('/location/add', [LocationController::class,'create'])->name('add.location');
-     Route::post('/location/add', [LocationController::class,'store'])->name('add.location');
+     Route::post('/location/add', [LocationController::class,'store'])->name('store.location');
      Route::get('/location/edit/{id}', [LocationController::class,'edit'])->name('edit.location');
      Route::put('/location/update/{id}', [LocationController::class,'update'])->name('update.location');
      Route::get('/location/delete/{id}', [LocationController::class,'destroy'])->name('delete.location');
@@ -167,7 +167,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
      // ------------------------Contact Us-----------------------------
      Route::get('/contact_us', [ContactUsController::class,'index'])->name('contact_us.view');
      Route::get('/contact_us/add', [ContactUsController::class,'create'])->name('add.contact_us');
-     Route::post('/contact_us/add', [ContactUsController::class,'store'])->name('add.contact_us');
+     Route::post('/contact_us/add', [ContactUsController::class,'store'])->name('store.contact_us');
      Route::get('/contact_us/edit', [ContactUsController::class,'edit'])->name('edit.contact_us');
      Route::put('/contact_us/update/{id}', [ContactUsController::class,'update'])->name('update.contact_us');
      Route::get('/contact_us/delete/{id}', [ContactUsController::class,'destroy'])->name('delete.contact_us');
@@ -176,7 +176,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
      // ------------------------Contact Details-----------------------------
       Route::get('/contact-details', [ContactDetailsController::class,'index'])->name('contact.details.view');
       Route::get('/contact-details/add', [ContactDetailsController::class,'create'])->name('add.contact.details');
-      Route::post('/contact-details/add/store', [ContactDetailsController::class,'store'])->name('add.contact.details.store');
+      Route::post('/contact-details/add/store', [ContactDetailsController::class,'store'])->name('store.contact.details.store');
       Route::get('/contact-details/edit/{id}', [ContactDetailsController::class,'edit'])->name('edit.contact.details');
       Route::put('/contact-details/update/{id}', [ContactDetailsController::class,'update'])->name('update.contact.details');
       Route::get('/contact-details/delete/{id}', [ContactDetailsController::class,'destroy'])->name('delete.contact.details');

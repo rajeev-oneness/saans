@@ -25,7 +25,7 @@
          @if (Session::get('success'))                        
             <div class="alert alert-success"> {{Session::get('success')}} </div>
         @endif
-        <form action="{{ route('add.category') }}" method="POST">
+        <form action="{{ route('store.category') }}" method="POST">
             @csrf
             <div>
             <div class="row">

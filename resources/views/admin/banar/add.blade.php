@@ -25,7 +25,7 @@
         @if (Session::get('success'))                        
             <div class="alert alert-success"> {{Session::get('success')}} </div>
         @endif
-        <form action="{{ route('add.banar') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('store.banar') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div>
             <div class="row">
