@@ -51,7 +51,7 @@ class BanarController extends Controller
         $banar->image = $image;
         // $category->status = 1;
         $banar->save();
-        return redirect('admin/banar/add')->with('success','Banar Added Successfully');
+        return redirect('admin/banar/add')->with('success','Benar Added Successfully');
     }
 
     /**
@@ -104,7 +104,7 @@ class BanarController extends Controller
             'title' => $request->title,
             'sub_title' => $request->sub_title
         ]);
-        return redirect('admin/banar')->with('success','Banar Updated Successfully');
+        return redirect('admin/banar')->with('success','Benar Updated Successfully');
     }
 
     /**
