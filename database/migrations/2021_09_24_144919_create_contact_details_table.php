@@ -22,9 +22,10 @@ class CreateContactDetailsTable extends Migration
             $table->string('facebook_link');
             $table->string('twiter_link');
             $table->string('banar');
-            $table->enum('status',array('0','1'))->default('1')->comment('1 = Active, 0 = Inactive');
+            $table->tinyInteger('status')->default('1')->comment('1 = Active, 0 = Inactive');
             $table->softDeletes();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 

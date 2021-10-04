@@ -16,10 +16,27 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('status',array('0','1'))->default('1')->comment('1 = Active, 0 = Inactive');
+            $table->tinyInteger('status')->default('1')->comment('1 = Active, 0 = Inactive');
             $table->softDeletes();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
+
+        $data = [
+            [
+                'name' => 'Analytical Products'
+            ],
+            [
+                'name' => 'Life science',
+
+            ],
+            [
+                'name' => 'Medical Products'
+
+            ]
+        ];
+
+        DB::table('categories')->insert($data);
     }
 
     /**

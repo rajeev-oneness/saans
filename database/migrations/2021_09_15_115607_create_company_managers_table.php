@@ -17,10 +17,33 @@ class CreateCompanyManagersTable extends Migration
             $table->id();
             $table->string('logo');
             $table->string('redirect_link');
-            $table->enum('status',array('0','1'))->default('1')->comment('1 = Active, 0 = Inactive');
+            $table->tinyInteger('status')->default('1')->comment('1 = Active, 0 = Inactive');
             $table->softDeletes();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
+
+        $data = [
+            [
+                'logo' => 'front/images/logo3.png',
+                'redirect_link' => '',
+            ], 
+            [
+                'logo' => 'front/images/logo4.png',
+                'redirect_link' => '',
+            ], 
+            [
+                'logo' => 'front/images/logo5.png',
+                'redirect_link' => '',
+            ], 
+            [
+                'logo' => 'front/images/logo6.png',
+                'redirect_link' => '',
+            ]
+        ];
+
+        DB::table('company_managers')->insert($data);
+
     }
 
     /**

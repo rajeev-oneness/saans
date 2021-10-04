@@ -22,7 +22,7 @@ class CreateUserTypesTable extends Migration
 
          $data = [
             ['name' => 'Admin'],
-            ['name' => 'Slaes'],
+            ['name' => 'Salse'],
             ['name' => 'Service'],
         ];
         DB::table('user_types')->insert($data);

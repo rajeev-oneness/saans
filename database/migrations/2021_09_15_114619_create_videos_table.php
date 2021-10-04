@@ -16,10 +16,27 @@ class CreateVideosTable extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->string('video_link');
-            $table->enum('status',array('0','1'))->default('1')->comment('1 = Active, 0 = Inactive');
+            $table->tinyInteger('status')->default('1')->comment('1 = Active, 0 = Inactive');
             $table->softDeletes();
             $table->timestamps();
         });
+
+        $data = [
+            [
+                'video_link' => 'https://youtu.be/7U4SV--iBNQ',
+            ], 
+            [
+                'video_link' => 'https://youtu.be/7U4SV--iBNQ',
+            ], 
+            [
+                'video_link' => 'https://youtu.be/7U4SV--iBNQ',
+            ], 
+            [
+                'video_link' => 'https://youtu.be/7U4SV--iBNQ',
+            ]
+        ];
+
+        DB::table('videos')->insert($data);
     }
 
     /**

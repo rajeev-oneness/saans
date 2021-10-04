@@ -16,10 +16,47 @@ class CreatePrincipalsTable extends Migration
         Schema::create('principals', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('status',array('0','1'))->default('1')->comment('1 = Active, 0 = Inactive');
+            $table->tinyInteger('status')->default('1')->comment('1 = Active, 0 = Inactive');
             $table->softDeletes();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
+
+        $data = [
+            [
+                'name' => 'Neosacn Bave'
+            ],
+            [
+                'name' => 'Hirox',
+
+            ],
+            [
+                'name' => 'Ostec Corporate Group'
+
+            ],
+            [
+                'name' => 'Elemission Inc.'
+
+            ],
+            [
+                'name' => 'Precisa'
+
+            ],
+            [
+                'name' => 'FALC Instruments'
+
+            ],
+            [
+                'name' => 'ORS (Object Research Systems) for Dragonfly Software'
+
+            ],
+            [
+                'name' => 'Media Cybernetics, Inc. for Image Pro Software'
+
+            ]
+        ];
+
+        DB::table('principals')->insert($data);
     }
 
     /**

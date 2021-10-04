@@ -65,24 +65,24 @@ class ProductController extends Controller
             'image5' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $fileName = time().'.'.$request->image1->extension();
-        $request->image1->move(public_path('uploads/'), $fileName);
-        $image1 ='uploads/'.$fileName;
+        $request->image1->move(public_path('uploads/product/'), $fileName);
+        $image1 ='uploads/product/'.$fileName;
 
         $fileName = time().'.'.$request->image2->extension();
-        $request->image2->move(public_path('uploads/'), $fileName);
-        $image2 ='uploads/'.$fileName;
+        $request->image2->move(public_path('uploads/product/'), $fileName);
+        $image2 ='uploads/product/'.$fileName;
 
         $fileName = time().'.'.$request->image3->extension();
-        $request->image3->move(public_path('uploads/'), $fileName);
-        $image3 ='uploads/'.$fileName;
+        $request->image3->move(public_path('uploads/product/'), $fileName);
+        $image3 ='uploads/product/'.$fileName;
 
         $fileName = time().'.'.$request->image4->extension();
-        $request->image4->move(public_path('uploads/'), $fileName);
-        $image4 ='uploads/'.$fileName;
+        $request->image4->move(public_path('uploads/product/'), $fileName);
+        $image4 ='uploads/product/'.$fileName;
 
         $fileName = time().'.'.$request->image5->extension();
-        $request->image5->move(public_path('uploads/'), $fileName);
-        $image5 ='uploads/'.$fileName;
+        $request->image5->move(public_path('uploads/product/'), $fileName);
+        $image5 ='uploads/product/'.$fileName;
 
         $product = new Product;
         $product->categoryId = $request->categoryId;
@@ -156,8 +156,8 @@ class ProductController extends Controller
         if($request->hasFile('image1')) {
            
             $fileName = time().'.'.$request->image1->extension();
-            $request->image1->move(public_path('uploads/'), $fileName);
-            $image1 ='uploads/'.$fileName;
+            $request->image1->move(public_path('uploads/product/'), $fileName);
+            $image1 ='uploads/product/'.$fileName;
             Product::where('id', $id)->update([
                 'image1' => $image1,
             ]);
@@ -166,8 +166,8 @@ class ProductController extends Controller
         if($request->hasFile('image2')) {
            
            $fileName = time().'.'.$request->image2->extension();
-            $request->image2->move(public_path('uploads/'), $fileName);
-            $image2 ='uploads/'.$fileName;
+            $request->image2->move(public_path('uploads/product/'), $fileName);
+            $image2 ='uploads/product/'.$fileName;
 
             Product::where('id', $id)->update([
                 'image2' => $image2,
@@ -178,8 +178,8 @@ class ProductController extends Controller
         if($request->hasFile('image3')) {
            
             $fileName = time().'.'.$request->image3->extension();
-            $request->image3->move(public_path('uploads/'), $fileName);
-            $image3 ='uploads/'.$fileName;
+            $request->image3->move(public_path('uploads/product/'), $fileName);
+            $image3 ='uploads/product/'.$fileName;
 
             Product::where('id', $id)->update([
                 'image3' => $image3,
@@ -190,8 +190,8 @@ class ProductController extends Controller
         if($request->hasFile('image4')) {
            
             $fileName = time().'.'.$request->image4->extension();
-            $request->image4->move(public_path('uploads/'), $fileName);
-            $image4 ='uploads/'.$fileName;
+            $request->image4->move(public_path('uploads/product/'), $fileName);
+            $image4 ='uploads/product/'.$fileName;
 
             Product::where('id', $id)->update([
                 'image4' => $image4,
@@ -201,8 +201,8 @@ class ProductController extends Controller
         if($request->hasFile('image5')) {
            
             $fileName = time().'.'.$request->image5->extension();
-            $request->image5->move(public_path('uploads/'), $fileName);
-            $image5 ='uploads/'.$fileName;
+            $request->image5->move(public_path('uploads/product/'), $fileName);
+            $image5 ='uploads/product/'.$fileName;
             Product::where('id', $id)->update([
                 'image5' => $image5,
             ]);

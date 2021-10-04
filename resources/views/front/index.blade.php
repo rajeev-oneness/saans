@@ -1,7 +1,4 @@
- 
 @extends('front.layouts.master')
-
-
 @section('content')
   
 <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -45,9 +42,9 @@
       <div class="row">
         <div class="col-lg-6 wow fadeInLeft" data-wow-duration="2s">
           <div class="about-box">
-            <!-- <p><span>06+</span>
-              <br/>YEARS OF WORKING EXPERIENCE IN THIS FIELD</p> -->
-              <p><span>{{$aboutCompany->extra_info}}</span></p>
+            <p><span>06+</span>
+              <br/>YEARS OF WORKING EXPERIENCE IN THIS FIELD</p>
+              <!-- <p>{{$aboutCompany->extra_info}}</p> -->
           </div>
           <div class="about-img"> <img src="{{ asset($aboutCompany->image) }}" class="img-fluid mx-auto"> </div>
         </div>
