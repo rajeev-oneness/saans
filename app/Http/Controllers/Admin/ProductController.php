@@ -89,6 +89,7 @@ class ProductController extends Controller
         $product = new Product;
         $product->categoryId = $request->categoryId;
         $product->subCategoryId = $request->subCategoryId;
+        $product->principalId = $request->principalId;
         $product->name = $request->name;
         $product->description = $request->description;
         $product->feature = $request->feature;
@@ -217,6 +218,7 @@ class ProductController extends Controller
         Product::where('id', $id)->update([
         'categoryId' => $request->categoryId,
         'subCategoryId' => $request->subCategoryId,
+        // 'principalId' => $request->principalId,
         'name' =>$request->name,
         'description' => $request->description,
         'feature' => $request->feature,
