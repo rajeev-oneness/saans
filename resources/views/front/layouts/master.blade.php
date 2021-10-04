@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>Saans</title>
 	  <meta charset="utf-8">
 	  <link rel="icon" href="images/favicon.png" type="image/png" sizes="40x19">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
