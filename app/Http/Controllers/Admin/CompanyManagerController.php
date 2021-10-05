@@ -50,7 +50,7 @@ class CompanyManagerController extends Controller
         $comManager->logo = $logo;
         $comManager->save();
 
-        return redirect('admin/company-manager/add')->with('success','Company Manager Added Successfully');
+        return redirect('admin/company-manager')->with('success','Company Manager Added Successfully');
     }
 
     /**

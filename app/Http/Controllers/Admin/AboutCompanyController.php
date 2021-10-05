@@ -51,7 +51,7 @@ class AboutCompanyController extends Controller
         $manar->image = $image;
         // $category->status = 1;
         $manar->save();
-        return redirect('admin/about-company/add')->with('success','About Company Added Successfully');
+        return redirect('admin/about-company')->with('success','About Company Added Successfully');
     }
 
     /**

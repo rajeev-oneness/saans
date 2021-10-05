@@ -69,7 +69,7 @@ class AboutUsController extends Controller
         $aboutus->save();
 
         // return redirect()->route('product.view');
-        return redirect('admin/about_us/add')->with('success','About Us Added Successfully');
+        return redirect('admin/about_us')->with('success','About Us Added Successfully');
     }
 
     /**

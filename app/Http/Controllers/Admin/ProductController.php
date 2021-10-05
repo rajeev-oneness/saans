@@ -103,7 +103,7 @@ class ProductController extends Controller
         $product->save();
 
         // return redirect()->route('product.view');
-        return redirect('admin/product/add')->with('success','Product Added Successfully');
+        return redirect('admin/product')->with('success','Product Added Successfully');
     }
 
     /**

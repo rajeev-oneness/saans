@@ -44,7 +44,7 @@ class VideoController extends Controller
         $video->video_link = $request->input('video_link');
         // $category->status = 1;
         $video->save();
-        return redirect('admin/video/add')->with('success','Video Added Successfully');
+        return redirect('admin/video')->with('success','Video Added Successfully');
     }
 
     /**

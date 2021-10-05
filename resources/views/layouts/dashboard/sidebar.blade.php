@@ -118,7 +118,7 @@
           <li class="nav-item has-treeview">
             <a href="{{ route('company.manager.view') }}" class="nav-link">
               <p>
-                Company Manager
+                Manager of Company
               </p>
             </a>
           </li>

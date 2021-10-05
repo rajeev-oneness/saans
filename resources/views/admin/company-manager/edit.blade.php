@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Company Manager Edit</h1>
+            <h1>Manager of Company Edit</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -20,7 +20,7 @@
         <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Company Manager</h3>
+              <h3 class="card-title">Manager of Company</h3>
             <div class="card-tools">
                 <a class="headerbuttonforAdd addBlogCategory" href="{{route('principal.product.view')}}">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i> Back

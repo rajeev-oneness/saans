@@ -43,7 +43,7 @@ class PrincipalController extends Controller
         $principal = new Principal;
         $principal->name = $request->input('name');
         $principal->save();
-        return redirect('admin/principal/add')->with('success','Principal Added Successfully');
+        return redirect('admin/principal')->with('success','Principal Added Successfully');
         // return redirect()->back()->with('success','Principal Added Successfully');
     }
 
