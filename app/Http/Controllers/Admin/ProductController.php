@@ -94,6 +94,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->feature = $request->feature;
         $product->larger_specification = $request->larger_specification;
+        $principalPro->redirect_link = $request->redirect_link;
         $product->image1 = $image1;
         $product->image2 = $image2;
         $product->image3 = $image3;
@@ -223,6 +224,7 @@ class ProductController extends Controller
         'description' => $request->description,
         'feature' => $request->feature,
         'larger_specification' => $request->larger_specification,
+        'redirect_link' => $request->redirect_link,
         ]);
         // return redirect()->route('product.view');
         return redirect('admin/product')->with('success','Product Updated Successfully');

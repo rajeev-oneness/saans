@@ -57,6 +57,8 @@
                                     <th>Principal</th>
                                     <th>Feature</th>
                                     <th>Larger Specification</th>
+                                    <th>Redirect Link</th>
+                                    
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -77,6 +79,7 @@
                                     <td>{{$product->principalDetail->name}}</td>
                                     <td>{{$product->feature}}</td>
                                     <td>{{$product->larger_specification}}</td>
+                                    <td>{{$product->redirect_link}}</td>
                                     @if($product->status==1)
                                     <td>Active</td>
                                     @else

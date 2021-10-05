@@ -94,6 +94,10 @@
                             <label for="larger_specification" class="control-label">Larger Specification</label>
                             <input type="text" class="form-control" name="larger_specification" value="{{$product->larger_specification}}" id="duration"  placeholder="Larger Specification" required>
                           </div>
+                          <div class="form-group required">
+                            <label for="redirect_link" class="control-label">Link</label>
+                            <input type="text" class="form-control" name="redirect_link" value="{{$PrincipalPro->redirect_link}}" id="duration"  placeholder="Link" required>
+                          </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
                 </div>

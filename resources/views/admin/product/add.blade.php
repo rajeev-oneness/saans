@@ -172,6 +172,15 @@
                                     </span>
                                 @enderror 
                             </div>
+                            <div class="form-group">
+                                <label for="redirect_link">Link</label>
+                                <input id="redirect_link" type="text" class="form-control @error('redirect_link') is-invalid @enderror" name="redirect_link" value="{{ old('redirect_link') }}"  >
+                                @error('redirect_link')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror   
+                            </div>
                             <div class="col-12">
                               <!-- <a href="#" class="btn btn-secondary">Cancel</a> -->
                                <button type="submit"  class="btn btn-success float-right">Add</button>

@@ -61,8 +61,8 @@
       </div>
    </section>
 
- <div class="container">
-  <div class="row">
+ <!-- <div class="container"> -->
+  <!-- <div class="row">
     <div class="col-lg-3 col-sm-5 vertical-tabs">
       <ul class="list-tabs vertical-tab-sticky">
         <li class="active">
@@ -96,19 +96,21 @@
                 <div class="tab-text">
                    <h4>{{$product->feature}}</h4>
                    <ul class="tab-point">
-                    <li>The specimen exchange sequence prevents potential damage to the system or the sample.</li>
-<li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
-<li>Increase sample manipulation with Stage Free Mode*.</li>
-<li>The Chamber Scope enhances the safety of stage movements*.</li></ul>
+                      <li>The specimen exchange sequence prevents potential damage to the system or the sample.</li>
+                      <li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
+                      <li>Increase sample manipulation with Stage Free Mode*.</li>
+                      <li>The Chamber Scope enhances the safety of stage movements*.</li>
+                    </ul>
 
- <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
+                      <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
                    <ul class="tab-point">
-                    <li>Integrated in-chamber camera display</li>
-<li>Easily navigate the entire observable area</li>
-<li>Detector-oriented rotation</li></ul>
+                      <li>Integrated in-chamber camera display</li>
+                      <li>Easily navigate the entire observable area</li>
+                      <li>Detector-oriented rotation</li>
+                    </ul>
                 </div>
                 <div class="">
-                   <img src="images/tab-f1.jpg" class="img-fluid">
+                    <img src="images/tab-f1.jpg" class="img-fluid">
                 </div>
             </div>
 
@@ -117,15 +119,16 @@
                    <h4>Robust Stage for Flexibility in Sample Size, Shape, and Weight</h4>
                    <ul class="tab-point">
                     <li>The specimen exchange sequence prevents potential damage to the system or the sample.</li>
-<li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
-<li>Increase sample manipulation with Stage Free Mode*.</li>
-<li>The Chamber Scope enhances the safety of stage movements*.</li></ul>
+                    <li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
+                    <li>Increase sample manipulation with Stage Free Mode*.</li>
+                    <li>The Chamber Scope enhances the safety of stage movements*.</li>
+                  </ul>
 
- <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
+                    <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
                    <ul class="tab-point">
                     <li>Integrated in-chamber camera display</li>
-<li>Easily navigate the entire observable area</li>
-<li>Detector-oriented rotation</li></ul>
+                    <li>Easily navigate the entire observable area</li>
+                    <li>Detector-oriented rotation</li></ul>
                 </div>
                 <div class="">
                    <img src="images/tab-f2.jpg" class="img-fluid">
@@ -136,15 +139,17 @@
                    <h4>Robust Stage for Flexibility in Sample Size, Shape, and Weight</h4>
                    <ul class="tab-point">
                     <li>The specimen exchange sequence prevents potential damage to the system or the sample.</li>
-<li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
-<li>Increase sample manipulation with Stage Free Mode*.</li>
-<li>The Chamber Scope enhances the safety of stage movements*.</li></ul>
+                    <li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
+                    <li>Increase sample manipulation with Stage Free Mode*.</li>
+                    <li>The Chamber Scope enhances the safety of stage movements*.</li>
+                  </ul>
 
- <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
+                  <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
                    <ul class="tab-point">
                     <li>Integrated in-chamber camera display</li>
-<li>Easily navigate the entire observable area</li>
-<li>Detector-oriented rotation</li></ul>
+                    <li>Easily navigate the entire observable area</li>
+                    <li>Detector-oriented rotation</li>
+                  </ul>
                 </div>
                 <div class="">
                    <img src="images/tab-f3.jpg" class="img-fluid">
@@ -155,7 +160,7 @@
         <div class="" id="pag2">
          <div class="sv-tab-panel">
            <h3 class="product-title">Substantially Larger Specimen Chamber 
-Accommodates Oversized and Heavy Samples</h3>
+              Accommodates Oversized and Heavy Samples</h3>
               <h4>{{$product->larger_specification}}</h4>
               <h5>The specimen exchange sequence prevents potential damage to the system or the sample.</h5>
             <div class="d-sm-flex justify-content-between align-items-center flex-sm-wrap flex-lg-nowrap mt-4">
@@ -166,7 +171,7 @@ Accommodates Oversized and Heavy Samples</h3>
                    <img src="images/pro-4-details.jpg" class="img-fluid">
                 </div>
             </div>
-  <h5>Specimen Exchange Chamber*</h5>
+              <h5>Specimen Exchange Chamber*</h5>
              <div class="d-sm-flex justify-content-between align-items-center flex-sm-wrap flex-lg-nowrap mt-4">
                 <div class="tab-text">
                    <p>Exchange the specimen without venting the specimen chamber, improving throughput.</p>
@@ -175,7 +180,7 @@ Accommodates Oversized and Heavy Samples</h3>
                    <img src="images/pro-5-details.jpg" class="img-fluid">
                 </div>
             </div>
- <h5>Increase sample manipulation with the Stage Movement Restriction Cancellation function*.</h5>
+            <h5>Increase sample manipulation with the Stage Movement Restriction Cancellation function*.</h5>
             <div class="d-sm-flex justify-content-between align-items-center flex-sm-wrap flex-lg-nowrap mt-4">
                 <div class="tab-text">
                    <p>The SU3800/SU3900 can be configured with the Stage Movement Restriction Cancellation function*, which increases the flexibility of stage movement. The operator can move the stage based on their imaging requirements free of restrictions.Note: When the Stage Movement Restriction Cancellation function is used, caution and the Chamber Scope must be used in order to ensure safe operation.</p>
@@ -191,15 +196,16 @@ Accommodates Oversized and Heavy Samples</h3>
                    <h4>Robust Stage for Flexibility in Sample Size, Shape, and Weight</h4>
                    <ul class="tab-point">
                     <li>The specimen exchange sequence prevents potential damage to the system or the sample.</li>
-<li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
-<li>Increase sample manipulation with Stage Free Mode*.</li>
-<li>The Chamber Scope enhances the safety of stage movements*.</li></ul>
+                    <li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
+                    <li>Increase sample manipulation with Stage Free Mode*.</li>
+                    <li>The Chamber Scope enhances the safety of stage movements*.</li>
+                  </ul>
 
- <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
+                    <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
                    <ul class="tab-point">
                     <li>Integrated in-chamber camera display</li>
-<li>Easily navigate the entire observable area</li>
-<li>Detector-oriented rotation</li></ul>
+                    <li>Easily navigate the entire observable area</li>
+                    <li>Detector-oriented rotation</li></ul>
                 </div>
                 <div class="">
                    <img src="images/tab-f1.jpg" class="img-fluid">
@@ -216,15 +222,16 @@ Accommodates Oversized and Heavy Samples</h3>
                    <h4>Robust Stage for Flexibility in Sample Size, Shape, and Weight</h4>
                    <ul class="tab-point">
                     <li>The specimen exchange sequence prevents potential damage to the system or the sample.</li>
-<li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
-<li>Increase sample manipulation with Stage Free Mode*.</li>
-<li>The Chamber Scope enhances the safety of stage movements*.</li></ul>
+                    <li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
+                    <li>Increase sample manipulation with Stage Free Mode*.</li>
+                    <li>The Chamber Scope enhances the safety of stage movements*.</li></ul>
 
- <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
+                    <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
                    <ul class="tab-point">
                     <li>Integrated in-chamber camera display</li>
-<li>Easily navigate the entire observable area</li>
-<li>Detector-oriented rotation</li></ul>
+                    <li>Easily navigate the entire observable area</li>
+                    <li>Detector-oriented rotation</li>
+                  </ul>
                 </div>
                 <div class="">
                    <img src="images/tab-f1.jpg" class="img-fluid">
@@ -243,15 +250,15 @@ Accommodates Oversized and Heavy Samples</h3>
                    <h4>Robust Stage for Flexibility in Sample Size, Shape, and Weight</h4>
                    <ul class="tab-point">
                     <li>The specimen exchange sequence prevents potential damage to the system or the sample.</li>
-<li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
-<li>Increase sample manipulation with Stage Free Mode*.</li>
-<li>The Chamber Scope enhances the safety of stage movements*.</li></ul>
+                    <li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
+                    <li>Increase sample manipulation with Stage Free Mode*.</li>
+                    <li>The Chamber Scope enhances the safety of stage movements*.</li></ul>
 
- <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
+                    <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
                    <ul class="tab-point">
                     <li>Integrated in-chamber camera display</li>
-<li>Easily navigate the entire observable area</li>
-<li>Detector-oriented rotation</li></ul>
+                    <li>Easily navigate the entire observable area</li>
+                    <li>Detector-oriented rotation</li></ul>
                 </div>
                 <div class="">
                    <img src="images/tab-f1.jpg" class="img-fluid">
@@ -270,15 +277,15 @@ Accommodates Oversized and Heavy Samples</h3>
                    <h4>Robust Stage for Flexibility in Sample Size, Shape, and Weight</h4>
                    <ul class="tab-point">
                     <li>The specimen exchange sequence prevents potential damage to the system or the sample.</li>
-<li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
-<li>Increase sample manipulation with Stage Free Mode*.</li>
-<li>The Chamber Scope enhances the safety of stage movements*.</li></ul>
+                    <li>Exchange the specimens without venting the specimen chamber, improving throughput.</li>
+                    <li>Increase sample manipulation with Stage Free Mode*.</li>
+                    <li>The Chamber Scope enhances the safety of stage movements*.</li></ul>
 
- <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
+                    <h4>Increased Viewing Area—SEM MAP Expands the Boundaries of Sample Navigation</h4>
                    <ul class="tab-point">
                     <li>Integrated in-chamber camera display</li>
-<li>Easily navigate the entire observable area</li>
-<li>Detector-oriented rotation</li></ul>
+                    <li>Easily navigate the entire observable area</li>
+                    <li>Detector-oriented rotation</li></ul>
                 </div>
                 <div class="">
                    <img src="images/tab-f1.jpg" class="img-fluid">
@@ -290,8 +297,8 @@ Accommodates Oversized and Heavy Samples</h3>
 
       </div>
     </div>
-  </div>
-  </div>
+  </div> -->
+  <!-- </div> -->
 
 
 
