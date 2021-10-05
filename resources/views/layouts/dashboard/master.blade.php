@@ -36,7 +36,11 @@
 
  <!-- const url = "category/delete/"; -->
   <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
-
+<style>
+  .menu-open{
+    background-color: blue;
+  }
+</style>
 
   
 </head>

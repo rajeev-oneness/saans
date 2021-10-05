@@ -65,21 +65,21 @@
           </li> -->
           @if(Auth::user()->user_type == 1)
           <li class="nav-item has-treeview">
-            <a href="{{ route('category.view') }}" class="nav-link">
+            <a href="{{ route('category.view') }}" class="nav-link active">
               <p>
                 Category
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('sub-category.view') }}" class="nav-link">
+            <a href="{{ route('sub-category.view') }}" class="nav-link active">
               <p>
                 Sub Category
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('principal.view') }}" class="nav-link">
+            <a href="{{ route('principal.view') }}" class="nav-link active">
               <p>
                 Principals
               </p>
@@ -87,7 +87,7 @@
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="{{ route('product.view') }}" class="nav-link">
+            <a href="{{ route('product.view') }}" class="nav-link active">
               <p>
                 Product
               </p>
@@ -95,49 +95,49 @@
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="{{ route('principal.product.view') }}" class="nav-link">
+            <a href="{{ route('principal.product.view') }}" class="nav-link active">
               <p>
                 Principals Product
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('video.view') }}" class="nav-link">
+            <a href="{{ route('video.view') }}" class="nav-link active">
               <p>
                 Video
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('banar.view') }}" class="nav-link">
+            <a href="{{ route('banar.view') }}" class="nav-link active">
               <p>
                 Banner
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('company.manager.view') }}" class="nav-link">
+            <a href="{{ route('company.manager.view') }}" class="nav-link active">
               <p>
                 Manager of Company
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('about.company.view') }}" class="nav-link">
+            <a href="{{ route('about.company.view') }}" class="nav-link active">
               <p>
                 About Company
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('about_us.view') }}" class="nav-link">
+            <a href="{{ route('about_us.view') }}" class="nav-link active">
               <p>
                 About Us
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('contact_us.report.view') }}" class="nav-link">
+            <a href="{{ route('contact_us.report.view') }}" class="nav-link active">
               <p>
                 Contact Us Report
               </p>

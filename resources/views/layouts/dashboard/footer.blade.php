@@ -68,7 +68,14 @@
 <script type="text/javascript">
         $(document).ready(function() {
         $('.ckeditor').ckeditor();
+
+          $('.nav-link').on('click', function() {
+            $(this).addClass('active');
+          });
         });
+        
+
+        
 </script>
 </body>
 </html>

@@ -42,7 +42,9 @@ class FrontController extends Controller
     {
         $aboutUs = AboutUs::latest()->first();
         $categories = Category::get();
-        return view('front.about',compact('aboutUs','categories'));
+        $products = Product::get();
+        $productcount = count($products);
+        return view('front.about',compact('aboutUs','categories','productcount'));
     }
     public function contact()
     {
