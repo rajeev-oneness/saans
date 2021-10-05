@@ -95,8 +95,12 @@ class FrontController extends Controller
     // }
    public function principalWiseProduct($id)
     {
-        $data = PrincipalProduct::where('principalId', $id)
-                ->paginate(6);
+        $data = Product::where('principalId', $id)
+        ->paginate(6);
+        // $data = PrincipalProduct::where('principalId', $id)
+        // ->paginate(6);
+        // $productData = Product::where('principalId', $id)
+        //         ->paginate(6);
 
         $principalName = Principal::where('id', '=', $id)->select('name')->first();
         return view('front.principal-product-details', compact('data','principalName'));

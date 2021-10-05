@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Benar Edit</h1>
+            <h1>Banner Edit</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -20,7 +20,7 @@
         <div class="col-md-12">
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Benar</h3>
+              <h3 class="card-title">Banner</h3>
             <div class="card-tools">
                 <a class="headerbuttonforAdd addBlogCategory" href="{{route('banar.view')}}">
                             <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
@@ -62,7 +62,7 @@
                             @enderror
 
                         </div>
-                        <button type="submit" class="btn btn-primary">Update Banar</button>
+                        <button type="submit" class="btn btn-primary">Update Banner</button>
                       </form>
                 </div>
             <!-- /.card-body -->

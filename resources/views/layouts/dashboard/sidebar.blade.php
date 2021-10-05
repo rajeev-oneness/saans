@@ -111,7 +111,7 @@
           <li class="nav-item has-treeview">
             <a href="{{ route('banar.view') }}" class="nav-link">
               <p>
-                Benar
+                Banner
               </p>
             </a>
           </li>
