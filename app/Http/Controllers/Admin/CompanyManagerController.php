@@ -50,7 +50,7 @@ class CompanyManagerController extends Controller
         $comManager->logo = $logo;
         $comManager->save();
 
-        return redirect('admin/company-manager')->with('success','Company Manager Added Successfully');
+        return redirect('admin/company-manager')->with('success','Manager of Company Added Successfully');
     }
 
     /**
@@ -101,7 +101,7 @@ class CompanyManagerController extends Controller
         companyManager::where('id', $id)->update([
             'redirect_link' => $request->redirect_link,
         ]);
-        return redirect('admin/company-manager')->with('success','Company Mnager Updated Successfully');
+        return redirect('admin/company-manager')->with('success','Manager of Company Updated Successfully');
     }
 
     /**
