@@ -94,13 +94,13 @@
             </a>
           </li>
 
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="{{ route('principal.product.view') }}" class="nav-link active">
               <p>
                 Principals Product
               </p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item has-treeview">
             <a href="{{ route('video.view') }}" class="nav-link active">
               <p>
