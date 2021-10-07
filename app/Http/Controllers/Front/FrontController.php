@@ -69,16 +69,12 @@ class FrontController extends Controller
                 // dd($subCats);exit;
 
         $categoryName = Category::where('id', '=', $id)->select('name')->first();
-//         $subCategories = SubCategory::where('id', '=', $id)->get();
-// dd($subCategories);exit;
+        //         $subCategories = SubCategory::where('id', '=', $id)->get();
+        // dd($subCategories);exit;
         $sub_categories_data = [];
         foreach($subCats as $subCategory){
             $subCategory->allProductByCat = Product::where('subCategoryId', $subCategory->id)->get();
-
-            if($subCategory->allProductByCat){
                 $sub_categories_data[] = $subCategory;
-
-            }
         }
         return view('front.products', compact('data','categoryName','subCats','sub_categories_data'));
     }

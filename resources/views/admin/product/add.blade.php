@@ -200,29 +200,49 @@
     <!-- /.content -->
   </div>
 @section('script')
-     <!-- <script>
-      $(document).ready(function() {
-     
-      $('#categoryId').on('change', function() {
-      var categoryId = this.value;
-      $("#subCategoryId").html('');
-      $.ajax({
-      url:"{{url('admin/get-sub-category-by-category')}}",
-      type: "POST",
-      data: {
-      categoryId: categoryId,
-      _token: '{{csrf_token()}}'
-      },
-      dataType : 'json',
-      success: function(result){
-      $.each(result.category,function(key,value){
-      $("#subCategoryId").append('<option value="'+value.id+'">'+value.sub_category_name+'</option>');
+    <script>
+        $(document).ready(function() {
+            $('#categoryId').on('change', function () {
+                var categoryId = $('#categoryId').val();
+                $.ajax({
+                    url : "{{route('admin.product.manage.category')}}",
+                    type : 'POST',
+                    data : {
+                        _token : '{{csrf_token()}}',
+                        val : categoryId
+                    },
+                    success: function(result) {
+                        var options  = '<option value="" selected="" hidden="">Select Sub-Category</option>';
+                        $.each(result.sub,function(key,val){
+                            options += '<option value="'+val.id+'">'+val.sub_category_name+'</option>';
+                        });
+                        $('#subCategory').empty().append(options);
+                        // $res->success = false;
+                    }
+                });
+            });
+
+
+    //   $('#categoryId').on('change', function() {
+    //   var categoryId = this.value;
+    //   $("#subCategoryId").html('');
+    //   $.ajax({
+    //   url:"{{url('admin/get-sub-category-by-category')}}",
+    //   type: "POST",
+    //   data: {
+    //   categoryId: categoryId,
+    //   _token: '{{csrf_token()}}'
+    //   },
+    //   dataType : 'json',
+    //   success: function(result){
+    //   $.each(result.category,function(key,value){
+    //   $("#subCategoryId").append('<option value="'+value.id+'">'+value.sub_category_name+'</option>');
+    //   });
+    //   }
+    //   });
+    //   });
       });
-      }
-      });
-      });
-      });
-      </script> -->
+      </script>
 @stop
 @endsection
 

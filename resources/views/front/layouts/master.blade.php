@@ -257,6 +257,7 @@
     new WOW().init();
   });
   </script>
+  @yield('script')
 </body>
 
 </html>

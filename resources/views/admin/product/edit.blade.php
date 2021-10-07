@@ -96,7 +96,7 @@
                           </div>
                           <div class="form-group required">
                             <label for="redirect_link" class="control-label">Link</label>
-                            <input type="text" class="form-control" name="redirect_link" value="{{$PrincipalPro->redirect_link}}" id="duration"  placeholder="Link" required>
+                            <input type="text" class="form-control" name="redirect_link" value="{{$product->redirect_link}}" id="duration"  placeholder="Link" required>
                           </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
@@ -131,10 +131,29 @@
 @endsection
 @section('script')
     <script>
-        $(document).ready(function() {
-            $('form').submit(function(){
-                $(this).find('button[type=submit]').prop('disabled', true);
+        // $(document).ready(function() {
+        //     $('form').submit(function(){
+        //         $(this).find('button[type=submit]').prop('disabled', true);
+        //     });
+        // });
+            $('#categoryId').on('change', function () {
+                var categoryId = $('#categoryId').val();
+                $.ajax({
+                    url : "{{route('admin.product.manage.category')}}",
+                    type : 'POST',
+                    data : {
+                        _token : '{{csrf_token()}}',
+                        val : categoryId
+                    },
+                    success: function(result) {
+                        var options  = '<option value="" selected="" hidden="">Select Sub-Category</option>';
+                        $.each(result.sub,function(key,val){
+                            options += '<option value="'+val.id+'">'+val.sub_category_name+'</option>';
+                        });
+                        $('#subCategory').empty().append(options);
+                        // $res->success = false;
+                    }
+                });
             });
-        });
-    </script>
+      </script>
 @endsection

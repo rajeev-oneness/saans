@@ -58,4 +58,4 @@
  
   @include('layouts.dashboard.footer')
  
- @yield('script')
+  @yield('script')

@@ -39,10 +39,20 @@ class ProductController extends Controller
     public function create()
     { 
         $categories=Category::get();
-        $subCategories=SubCategory::get();
+        $categorieId=Category::select('id')->get();
+        // dd($categorieId);exit;
+        $subCategories=SubCategory::where('id',$categorieId)->get();
+        // dd($subCategories);exit;
         $principals=Principal::get();
         // dd($subCategories);exit;
         return view('admin.product.add',compact('categories','subCategories','principals'));
+    }
+
+    public function manage(Request $request)
+    {
+        $categoryid = $request->val;
+        $subcategories = SubCategory::where('categoryId',$categoryid)->get();
+        return response()->json(['sub' => $subcategories]);
     }
 
     /**
@@ -94,7 +104,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->feature = $request->feature;
         $product->larger_specification = $request->larger_specification;
-        $principalPro->redirect_link = $request->redirect_link;
+        $product->redirect_link = $request->redirect_link;
         $product->image1 = $image1;
         $product->image2 = $image2;
         $product->image3 = $image3;
