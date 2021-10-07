@@ -60,7 +60,7 @@
                         </div>
                          <div class="form-group required">
                             <label for="principal" class="control-label">Select Category</label>
-                            <select class="form-control" id="category" name="categoryId" required>
+                            <select class="form-control" id="categoryId" name="categoryId" required>
                                 @foreach ($categories as $category)
                                     <option value="{{$category->id}}" {{ $product->id == $product->categoryId ? 'selected' : '' }}>{{$category->name}}</option>
                                 @endforeach
@@ -138,6 +138,7 @@
         // });
             $('#categoryId').on('change', function () {
                 var categoryId = $('#categoryId').val();
+                // alert(categoryId);
                 $.ajax({
                     url : "{{route('admin.product.manage.category')}}",
                     type : 'POST',
