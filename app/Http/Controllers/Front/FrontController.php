@@ -42,7 +42,9 @@ class FrontController extends Controller
     {
         $aboutUs = AboutUs::latest()->first();
         $categories = Category::get();
-        return view('front.about',compact('aboutUs','categories'));
+        $products = Product::get();
+        $productcount = count($products);
+        return view('front.about',compact('aboutUs','categories','productcount'));
     }
     public function contact()
     {
@@ -67,16 +69,12 @@ class FrontController extends Controller
                 // dd($subCats);exit;
 
         $categoryName = Category::where('id', '=', $id)->select('name')->first();
-//         $subCategories = SubCategory::where('id', '=', $id)->get();
-// dd($subCategories);exit;
+        //         $subCategories = SubCategory::where('id', '=', $id)->get();
+        // dd($subCategories);exit;
         $sub_categories_data = [];
         foreach($subCats as $subCategory){
             $subCategory->allProductByCat = Product::where('subCategoryId', $subCategory->id)->get();
-
-            if($subCategory->allProductByCat){
                 $sub_categories_data[] = $subCategory;
-
-            }
         }
         return view('front.products', compact('data','categoryName','subCats','sub_categories_data'));
     }
@@ -95,8 +93,12 @@ class FrontController extends Controller
     // }
    public function principalWiseProduct($id)
     {
-        $data = PrincipalProduct::where('principalId', $id)
-                ->paginate(6);
+        $data = Product::where('principalId', $id)
+        ->paginate(6);
+        // $data = PrincipalProduct::where('principalId', $id)
+        // ->paginate(6);
+        // $productData = Product::where('principalId', $id)
+        //         ->paginate(6);
 
         $principalName = Principal::where('id', '=', $id)->select('name')->first();
         return view('front.principal-product-details', compact('data','principalName'));

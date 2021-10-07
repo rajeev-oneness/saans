@@ -8,12 +8,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Company Manager</h1>
+          <h1>Manager of Company</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Company Manager</li>
+            <li class="breadcrumb-item active">Manager of Company</li>
           </ol>
         </div>
       </div>
@@ -26,16 +26,16 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Company Manager</h3>
+        <h3 class="card-title">Manager of Company</h3>
 
         <div class="card-tools">
             <a class="headerbuttonforAdd addBlogCategory" href="{{ url('admin/company-manager/add') }}">
                 <i class="fa fa-plus" aria-hidden="true"></i>Add
             </a>
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                <i class="fas fa-times"></i></button>
+            <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fas fa-minus"></i></button> -->
+            <!-- <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                <i class="fas fa-times"></i></button> -->
         </div>
       </div>
       <div class="card-body">

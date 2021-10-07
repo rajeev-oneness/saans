@@ -144,10 +144,10 @@
         <div class="col-lg-2 col-sm-6 wow slideInLeft" data-wow-duration="2s">
           <p class="footer-heading">Quick links</p> <span class="animate-border border-black"></span>
           <ul class="footer-list">
-            <li><a href="#">About Us</a></li>
+            <li><a href="{{ route(/about-us)}}">About Us</a></li>
             <li><a href="#">  Products</a></li>
             <li><a href="#">  My Account</a></li>
-            <li><a href="#">  Contact Us</a></li>
+            <li><a href="{{ route(/contact-us)}}">  Contact Us</a></li>
           </ul>
           <ul class="social">
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>

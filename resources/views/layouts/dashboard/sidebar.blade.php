@@ -94,13 +94,13 @@
             </a>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="{{ route('principal.product.view') }}" class="nav-link">
+          <!-- <li class="nav-item has-treeview">
+            <a href="{{ route('principal.product.view') }}" class="nav-link active">
               <p>
                 Principals Product
               </p>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item has-treeview">
             <a href="{{ route('video.view') }}" class="nav-link">
               <p>
@@ -111,14 +111,14 @@
           <li class="nav-item has-treeview">
             <a href="{{ route('banar.view') }}" class="nav-link">
               <p>
-                Banar
+                Banner
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
             <a href="{{ route('company.manager.view') }}" class="nav-link">
               <p>
-                Company Manager
+                Manager of Company
               </p>
             </a>
           </li>
@@ -501,10 +501,10 @@
                   <p>Contact Us</p>
                 </a>
               </li>
-              <li class="nav-item d-none d-sm-inline-block">
+              <!-- <li class="nav-item d-none d-sm-inline-block"> -->
                 <!-- <a href="{{ route('logout') }}" class="nav-link">Logout</a> -->
 
-                <a  class="nav-link" href="{{ route('logout') }}"
+                <!-- <a  class="nav-link" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
                     <i class="far fa-circle nav-icon"></i>
@@ -514,7 +514,7 @@
                     @csrf
                 </form>
 
-              </li>
+              </li> -->
               <!-- <li class="nav-item">
                 <a href="pages/examples/register.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

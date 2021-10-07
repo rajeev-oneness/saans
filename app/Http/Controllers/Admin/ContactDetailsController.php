@@ -62,7 +62,7 @@ class ContactDetailsController extends Controller
         $contactDetail->twiter_link = $request->input('twiter_link');
         // $category->status = 1;
         $contactDetail->save();
-        return redirect('admin/contact-details/add')->with('success','Contact Details Added Successfully');
+        return redirect('admin/contact-details')->with('success','Contact Details Added Successfully');
     }
     /**
      * Display the specified resource.

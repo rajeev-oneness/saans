@@ -137,13 +137,23 @@
                             </div> -->
 
                             <div class="form-group required">
-                            <label for="subCategoryId" class="control-label">Select Sub-Category</label>
-                            <select class="form-control" id="subCategory" name="subCategoryId" required>
-                                @foreach ($subCategories as $subCategory)
-                                    <option value="{{$subCategory->id}}">{{$subCategory->sub_category_name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                                <label for="subCategoryId" class="control-label">Select Sub-Category</label>
+                                <select class="form-control" id="subCategory" name="subCategoryId" required>
+                                        <option selected disabled>Select one</option>
+                                    @foreach ($subCategories as $subCategory)
+                                        <option value="{{$subCategory->id}}">{{$subCategory->sub_category_name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group required">
+                                <label for="principalId" class="control-label">Select Principal</label>
+                                <select class="form-control" id="principalId" name="principalId" required>
+                                        <option selected disabled>Select one</option>
+                                    @foreach ($principals as $principal)
+                                        <option value="{{$principal->id}}">{{$principal->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div> 
                             <div class="form-group">
                                 <label for="feature">Feature</label>
                                 <input type="text" id="feature" name="feature" class="form-control @error('feature') is-invalid @enderror">
@@ -161,6 +171,15 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror 
+                            </div>
+                            <div class="form-group">
+                                <label for="redirect_link">Link</label>
+                                <input id="redirect_link" type="text" class="form-control @error('redirect_link') is-invalid @enderror" name="redirect_link" value="{{ old('redirect_link') }}"  >
+                                @error('redirect_link')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror   
                             </div>
                             <div class="col-12">
                               <!-- <a href="#" class="btn btn-secondary">Cancel</a> -->
@@ -181,29 +200,49 @@
     <!-- /.content -->
   </div>
 @section('script')
-     <!-- <script>
-      $(document).ready(function() {
-     
-      $('#categoryId').on('change', function() {
-      var categoryId = this.value;
-      $("#subCategoryId").html('');
-      $.ajax({
-      url:"{{url('admin/get-sub-category-by-category')}}",
-      type: "POST",
-      data: {
-      categoryId: categoryId,
-      _token: '{{csrf_token()}}'
-      },
-      dataType : 'json',
-      success: function(result){
-      $.each(result.category,function(key,value){
-      $("#subCategoryId").append('<option value="'+value.id+'">'+value.sub_category_name+'</option>');
+    <script>
+        $(document).ready(function() {
+            $('#categoryId').on('change', function () {
+                var categoryId = $('#categoryId').val();
+                $.ajax({
+                    url : "{{route('admin.product.manage.category')}}",
+                    type : 'POST',
+                    data : {
+                        _token : '{{csrf_token()}}',
+                        val : categoryId
+                    },
+                    success: function(result) {
+                        var options  = '<option value="" selected="" hidden="">Select Sub-Category</option>';
+                        $.each(result.sub,function(key,val){
+                            options += '<option value="'+val.id+'">'+val.sub_category_name+'</option>';
+                        });
+                        $('#subCategory').empty().append(options);
+                        // $res->success = false;
+                    }
+                });
+            });
+
+
+    //   $('#categoryId').on('change', function() {
+    //   var categoryId = this.value;
+    //   $("#subCategoryId").html('');
+    //   $.ajax({
+    //   url:"{{url('admin/get-sub-category-by-category')}}",
+    //   type: "POST",
+    //   data: {
+    //   categoryId: categoryId,
+    //   _token: '{{csrf_token()}}'
+    //   },
+    //   dataType : 'json',
+    //   success: function(result){
+    //   $.each(result.category,function(key,value){
+    //   $("#subCategoryId").append('<option value="'+value.id+'">'+value.sub_category_name+'</option>');
+    //   });
+    //   }
+    //   });
+    //   });
       });
-      }
-      });
-      });
-      });
-      </script> -->
+      </script>
 @stop
 @endsection
 

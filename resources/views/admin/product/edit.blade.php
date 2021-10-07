@@ -60,7 +60,7 @@
                         </div>
                          <div class="form-group required">
                             <label for="principal" class="control-label">Select Category</label>
-                            <select class="form-control" id="category" name="categoryId" required>
+                            <select class="form-control" id="categoryId" name="categoryId" required>
                                 @foreach ($categories as $category)
                                     <option value="{{$category->id}}" {{ $product->id == $product->categoryId ? 'selected' : '' }}>{{$category->name}}</option>
                                 @endforeach
@@ -75,6 +75,14 @@
                             </select>
                         </div>
                         <div class="form-group required">
+                            <label for="principalId" class="control-label">Select Principal</label>
+                            <select class="form-control" id="principalId" name="principalId" required>
+                                @foreach ($principals as $principal)
+                                    <option value="{{$principal->id}}" {{ $product->id == $product->principalId ? 'selected' : '' }}>{{$principal->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group required">
                             <label for="description" class="control-label">Description</label>
                             <textarea class="form-control" name="description" id="description" rows="3" required>{{$product->description}}</textarea>
                         </div>
@@ -85,6 +93,10 @@
                           <div class="form-group required">
                             <label for="larger_specification" class="control-label">Larger Specification</label>
                             <input type="text" class="form-control" name="larger_specification" value="{{$product->larger_specification}}" id="duration"  placeholder="Larger Specification" required>
+                          </div>
+                          <div class="form-group required">
+                            <label for="redirect_link" class="control-label">Link</label>
+                            <input type="text" class="form-control" name="redirect_link" value="{{$product->redirect_link}}" id="duration"  placeholder="Link" required>
                           </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
@@ -119,10 +131,30 @@
 @endsection
 @section('script')
     <script>
-        $(document).ready(function() {
-            $('form').submit(function(){
-                $(this).find('button[type=submit]').prop('disabled', true);
+        // $(document).ready(function() {
+        //     $('form').submit(function(){
+        //         $(this).find('button[type=submit]').prop('disabled', true);
+        //     });
+        // });
+            $('#categoryId').on('change', function () {
+                var categoryId = $('#categoryId').val();
+                // alert(categoryId);
+                $.ajax({
+                    url : "{{route('admin.product.manage.category')}}",
+                    type : 'POST',
+                    data : {
+                        _token : '{{csrf_token()}}',
+                        val : categoryId
+                    },
+                    success: function(result) {
+                        var options  = '<option value="" selected="" hidden="">Select Sub-Category</option>';
+                        $.each(result.sub,function(key,val){
+                            options += '<option value="'+val.id+'">'+val.sub_category_name+'</option>';
+                        });
+                        $('#subCategory').empty().append(options);
+                        // $res->success = false;
+                    }
+                });
             });
-        });
-    </script>
+      </script>
 @endsection

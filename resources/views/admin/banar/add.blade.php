@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Banar Add</h1>
+            <h1>Banner Add</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Banar Add</li>
+              <li class="breadcrumb-item active">Banner Add</li>
             </ol>
           </div>
         </div>
@@ -32,7 +32,7 @@
                 <div class="col-md-12">
                 <div class="card card-primary">
                     <div class="card-header">
-                    <h3 class="card-title">Banar</h3>
+                    <h3 class="card-title">Banner</h3>
 
                    <!--  <div class="card-tools">
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -83,7 +83,7 @@
             <div class="row">
                 <div class="col-12">
                 <a href="#" class="btn btn-secondary">Cancel</a>
-                <button type="submit"  class="btn btn-success float-right">Create New Banar</button>
+                <button type="submit"  class="btn btn-success float-right">Create New Banner</button>
                 </div>
             </div>
             </div>

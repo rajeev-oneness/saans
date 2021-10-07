@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Company Manager Add</h1>
+            <h1>Manager of Company Add</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Company Manager Add</li>
+              <li class="breadcrumb-item active">Manager of Company Add</li>
             </ol>
           </div>
         </div>
@@ -32,7 +32,7 @@
                 <div class="col-md-12">
                 <div class="card card-primary">
                     <div class="card-header">
-                    <h3 class="card-title">Company Manager</h3>
+                    <h3 class="card-title">Manager of Company</h3>
 
                     <div class="card-tools">
                         <a class="headerbuttonforAdd addBlogCompanyManager" href="{{route('company.manager.view')}}">

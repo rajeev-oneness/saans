@@ -51,7 +51,7 @@ class SubCategoryController extends Controller
         $subCartegory->save();
 
         // return redirect()->route('product.view');
-        return redirect('admin/sub-category/add')->with('success','Sub-Category Added Successfully');
+        return redirect('admin/sub-category')->with('success','Sub-Category Added Successfully');
     }
 
     /**

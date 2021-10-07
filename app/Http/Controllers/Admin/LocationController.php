@@ -48,7 +48,7 @@ class LocationController extends Controller
         $location->phone = $request->input('phone');
         // $category->status = 1;
         $location->save();
-        return redirect('admin/location/add')->with('success','Location Added Successfully');
+        return redirect('admin/location')->with('success','Location Added Successfully');
     }
 
     /**

@@ -56,7 +56,7 @@
                         <div class="form-group required">
                             <label for="redirect_link" class="control-label">Link</label>
                             <input type="text" class="form-control" name="redirect_link" value="{{$PrincipalPro->redirect_link}}" id="duration"  placeholder="Link" required>
-                          </div>
+                        </div>
                         <button type="submit" class="btn btn-primary">Update Principal Product</button>
                       </form>
                 </div>

@@ -61,7 +61,7 @@ class PrincipalProductController extends Controller
         $principalPro->save();
 
         // return redirect()->route('principal.product.view');
-        return redirect('admin/principal-product/add')->with('success','Principal Product Added Successfully');
+        return redirect('admin/principal-product')->with('success','Principal Product Added Successfully');
 
     }
 

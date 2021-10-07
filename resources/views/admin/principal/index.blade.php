@@ -32,10 +32,10 @@
             <a class="headerbuttonforAdd addBlogCategory" href="{{ url('admin/principal/add') }}">
                 <i class="fa fa-plus" aria-hidden="true"></i>Add
             </a>
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-                <i class="fas fa-times"></i></button>
+            <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fas fa-minus"></i></button> -->
+            <!-- <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                <i class="fas fa-times"></i></button> -->
         </div>
       </div>
       <div class="card-body p-0">
@@ -46,7 +46,7 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Category Name</th>
+                    <th>Principal Name</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>

@@ -1,4 +1,10 @@
-
+<?php
+   $contacts=App\Models\ContactUs::where('type' ,'0')->where('key','other')->latest()->get();
+  //  dd($contacts);exit;
+   $mainContacts = $contacts->first();
+  //  dd($mainContacts);exit;
+   
+?>
 <section id="footer">
     <div class="container">
       <div class="row">
@@ -11,10 +17,10 @@
             <li><a href="{{ url('contact') }}">  Contact Us</a></li>
           </ul>
           <ul class="social">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+            <li><a href="{{$mainContacts->facebook_link}}"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="{{$mainContacts->twiter_link}}"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="{{$mainContacts->google_link}}"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="{{$mainContacts->blog_link}}"><i class="fa fa-rss"></i></a></li>
           </ul>
         </div>
         <div class="col-lg-4 col-sm-6 wow slideInRight" data-wow-duration="2s">
