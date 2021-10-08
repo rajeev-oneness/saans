@@ -160,10 +160,6 @@
   </div>
 @endsection
 
-
-
-
-
 @section('css')
 <style>
     .form-group.required .control-label:after {
