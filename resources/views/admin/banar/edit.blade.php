@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group required">
                           <label for="title" class="control-label">Title</label>
-                          <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="name" value="{{$banar->title}}"  placeholder="Title" required>
+                          <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="name" value="{{$banar->title}}"  placeholder="Title">
 
                             @error('title')
                                 <span class="invalid-feedback" role="alert">

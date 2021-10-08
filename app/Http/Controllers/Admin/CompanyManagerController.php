@@ -40,7 +40,7 @@ class CompanyManagerController extends Controller
     {
          $request->validate([
             'redirect_link' => 'required|url',
-            'logo' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'logo' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $fileName = time().'.'.$request->logo->extension();
         $request->logo->move(public_path('uploads/'), $fileName);

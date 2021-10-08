@@ -87,6 +87,11 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'sub_category_name' => 'required|string',
+            'categoryId' => 'required'
+        ]);
+      
         SubCategory::where('id', $id)->update([
         'categoryId' => $request->categoryId,
         'sub_category_name' =>$request->sub_category_name,

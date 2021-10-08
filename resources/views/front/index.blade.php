@@ -11,7 +11,7 @@
               <!-- <p class="head">We supply all kind of commonly use<span> biological systems Collection</span> <span class="animate-border border-black"></span></p> -->
               <p class="head"><span>{{$banar->title}}</span> <span class="animate-border border-black"></span></p>
               <!-- <p class="sub-head">Also we are into marketing of all kind of Optical Microscope including Metallurgical, Polarizing, Stereo Zoom, and Spectrophotometer for pharmaceutical industry.</p> <a href="#" class="btn btn-read mt-2">Contact Us<i class="fa fa-arrow-circle-right"></i></a> <a href="#" class="btn btn-read mt-2">Learn more</a> </div> -->
-              <p class="sub-head">{{$banar->sub_title}}</p> <a href="#" class="btn btn-read mt-2">Contact Us<i class="fa fa-arrow-circle-right"></i></a> <a href="#" class="btn btn-read mt-2">Learn more</a> </div>
+              <p class="sub-head">{{$banar->sub_title}}</p> <a href="{{ url('/contact') }}" class="btn btn-read mt-2">Contact Us<i class="fa fa-arrow-circle-right"></i></a> <a href="#" class="btn btn-read mt-2">Learn more</a> </div>
           </div>
   </div>
            <div class="right">
@@ -147,18 +147,6 @@
               </div>
             </div>
             @endforeach
-            <!-- <div class="owl-item">
-              <div class="d-sm-flex justify-content-between align-items-center bg-feature">
-                <div class="feature-img"> <img src="images/f1.png" class="img-fluid mx-auto"> </div>
-                <div class="feature-text">
-                  <h4>TM 3030</h4>
-                  <ul>
-                    <li>Magnification: 15 to 60,000×(digital zoom: 2×, 4×)</li>
-                    <li> Observation condition: 5kV/15kV/EDX</li>
-                    <li>Observation mode: Standard mode</li>
-                  </ul> <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
-              </div>
-            </div>
             <div class="owl-item">
               <div class="d-sm-flex justify-content-between align-items-center bg-feature">
                 <div class="feature-img"> <img src="images/f1.png" class="img-fluid mx-auto"> </div>
@@ -206,7 +194,19 @@
                     <li>Observation mode: Standard mode</li>
                   </ul> <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
               </div>
-            </div> -->
+            </div>
+            <div class="owl-item">
+              <div class="d-sm-flex justify-content-between align-items-center bg-feature">
+                <div class="feature-img"> <img src="images/f1.png" class="img-fluid mx-auto"> </div>
+                <div class="feature-text">
+                  <h4>TM 3030</h4>
+                  <ul>
+                    <li>Magnification: 15 to 60,000×(digital zoom: 2×, 4×)</li>
+                    <li> Observation condition: 5kV/15kV/EDX</li>
+                    <li>Observation mode: Standard mode</li>
+                  </ul> <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

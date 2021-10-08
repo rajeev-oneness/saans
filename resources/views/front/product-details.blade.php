@@ -31,30 +31,30 @@
           <div class="card">
             <div class="preview-pic tab-content">
               <div class="tab-pane active" id="pic-1"><img src="{{ asset($product->image1) }}" /></div>
-              <div class="tab-pane" id="pic-2"><img src="{{ asset($product->image2) }}" /></div>
-              <div class="tab-pane" id="pic-3"><img src="i{{ asset($product->image3) }}" /></div>
+              <!-- <div class="tab-pane" id="pic-2"><img src="{{ asset($product->image2) }}" /></div>
+              <div class="tab-pane" id="pic-3"><img src="i{{ asset($product->image3) }}" /></div> -->
             </div>
           </div>
 
-            <ul class="preview-thumbnail nav nav-tabs">
+            <!-- <ul class="preview-thumbnail nav nav-tabs">
               <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{ asset($product->image1) }}" /></a></li>
               <li><a data-target="#pic-2" data-toggle="tab"><img src="{{ asset($product->image2) }}" /></a></li>
               <li><a data-target="#pic-3" data-toggle="tab"><img src="{{ asset($product->image3) }}" /></a></li>              
-            </ul>            
+            </ul>             -->
           </div>
           <div class="details col-lg-6 col-sm-7">
             <h3 class="product-title">Performance & Power in a Flexible Platform</h3>            
             <p class="product-description">Hitachi High-Tech's scanning electron microscopes SU3800/SU3900 deliver both operability and expandability. The operator can automate many operations and efficiently utilize their high performance. The SU3900 is equipped with a large multipurpose specimen chamber to accommodate observation of large samples.</p>
           
             <div class="action">
-             <a class="btn btn-read mt-2" href="#">Contact Us</a>
+             <a class="btn btn-read mt-2" href="{{ url('/contact') }}">Contact Us</a>
               <a class="btn btn-read mt-2" href="#">Get BROCHURE</a>
             </div>
              <ul class="social mt-3">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+            <li><a href="{{$mainContacts->facebook_link}}"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="{{$mainContacts->twiter_link}}"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="{{$mainContacts->google_link}}"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="{{$mainContacts->blog_link}}"><i class="fa fa-rss"></i></a></li>
           </ul>
           </div>
         </div>

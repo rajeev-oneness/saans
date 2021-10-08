@@ -47,18 +47,18 @@
            </div>
               <div class="col">
                <div class="counter">
-      <h2 class="timer count-title count-number" data-to="100" data-speed="1500">{{$productcount}}</h2>
+      <h2 class="timer count-title count-number" data-to="{{$productcount}}" data-speed="1500"></h2>
       <p class="count-text ">Products</p>
     </div>
               </div>
               <div class="col">
                   <div class="counter">
-      <h2 class="timer count-title count-number" data-to="6" data-speed="1500">{{$aboutUs->experience}}</h2>
+      <h2 class="timer count-title count-number" data-to="{{$aboutUs->experience}}" data-speed="1500"></h2>
       <p class="count-text ">Experience</p>
     </div></div>
               <div class="col">
               <div class="counter">
-      <h2 class="timer count-title count-number" data-to="80" data-speed="1500">{{$aboutUs->winning_awards}}</h2>
+      <h2 class="timer count-title count-number" data-to="{{$aboutUs->winning_awards}}" data-speed="1500"></h2>
       <p class="count-text ">Winning Awards
 </p>
     </div>

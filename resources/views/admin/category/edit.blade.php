@@ -36,7 +36,12 @@
                     @method('PUT')
                     <div class="form-group required">
                       <label for="name" class="control-label">Category Name</label>
-                      <input type="text" class="form-control" name="name" value="{{$category->name}}" id="name"  placeholder="Category name" required>
+                      <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$category->name}}" id="name"  placeholder="Category name">
+                      @error('name')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror 
                     </div>
                     <button type="submit" class="btn btn-primary">Update Category</button>
                   </form>

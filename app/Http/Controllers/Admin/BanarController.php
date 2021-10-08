@@ -40,7 +40,7 @@ class BanarController extends Controller
         $request->validate([
             'title' => 'required',
             'sub_title' => 'required',
-            'image' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $fileName = time().'.'.$request->image->extension();
         $request->image->move(public_path('uploads/'), $fileName);

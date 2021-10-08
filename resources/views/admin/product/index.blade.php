@@ -46,10 +46,10 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Image</th>
+                                    <!-- <th>Image</th>
                                     <th>Image</th>
                                     <th>Image</th>
-                                    <th>Image</th>
-                                    <th>Image</th>
+                                    <th>Image</th> -->
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>Category</th>
@@ -68,10 +68,10 @@
                                 <tr>
                                     <td>{{$key + 1}}</td>
                                     <td><img src="{{asset($product->image1)}}" width="60" /></td>
-                                    <td><img src="{{asset($product->image2)}}" width="60" /></td>
+                                    <!-- <td><img src="{{asset($product->image2)}}" width="60" /></td>
                                     <td><img src="{{asset($product->image3)}}" width="60" /></td>
                                     <td><img src="{{asset($product->image4)}}" width="60" /></td>
-                                    <td><img src="{{asset($product->image5)}}" width="60" /></td>
+                                    <td><img src="{{asset($product->image5)}}" width="60" /></td> -->
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->description}}</td>
                                     <td>{{$product->categoryDetail->name}}</td>

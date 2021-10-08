@@ -36,7 +36,12 @@
                     @method('PUT')
                     <div class="form-group required">
                       <label for="video_link" class="control-label">Video Link</label>
-                      <input type="text" class="form-control" name="video_link" value="{{$video->video_link}}" id="name"  placeholder="Video Link name" required>
+                      <input type="text" class="form-control @error('video_link') is-invalid @enderror" name="video_link" value="{{$video->video_link}}" id="name"  placeholder="Video Link name">
+                      @error('video_link')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror 
                     </div>
                     <button type="submit" class="btn btn-primary">Update Video Link</button>
                   </form>

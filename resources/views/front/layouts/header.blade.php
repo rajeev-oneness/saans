@@ -20,6 +20,17 @@ $principals = App\Models\Principal::get();
             <li class="nav-item active"> <a class="nav-link" href="{{ url('/') }}"><span><i class="fa fa-home"></i></span>Home</a> </li>
             <li class="nav-item"> <a class="nav-link" href="{{url('/about-us')}}">About Us</a> </li>
             <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                 Principals
+                                    </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+            @foreach($principals as $principal)
+            <ul>
+              <a class="dropdown-item" href="{{ route('front.principal.product', ["id"=> $principal->id] ) }}" >{{$principal->name}}</a>
+            </ul>
+            @endforeach
+          </div>
+        </li>
+            <li class="nav-item dropdown"> 
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                 Products
                                     </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -36,24 +47,7 @@ $principals = App\Models\Principal::get();
             @endforeach        
           </div>
         </li> 
-            <li class="nav-item dropdown"> 
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                 Principals
-                                    </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
-            @foreach($principals as $principal)
-            <ul>
-              <a class="dropdown-item" href="{{ route('front.principal.product', ["id"=> $principal->id] ) }}" >{{$principal->name}}</a>
-            </ul>
-            @endforeach
-            <!-- <a href="hirox.html"  class="dropdown-item"> Hirox</a> 
-            <a href="ostec-corporate-group.html" class="dropdown-item">Ostec Corporate Group</a>
-            <a href="elemission-inc.html" class="dropdown-item">Elemission Inc.</a> 
-            <a href="precisa.html" class="dropdown-item">Precisa</a> 
-            <a href="falc-instruments.html" class="dropdown-item">FALC Instruments</a> 
-            <a href="ors.html" class="dropdown-item">ORS (Object Research Systems) for Dragonfly Software</a> 
-            <a href="mediacy.html" class="dropdown-item">Media Cybernetics, Inc. for Image Pro Software</a>   -->             
-          </div>
-        </li>
+        
             
             <li class="nav-item"> <a class="nav-link" href="{{ url('/contact')}}">Contact</a> </li>
             <li class="nav-item"> <a class="btn btn-read" href="{{url('login')}}">Login</a> </li>

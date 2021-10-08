@@ -39,7 +39,12 @@
                         </div>
                         <div class="form-group required">
                           <label for="redirect_link" class="control-label">Redirect Link</label>
-                          <input type="text" class="form-control" name="redirect_link" id="redirect_link" value="{{$comManager->redirect_link}}"  placeholder="Redirect Link" required>
+                          <input type="text" class="form-control @error('redirect_link') is-invalid @enderror" name="redirect_link" id="redirect_link" value="{{$comManager->redirect_link}}"  placeholder="Redirect Link">
+                          @error('redirect_link')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror 
                         </div>
                         <button type="submit" class="btn btn-primary">Update Company Manager</button>
                       </form>

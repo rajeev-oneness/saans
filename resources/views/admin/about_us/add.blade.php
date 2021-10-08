@@ -84,7 +84,7 @@
                                 @enderror 
                             </div>
                             <div class="form-group">
-                                <label for="image1">Image</label>
+                                <label for="image1">Image One</label>
                                 <input type="file" id="image1" name="image1" class="form-control @error('image1') is-invalid @enderror">
                                 @error('image1')
                                     <span class="invalid-feedback" role="alert">
@@ -93,7 +93,7 @@
                                 @enderror 
                             </div>
                             <div class="form-group">
-                                <label for="image2">Image</label>
+                                <label for="image2">Image Two</label>
                                 <input type="file" id="image2" name="image2" class="form-control @error('image2') is-invalid @enderror">
                                 @error('image2')
                                     <span class="invalid-feedback" role="alert">

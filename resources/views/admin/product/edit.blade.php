@@ -38,7 +38,7 @@
                             <label for="image1" class="control-label">Image</label>
                             <input type="file" class="form-control-file" name="image1" value="{{$product->image1}}" id="image1">
                         </div>
-                        <div class="form-group required">
+                        <!-- <div class="form-group required">
                             <label for="image2" class="control-label">Image</label>
                             <input type="file" class="form-control-file" name="image2" value="{{$product->image2}}" id="image2">
                         </div>
@@ -53,50 +53,93 @@
                         <div class="form-group required">
                             <label for="image5" class="control-label">Image</label>
                             <input type="file" class="form-control-file" name="image5" value="{{$product->image5}}" id="image5image">
-                        </div>
+                        </div> -->
                         <div class="form-group required">
                           <label for="name" class="control-label">Name</label>
-                          <input type="text" class="form-control" name="name" id="name" value="{{$product->name}}"  placeholder="Course name" required>
+                          <input type="text" name="name" id="name" value="{{$product->name}}"  placeholder="Course name" class="form-control @error('name') is-invalid @enderror">
+                          @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                          @enderror  
                         </div>
                          <div class="form-group required">
                             <label for="principal" class="control-label">Select Category</label>
-                            <select class="form-control" id="categoryId" name="categoryId" required>
+                            <select id="category" name="categoryId" class="form-control @error('categoryId') is-invalid @enderror">
+                            <option selected disabled>Select one</option>
                                 @foreach ($categories as $category)
                                     <option value="{{$category->id}}" {{ $product->id == $product->categoryId ? 'selected' : '' }}>{{$category->name}}</option>
                                 @endforeach
                             </select>
+                            @error('categoryId')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror  
                         </div>
                          <div class="form-group required">
                             <label for="subCategoryId" class="control-label">Select Sub-Category</label>
-                            <select class="form-control" id="subCategory" name="subCategoryId" required>
+                            <select id="subCategory" name="subCategoryId" class="form-control @error('subCategoryId') is-invalid @enderror">
+                            <option selected disabled>Select one</option>
                                 @foreach ($subCategories as $subCategory)
                                     <option value="{{$subCategory->id}}" {{ $product->id == $product->subCategoryId ? 'selected' : '' }}>{{$subCategory->sub_category_name}}</option>
                                 @endforeach
                             </select>
+                            @error('subCategoryId')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror  
                         </div>
                         <div class="form-group required">
                             <label for="principalId" class="control-label">Select Principal</label>
-                            <select class="form-control" id="principalId" name="principalId" required>
+                            <select id="principalId" name="principalId" class="form-control @error('principalId') is-invalid @enderror">
+                            <option selected disabled>Select one</option>
                                 @foreach ($principals as $principal)
                                     <option value="{{$principal->id}}" {{ $product->id == $product->principalId ? 'selected' : '' }}>{{$principal->name}}</option>
                                 @endforeach
                             </select>
+                            @error('principalId')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror  
                         </div>
                         <div class="form-group required">
                             <label for="description" class="control-label">Description</label>
-                            <textarea class="form-control" name="description" id="description" rows="3" required>{{$product->description}}</textarea>
+                            <textarea name="description" id="description" rows="3" class="form-control @error('description') is-invalid @enderror">{{$product->description}}</textarea>
+                            @error('description')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror  
                         </div>
                         <div class="form-group required">
                             <label for="feature" class="control-label">Feature</label>
-                            <input type="text" class="form-control" name="feature" value="{{$product->feature}}" id="duration"  placeholder="Feature" required>
+                            <input type="text" name="feature" value="{{$product->feature}}" id="duration"  placeholder="Feature" class="form-control @error('feature') is-invalid @enderror">
+                            @error('feature')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror  
                           </div>
                           <div class="form-group required">
                             <label for="larger_specification" class="control-label">Larger Specification</label>
-                            <input type="text" class="form-control" name="larger_specification" value="{{$product->larger_specification}}" id="duration"  placeholder="Larger Specification" required>
+                            <input type="text" name="larger_specification" value="{{$product->larger_specification}}" id="duration"  placeholder="Larger Specification" class="form-control @error('larger_specification') is-invalid @enderror">
+                            @error('larger_specification')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror  
                           </div>
                           <div class="form-group required">
                             <label for="redirect_link" class="control-label">Link</label>
-                            <input type="text" class="form-control" name="redirect_link" value="{{$product->redirect_link}}" id="duration"  placeholder="Link" required>
+                            <input type="text" name="redirect_link" value="{{$product->redirect_link}}" id="duration"  placeholder="Link" class="form-control @error('redirect_link') is-invalid @enderror">
+                            @error('redirect_link')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror  
                           </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
@@ -131,30 +174,10 @@
 @endsection
 @section('script')
     <script>
-        // $(document).ready(function() {
-        //     $('form').submit(function(){
-        //         $(this).find('button[type=submit]').prop('disabled', true);
-        //     });
-        // });
-            $('#categoryId').on('change', function () {
-                var categoryId = $('#categoryId').val();
-                // alert(categoryId);
-                $.ajax({
-                    url : "{{route('admin.product.manage.category')}}",
-                    type : 'POST',
-                    data : {
-                        _token : '{{csrf_token()}}',
-                        val : categoryId
-                    },
-                    success: function(result) {
-                        var options  = '<option value="" selected="" hidden="">Select Sub-Category</option>';
-                        $.each(result.sub,function(key,val){
-                            options += '<option value="'+val.id+'">'+val.sub_category_name+'</option>';
-                        });
-                        $('#subCategory').empty().append(options);
-                        // $res->success = false;
-                    }
-                });
+        $(document).ready(function() {
+            $('form').submit(function(){
+                $(this).find('button[type=submit]').prop('disabled', true);
             });
-      </script>
+        });
+    </script>
 @endsection

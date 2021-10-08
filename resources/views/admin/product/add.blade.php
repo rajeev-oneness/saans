@@ -58,14 +58,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="image1">Image</label>
-                                <input type="file" id="image1" name="image1" class="form-control @error('image1') is-invalid @enderror">
+                                <input type="file" id="image1" name="image1" class="form-control @error('name') is-invalid @enderror">
                                 @error('image1')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror 
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="image2">Image</label>
                                 <input type="file" id="image2" name="image2" class="form-control @error('image2') is-invalid @enderror">
                                 @error('image2')
@@ -100,7 +100,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror 
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="description">Description</label>
                                 <input type="description" id="description" name="description" class="form-control @error('description') is-invalid @enderror">
@@ -138,7 +138,7 @@
 
                             <div class="form-group required">
                                 <label for="subCategoryId" class="control-label">Select Sub-Category</label>
-                                <select class="form-control" id="subCategory" name="subCategoryId" required>
+                                <select class="form-control @error('subCategoryId') is-invalid @enderror" name="subCategoryId" id="subCategoryId" value="{{ old('subCategoryId') }}">
                                         <option selected disabled>Select one</option>
                                     @foreach ($subCategories as $subCategory)
                                         <option value="{{$subCategory->id}}">{{$subCategory->sub_category_name}}</option>
@@ -147,8 +147,8 @@
                             </div>
                             <div class="form-group required">
                                 <label for="principalId" class="control-label">Select Principal</label>
-                                <select class="form-control" id="principalId" name="principalId" required>
-                                        <option selected disabled>Select one</option>
+                                <select class="form-control @error('principalId') is-invalid @enderror" name="principalId" id="principalId" value="{{ old('principalId') }}" >
+                                <option selected disabled>Select one</option>
                                     @foreach ($principals as $principal)
                                         <option value="{{$principal->id}}">{{$principal->name}}</option>
                                     @endforeach
@@ -174,13 +174,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="redirect_link">Link</label>
-                                <input id="redirect_link" type="text" class="form-control @error('redirect_link') is-invalid @enderror" name="redirect_link" value="{{ old('redirect_link') }}"  >
+                                <input type="text" id="redirect_link" name="redirect_link" class="form-control @error('redirect_link') is-invalid @enderror">
                                 @error('redirect_link')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror   
+                                @enderror 
                             </div>
+                            
                             <div class="col-12">
                               <!-- <a href="#" class="btn btn-secondary">Cancel</a> -->
                                <button type="submit"  class="btn btn-success float-right">Add</button>

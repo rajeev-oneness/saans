@@ -40,7 +40,7 @@ class AboutCompanyController extends Controller
         $request->validate([
             'content' => 'required',
             'extra_info' => 'required',
-            'image' => 'mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         $fileName = time().'.'.$request->image->extension();
         $request->image->move(public_path('uploads/about-company/'), $fileName);
@@ -89,7 +89,7 @@ class AboutCompanyController extends Controller
         $request->validate([
             'content' => 'required',
             'extra_info' => 'required',
-            'image' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
          if($request->hasFile('image')) {
            

@@ -42,9 +42,9 @@ class AboutUsController extends Controller
             'content2' => 'required',
             'experience' => 'required',
             'winning_awards' => 'required',
-            'image1' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image2' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'main_banar' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image1' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image2' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'main_banar' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $fileName = time().'.'.$request->main_banar->extension();
         $request->main_banar->move(public_path('uploads/about_us/'), $fileName);

@@ -36,7 +36,12 @@
                         @method('PUT')
                         <div class="form-group required">
                           <label for="name" class="control-label">Principal Name</label>
-                          <input type="text" class="form-control" name="name" value="{{$principal->name}}" id="name"  placeholder="principal name" required>
+                          <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$principal->name}}" id="name"  placeholder="principal name">
+                          @error('name')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror 
                         </div>
                         <button type="submit" class="btn btn-primary">Update Principal</button>
                       </form>

@@ -36,15 +36,26 @@
                        @method('PUT')
                         <div class="form-group required">
                           <label for="sub_category_name" class="control-label">Sub-Category</label>
-                          <input type="text" class="form-control" name="sub_category_name" id="sub_category_name" value="{{$subCategory->sub_category_name}}"  placeholder="Sub-Category" required>
+                          <input type="text" class="form-control @error('sub_category_name') is-invalid @enderror" name="sub_category_name" id="sub_category_name" value="{{$subCategory->sub_category_name}}"  placeholder="Sub-Category">
+                          @error('sub_category_name')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror 
                         </div>
                          <div class="form-group required">
                             <label for="principal" class="control-label">Select Category</label>
-                            <select class="form-control" id="category" name="categoryId" required>
+                            <select class="form-control @error('categoryId') is-invalid @enderror" id="categoryId" name="categoryId">
+                            <option selected disabled>Select one</option>
                                 @foreach ($categories as $category)
                                     <option value="{{$category->id}}" {{ $subCategory->id == $subCategory->categoryId ? 'selected' : '' }}>{{$category->name}}</option>
                                 @endforeach
                             </select>
+                            @error('categoryId')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror 
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
