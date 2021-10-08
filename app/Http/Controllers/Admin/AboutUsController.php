@@ -105,8 +105,8 @@ class AboutUsController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'content1' => 'required|string',
-            'content2' => 'required',
+            'content1' => 'required|string|max:1000',
+            'content2' => 'required|string|max:1000',
             'experience' => 'required',
             'winning_awards' => 'required',
             'image1' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',

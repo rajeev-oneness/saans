@@ -46,6 +46,7 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Image</th>
+                                    <th>PDF</th>
                                     <!-- <th>Image</th>
                                     <th>Image</th>
                                     <th>Image</th>
@@ -68,17 +69,18 @@
                                 <tr>
                                     <td>{{$key + 1}}</td>
                                     <td><img src="{{asset($product->image1)}}" width="60" /></td>
+                                    <td><a href="{{asset($product->pdf)}}" download>download</a></td>
                                     <!-- <td><img src="{{asset($product->image2)}}" width="60" /></td>
                                     <td><img src="{{asset($product->image3)}}" width="60" /></td>
                                     <td><img src="{{asset($product->image4)}}" width="60" /></td>
                                     <td><img src="{{asset($product->image5)}}" width="60" /></td> -->
                                     <td>{{$product->name}}</td>
-                                    <td>{{$product->description}}</td>
+                                    <td>{{substr($product->description, 0,100).'...'}}</td>
                                     <td>{{$product->categoryDetail->name}}</td>
                                     <td>{{$product->subCategoryDetail->sub_category_name}}</td>
                                     <td>{{$product->principalDetail->name}}</td>
-                                    <td>{{$product->feature}}</td>
-                                    <td>{{$product->larger_specification}}</td>
+                                    <td>{{substr($product->feature, 0,100).'...'}}</td>
+                                    <td>{{substr($product->larger_specification, 0,100).'...'}}</td>
                                     <td>{{$product->redirect_link}}</td>
                                     @if($product->status==1)
                                     <td>Active</td>

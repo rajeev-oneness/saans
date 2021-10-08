@@ -65,7 +65,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'description' => 'required',
+            'description' => 'required|max:200',
             'categoryId' => 'required',
             'subCategoryId' => 'required',
             'principalId' => 'required',
@@ -73,6 +73,7 @@ class ProductController extends Controller
             'larger_specification' => 'required',
             'redirect_link' => 'required',
             'image1' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'pdf' => 'required|mimes:pdf',
             // 'image2' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'image3' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'image4' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -81,15 +82,16 @@ class ProductController extends Controller
         $fileName = time().'.'.$request->image1->extension();
         $request->image1->move(public_path('uploads/product/'), $fileName);
         $image1 ='uploads/product/'.$fileName;
+
+        $fileName = time().'.'.$request->pdf->extension();
+        $request->pdf->move(public_path('uploads/product/pdf/'), $fileName);
+        $pdf ='uploads/product/pdf/'.$fileName;
         // if($request->hasFile('image1')) {
            
            
             // $fileName = time().'.'.$request->image1->extension();
             // $request->image1->move(public_path('uploads/product/'), $fileName);
             // $image1 ='uploads/product/'.$fileName;
-            
-           
-           
         // }
 
         // $fileName = time().'.'.$request->image2->extension();
@@ -118,6 +120,7 @@ class ProductController extends Controller
         $product->larger_specification = $request->larger_specification;
         $product->redirect_link = $request->redirect_link;
         $product->image1 = $image1;
+        $product->pdf = $pdf;
         // $product->image2 = $image2;
         // $product->image3 = $image3;
 
@@ -138,6 +141,21 @@ class ProductController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function pdfview(Request $request)
+    {
+        $items = Product::get();
+        view()->share('items',$items);
+
+
+        if($request->has('download')){
+            $pdf = PDF::loadView('admin/product');
+            return $pdf->download('pdfview.pdf');
+        }
+
+
+        return view('pdfview');
     }
 
     /**
@@ -166,13 +184,14 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'description' => 'required',
+            'description' => 'required|max:200',
             'categoryId' => 'required',
             'subCategoryId' => 'required',
             'principalId' => 'required',
-            'feature' => 'required',
-            'larger_specification' => 'required',
+            'feature' => 'required|max:200',
+            'larger_specification' => 'required|max:200',
             'redirect_link' => 'required',
+            'pdf' => 'mimes:pdf',
             // 'image2' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'image3' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'image4' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -188,6 +207,16 @@ class ProductController extends Controller
             $image1 ='uploads/product/'.$fileName;
             Product::where('id', $id)->update([
                 'image1' => $image1,
+            ]);
+        }
+
+        if($request->hasFile('pdf')) {
+           
+            $fileName = time().'.'.$request->pdf->extension();
+            $request->pdf->move(public_path('uploads/product/pdf/'), $fileName);
+            $pdf ='uploads/product/pdf/'.$fileName;
+            Product::where('id', $id)->update([
+                'pdf' => $pdf,
             ]);
         }
 

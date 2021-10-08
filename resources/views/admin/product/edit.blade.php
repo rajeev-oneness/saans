@@ -35,9 +35,26 @@
                         @csrf
                        @method('PUT')
                         <div class="form-group required">
-                            <label for="image1" class="control-label">Image</label>
-                            <input type="file" class="form-control-file" name="image1" value="{{$product->image1}}" id="image1">
+
+
+                        <img src="{{asset($product->image1)}}" height="200px" width="300px">
+                        <div class="form-group">
+                        <label for="image1" class="control-label">Image</label>
+                        <input type="file" class="form-control" name="image1" value="{{$product->image1}}" id="image1">
                         </div>
+
+
+
+                        <div class="form-group">
+                            <label for="pdf">PDF</label>
+                            <input type="file" id="pdf" name="pdf" class="form-control">
+                            @error('pdf')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror 
+                        </div>
+                        
                         <!-- <div class="form-group required">
                             <label for="image2" class="control-label">Image</label>
                             <input type="file" class="form-control-file" name="image2" value="{{$product->image2}}" id="image2">
@@ -68,7 +85,7 @@
                             <select id="categoryId" name="categoryId" class="form-control @error('categoryId') is-invalid @enderror">
                             <option selected disabled>Select one</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{$category->id}}" {{ $product->id == $product->categoryId ? 'selected' : '' }}>{{$category->name}}</option>
+                                <option value="{{$category->id}}" @if($product->categoryId == $category->id){{('selected')}}@endif>{{$category->name}}</option>
                                 @endforeach
                             </select>
                             @error('categoryId')
@@ -82,7 +99,7 @@
                             <select id="subCategory" name="subCategoryId" class="form-control @error('subCategoryId') is-invalid @enderror">
                             <option selected disabled>Select one</option>
                                 @foreach ($subCategories as $subCategory)
-                                    <option value="{{$subCategory->id}}" {{ $product->id == $product->subCategoryId ? 'selected' : '' }}>{{$subCategory->sub_category_name}}</option>
+                                <option value="{{$subCategory->id}}" @if($product->subCategoryId == $subCategory->id){{('selected')}}@endif>{{$subCategory->sub_category_name}}</option>
                                 @endforeach
                             </select>
                             @error('subCategoryId')
@@ -96,7 +113,7 @@
                             <select id="principalId" name="principalId" class="form-control @error('principalId') is-invalid @enderror">
                             <option selected disabled>Select one</option>
                                 @foreach ($principals as $principal)
-                                    <option value="{{$principal->id}}" {{ $product->id == $product->principalId ? 'selected' : '' }}>{{$principal->name}}</option>
+                                    <option value="{{$principal->id}}" @if($product->principalId == $principal->id){{('selected')}}@endif>{{$principal->name}}</option>
                                 @endforeach
                             </select>
                             @error('principalId')

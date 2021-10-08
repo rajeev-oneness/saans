@@ -67,7 +67,7 @@
                             </div> 
                             <div class="form-group">
                                 <label for="experience">Experience</label>
-                                <input type="text" id="experience" name="experience" class="form-control allow_decimal @error('experience') is-invalid @enderror" placeholder="Experience"  >
+                                <input type="text" id="experience" name="experience" class="form-control allow_decimal @error('experience') is-invalid @enderror" placeholder="Experience" value="{{old('experience')}}" >
                                 @error('experience')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="winning_awards">Winning Awards</label>
-                                <input type="text" id="winning_awards" name="winning_awards" class="form-control @error('winning_awards') is-invalid @enderror" placeholder="Winning Awards" onkeypress="return onlyNumberKey(event)">
+                                <input type="text" id="winning_awards" name="winning_awards" class="form-control @error('winning_awards') is-invalid @enderror" placeholder="Winning Awards" onkeypress="return onlyNumberKey(event)" value="{{old('winning_awards')}}">
                                 @error('winning_awards')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -85,7 +85,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="image1">Image One</label>
-                                <input type="file" id="image1" name="image1" class="form-control @error('image1') is-invalid @enderror">
+                                <input type="file" id="image1" name="image1" class="form-control @error('image1') is-invalid @enderror" value="{{old('image1')}}">
                                 @error('image1')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -94,7 +94,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="image2">Image Two</label>
-                                <input type="file" id="image2" name="image2" class="form-control @error('image2') is-invalid @enderror">
+                                <input type="file" id="image2" name="image2" class="form-control @error('image2') is-invalid @enderror" value="{{old('image2')}}">
                                 @error('image2')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -103,7 +103,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="main_banar">Main Banar</label>
-                                <input type="file" id="main_banar" name="main_banar" class="form-control @error('main_banar') is-invalid @enderror">
+                                <input type="file" id="main_banar" name="main_banar" class="form-control @error('main_banar') is-invalid @enderror" value="{{old('main_banar')}}">
                                 @error('main_banar')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

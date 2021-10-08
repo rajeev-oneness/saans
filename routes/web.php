@@ -105,6 +105,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     Route::get('/product/edit/{id}', [ProductController::class,'edit'])->name('edit.product');
     Route::put('/product/update/{id}', [ProductController::class,'update'])->name('update.product');
     Route::get('/product/delete/{id}', [ProductController::class,'destroy'])->name('delete.product');
+    Route::get('pdfview', [ProductController::class,'pdfview']);
 
     // ----------------Principal Product--------------
     
@@ -115,7 +116,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     Route::put('/principal-product/update/{id}', [PrincipalProductController::class,'update'])->name('update.principal.product');
     Route::get('/principal-product/delete/{id}', [PrincipalProductController::class,'destroy'])->name('delete.principal.product');
 
-     // ---------------Product----------------------
+     // ---------------Video----------------------
     Route::get('/video', [VideoController::class,'index'])->name('video.view');
     Route::get('/video/add', [VideoController::class,'create'])->name('add.video');
     Route::post('/video/add', [VideoController::class,'store'])->name('store.video');
@@ -123,7 +124,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     Route::put('/video/update/{id}', [VideoController::class,'update'])->name('update.video');
     Route::get('/video/delete/{id}', [VideoController::class,'destroy'])->name('delete.video');
 
-     // ---------------Product----------------------
+     // ---------------Banner----------------------
     Route::get('/banner', [BanarController::class,'index'])->name('banar.view');
     Route::get('/banner/add', [BanarController::class,'create'])->name('add.banar');
     Route::post('/banner/add', [BanarController::class,'store'])->name('store.banar');

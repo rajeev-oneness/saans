@@ -48,7 +48,7 @@
                             <select class="form-control @error('categoryId') is-invalid @enderror" id="categoryId" name="categoryId">
                             <option selected disabled>Select one</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{$category->id}}" {{ $subCategory->id == $subCategory->categoryId ? 'selected' : '' }}>{{$category->name}}</option>
+                                    <option value="{{$category->id}}"  @if($subCategory->categoryId == $category->id){{('selected')}}@endif>{{$category->name}}</option>
                                 @endforeach
                             </select>
                             @error('categoryId')

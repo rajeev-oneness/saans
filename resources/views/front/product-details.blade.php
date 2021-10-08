@@ -48,7 +48,7 @@
           
             <div class="action">
              <a class="btn btn-read mt-2" href="{{ url('/contact') }}">Contact Us</a>
-              <a class="btn btn-read mt-2" href="#">Get BROCHURE</a>
+              <a class="btn btn-read mt-2" href="{{asset($product->pdf)}}">Get BROCHURE</a>
             </div>
              <ul class="social mt-3">
             <li><a href="{{$mainContacts->facebook_link}}"><i class="fa fa-facebook"></i></a></li>

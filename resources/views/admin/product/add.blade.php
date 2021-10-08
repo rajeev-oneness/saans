@@ -65,6 +65,15 @@
                                     </span>
                                 @enderror 
                             </div>
+                            <div class="form-group">
+                                <label for="pdf">PDF</label>
+                                <input type="file" id="pdf" name="pdf" class="form-control @error('pdf') is-invalid @enderror">
+                                @error('pdf')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror 
+                            </div>
                             <!-- <div class="form-group">
                                 <label for="image2">Image</label>
                                 <input type="file" id="image2" name="image2" class="form-control @error('image2') is-invalid @enderror">
@@ -156,7 +165,7 @@
                             </div> 
                             <div class="form-group">
                                 <label for="feature">Feature</label>
-                                <input type="text" id="feature" name="feature" class="form-control @error('feature') is-invalid @enderror">
+                                <input type="text" id="feature" name="feature" class="form-control @error('feature') is-invalid @enderror" value="{{ old('feature') }}">
                                 @error('feature')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -165,7 +174,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="larger_specification">Larger Specification</label>
-                                <input type="text" id="larger_specification" name="larger_specification" class="form-control @error('larger_specification') is-invalid @enderror">
+                                <input type="text" id="larger_specification" name="larger_specification" class="form-control @error('larger_specification') is-invalid @enderror" value="{{ old('larger_specification') }}">
                                 @error('larger_specification')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -174,7 +183,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="redirect_link">Link</label>
-                                <input type="text" id="redirect_link" name="redirect_link" class="form-control @error('redirect_link') is-invalid @enderror">
+                                <input type="text" id="redirect_link" name="redirect_link" class="form-control @error('redirect_link') is-invalid @enderror" value="{{ old('redirect_link') }}">
                                 @error('redirect_link')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
