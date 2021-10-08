@@ -78,11 +78,9 @@ class ProductController extends Controller
             // 'image4' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
             // 'image5' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        // if ($request->hasFile('image1')) {
-        // $fileName = time().'.'.$request->image1->extension();
-        // $request->image1->move(public_path('uploads/product/'), $fileName);
-        // $image1 ='uploads/product/'.$fileName;
-        // }
+        $fileName = time().'.'.$request->image1->extension();
+        $request->image1->move(public_path('uploads/product/'), $fileName);
+        $image1 ='uploads/product/'.$fileName;
         // if($request->hasFile('image1')) {
            
            
@@ -90,8 +88,7 @@ class ProductController extends Controller
             // $request->image1->move(public_path('uploads/product/'), $fileName);
             // $image1 ='uploads/product/'.$fileName;
             
-    $imageName = time().'.'.request()->image1->getClientOriginalExtension();
-    request()->image1->move(public_path('images'), $imageName);
+           
            
         // }
 

@@ -64,8 +64,8 @@
                           @enderror  
                         </div>
                          <div class="form-group required">
-                            <label for="principal" class="control-label">Select Category</label>
-                            <select id="category" name="categoryId" class="form-control @error('categoryId') is-invalid @enderror">
+                            <label for="categoryId" class="control-label">Select Category</label>
+                            <select id="categoryId" name="categoryId" class="form-control @error('categoryId') is-invalid @enderror">
                             <option selected disabled>Select one</option>
                                 @foreach ($categories as $category)
                                     <option value="{{$category->id}}" {{ $product->id == $product->categoryId ? 'selected' : '' }}>{{$category->name}}</option>
@@ -174,9 +174,32 @@
 @endsection
 @section('script')
     <script>
-        $(document).ready(function() {
-            $('form').submit(function(){
-                $(this).find('button[type=submit]').prop('disabled', true);
+       $(document).ready(function() {
+            // $('form').submit(function(){
+            //     $(this).find('button[type=submit]').prop('disabled', true);
+        // $(document).ready(function() {
+        //     $('form').submit(function(){
+        //         $(this).find('button[type=submit]').prop('disabled', true);
+        //     });
+        // });
+            $('#categoryId').on('change', function () {
+                var categoryId = $('#categoryId').val();
+                $.ajax({
+                    url : "{{route('admin.product.manage.category')}}",
+                    type : 'POST',
+                    data : {
+                        _token : '{{csrf_token()}}',
+                        val : categoryId
+                    },
+                    success: function(result) {
+                        var options  = '<option value="" selected="" hidden="">Select Sub-Category</option>';
+                        $.each(result.sub,function(key,val){
+                            options += '<option value="'+val.id+'">'+val.sub_category_name+'</option>';
+                        });
+                        $('#subCategory').empty().append(options);
+                        // $res->success = false;
+                    }
+                });
             });
         });
     </script>

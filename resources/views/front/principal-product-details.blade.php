@@ -11,14 +11,16 @@
     </div>
     <div class="row justify-content-center">
       @foreach($data as $dt)      
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-4 col-sm-6 mt-3">
             <div class="box-principal">
                 <div class="box-img">
-                  <img class="pic-1 img-fluid" src="{{ asset($dt->image) }}">
+                  <img class="pic-1 img-fluid" src="{{ asset($dt->image1) }}">
               </div>
-              <h4>{{$dt->name}}</h4>
-              <p>{{$dt->description}}</p>
-              <a class="btn btn-read" target="_blank"  href="{{$dt->redirect_link}}">View Details</a>
+              <div class="box-details">
+                <h4>{{$dt->name}}</h4>
+                <p>{{$dt->description}}</p>
+                <a class="btn btn-read" target="_blank"  href="{{$dt->redirect_link}}">View Details</a>
+              </div>
             </div>
         </div>
         @endforeach  
