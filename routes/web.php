@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\ContactDetailsController;
-
+use App\Http\Controllers\Service\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,11 +46,13 @@ Auth::routes(['register'=> false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', [FrontController::class,'index'])->name('front.home');
+Route::get('/sign-up', [FrontController::class,'signUp'])->name('front.sign-up');
 Route::get('/about-us', [FrontController::class,'about'])->name('front.about-us');
 Route::get('/contact', [FrontController::class,'contact'])->name('front.contact');
 Route::post('/contact/report/add', [FrontController::class,'addContactUsReport'])->name('add.contact.report');
 
-Route::get('/product/{id}', [FrontController::class,'categorylWiseProduct'])->name('front.category.product');
+Route::get('/category', [FrontController::class,'category'])->name('front.category');
+Route::get('/product/{id}', [FrontController::class,'categoryWiseProduct'])->name('front.category.product');
 // Route::get('/principal', [FrontController::class,'principal'])->name('front.principal');
 Route::get('/principal/{id}', [FrontController::class,'principalWiseProduct'])->name('front.principal.product');
 Route::get('/product-details/{id}', [FrontController::class,'ProductDetails'])->name('front.product.details');
@@ -192,6 +194,7 @@ Route::group(['prefix'=>'salse','middleware'=>'salse'],function(){
     Route::get('dashboard',function(){
         return view('salse.dashboard');
     })->name('salse.dashboard');
+    
 });
 
 Route::group(['prefix'=>'service','middleware'=>'service'],function(){
@@ -199,6 +202,14 @@ Route::group(['prefix'=>'service','middleware'=>'service'],function(){
     Route::get('dashboard',function(){
         return view('service.dashboard');
     })->name('service.dashboard');
+
+    // ------------------------Service-----------------------------
+      Route::get('/service-report', [ServiceController::class,'index'])->name('service.report.view');
+      Route::get('/service-report/create', [ServiceController::class,'create'])->name('create.service.report');
+      Route::post('/service-report/store', [ServiceController::class,'store'])->name('store.service.report');
+    //   Route::get('/service-report/edit/{id}', [ServiceController::class,'edit'])->name('edit.service.report');
+    //   Route::put('/service-report/update/{id}', [ServiceController::class,'update'])->name('update.service.report');
+    //   Route::get('/service-report/delete/{id}', [ServiceController::class,'destroy'])->name('delete.service.report');
 });
 
  

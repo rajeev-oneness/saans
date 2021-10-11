@@ -35,6 +35,7 @@ class FrontController extends Controller
         $products = Product::limit(10)->latest()->get();
         $logoes = companyManager::latest()->get();
         $videos = Video::latest()->get();
+        // dd($videos);
         $product = Product::first();
         return view('front.index',compact('logoes','videos','categories_data','aboutCompany','product','products','banar',));
     }
@@ -54,13 +55,13 @@ class FrontController extends Controller
         $mainContactlocations = ContactUs::where('type','0')->where('key','location')->get();
         return view('front.contact',compact('mainContacts','contacts','mainContactlocations'));
     }
-    // public function product()
-    // {
-    //     $products = Product::where('id','categoryId')->get();
-    //     return view('front.analytical-products');
+    public function category()
+    {
+        $categories = Category::get();
+        return view('front.category',compact('categories'));
 
-    // }
-    public function categorylWiseProduct($id)
+    }
+    public function categoryWiseProduct($id)
     {
         $data = Product::where('categoryId', $id)
                 ->get();
@@ -122,6 +123,10 @@ class FrontController extends Controller
         $contactUs->save();
         return redirect('/contact')->with('success','Contact Added Successfully');
     }
+    public function signUp()
+    {
+        return view('front.sign-up');
+    }
     // public function about()
     // {
     //     return view('front.about');
@@ -130,4 +135,5 @@ class FrontController extends Controller
     // {
     //     return view('front.about');
     // }
+
 }

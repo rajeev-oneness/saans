@@ -159,6 +159,15 @@
           </li>
            -->
           @endif
+          @if(Auth::user()->user_type == 3)
+          <li class="nav-item has-treeview">
+            <a href="{{ route('service.report.view') }}" class="nav-link">
+              <p>
+                Service Report
+              </p>
+            </a>
+          </li>
+          @endif
           <!-- <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -501,10 +510,10 @@
                   <p>Contact Us</p>
                 </a>
               </li>
-              <!-- <li class="nav-item d-none d-sm-inline-block"> -->
+              <li class="nav-item d-none d-sm-inline-block">
                 <!-- <a href="{{ route('logout') }}" class="nav-link">Logout</a> -->
 
-                <!-- <a  class="nav-link" href="{{ route('logout') }}"
+                <a  class="nav-link" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
                     <i class="far fa-circle nav-icon"></i>
@@ -514,7 +523,7 @@
                     @csrf
                 </form>
 
-              </li> -->
+              </li>
               <!-- <li class="nav-item">
                 <a href="pages/examples/register.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

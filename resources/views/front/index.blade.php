@@ -218,6 +218,8 @@
         <div class="col-sm-12">
           <div class="sub-heading text-center wow bounce" data-wow-duration="2s">
             <h2><span>LATEST</span> VIDEOS</h2> </div>
+          
+
           <div class="bbb_main_container">
             <div class="bbb_viewed_title_container">
               <div class="bbb_viewed_nav_container">
@@ -227,11 +229,11 @@
             </div>
             <div class="bbb_viewed_slider_container">
               <div class="owl-carousel owl-theme bbb_viewed_slider">
-                @foreach($videos as $video)
+              @foreach($videos as $video)
                 <div class="owl-item">
-                  <iframe width="100%" height="315" src="{{$video->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe width="100%" height="315"  src="{{$video->video_link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                @endforeach
+              @endforeach
               </div>
             </div>
           </div>

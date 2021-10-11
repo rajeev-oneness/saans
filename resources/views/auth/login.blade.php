@@ -79,6 +79,9 @@
 
 
           <button class="btn btn-primary btn-lg btn-block" type="submit">{{ __('Login') }}</button>
+          <p class="darkgray">Don't have an account? 
+            <a href="{{route('front.sign-up',['userType' => 2])}}">(Sign Up As Salse)</a>
+           `<a href="{{route('front.sign-up',['userType' => 3])}}">(Sign Up As Service)</a></p>
           {{-- <button class="btn btn-info btn-lg btn-block" type="submit">Signup</button> --}}
         </div>
       </form>

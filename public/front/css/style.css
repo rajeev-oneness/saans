@@ -1739,3 +1739,49 @@ ul.social-icons li a {
     position: absolute;
     bottom: 0;
   }
+
+.form{
+  box-shadow: 4px 2px 5px #cfcfcf;
+}
+
+
+.product-card{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 40px 20px;
+  box-shadow: 3px 1px 5px #d5d5d5;
+  background-color: #eafcff;
+}
+.product-card img{
+  width: 100px;
+}
+.product-card h6{
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.dropdown-item{
+  position: relative;
+}
+.dropdown-item-2{
+left: -200px;
+width: 200px;
+top: 0;
+}
+.dropdown-item-2.show a{
+  padding: 4px 24px;
+  font-size: 16px;
+  color: #000;
+  display: block;
+}
+.dropdown-item:hover.dropdown-item-2{
+  display: flex;
+}
+.dropdown-menu.show a{
+  padding: .25rem 1.5rem !important;
+  font-weight: 400 !important;
+}
+.dropdown-item-2 .dropdown-toggle{
+  display: none !important;
+}

@@ -19,38 +19,34 @@ $principals = App\Models\Principal::get();
             </li>
             <li class="nav-item active"> <a class="nav-link" href="{{ url('/') }}"><span><i class="fa fa-home"></i></span>Home</a> </li>
             <li class="nav-item"> <a class="nav-link" href="{{url('/about-us')}}">About Us</a> </li>
-            <li class="nav-item dropdown"> 
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                 Principals
-                                    </a>
+
+
+
+          <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Principals</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+            
             @foreach($principals as $principal)
-            <ul>
-              <a class="dropdown-item" href="{{ route('front.principal.product', ["id"=> $principal->id] ) }}" >{{$principal->name}}</a>
-            </ul>
+              <a class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >{{$principal->name}}
+              <div class="dropdown-menu dropdown-item-2" id="navbarDropdown1">
+                @foreach($categories as $category)
+                    <a href="">{{$category->name}}</a>
+                @endforeach
+                </div>
+                </a>
             @endforeach
           </div>
         </li>
             <li class="nav-item dropdown"> 
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                 Products
+          <a class="nav-link dropdown-toggle" href="{{ route('front.category') }}" role="button" aria-haspopup="true" aria-expanded="false">                 Products
                                     </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <!-- <a href="analytical-products.html" class="dropdown-item">Analytical Products</a>  -->
-            <!-- <a href="lif-science.html"  class="dropdown-item">Life science</a>  -->
-            <!-- <a href="medical-products.html" class="dropdown-item">Medical Products</a>  -->
-
-            @foreach($categories as $category)
-            <ul>
-              <a class="dropdown-item" href="{{ route('front.category.product', ["id"=> $category->id] ) }}" >{{$category->name}}</a>
-            </ul>
-
-             <!-- <a href="{{ url('product')}}" class="dropdown-item">{{$category->name}}</a>  -->
-            @endforeach        
-          </div>
+         
         </li> 
         
             
             <li class="nav-item"> <a class="nav-link" href="{{ url('/contact')}}">Contact</a> </li>
             <li class="nav-item"> <a class="btn btn-read" href="{{url('login')}}">Login</a> </li>
+            <li class="nav-item"> <a class="btn btn-read" href="{{url('sign-up')}}">Sign-Up</a> </li>
           </ul>
     </div>
   </dvi>
