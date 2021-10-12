@@ -25,7 +25,7 @@
         @if (Session::get('success'))                        
             <div class="alert alert-success"> {{Session::get('success')}} </div>
         @endif
-        <form action="{{ route('store.banar') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('store.service.report') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div>
             <div class="row">
@@ -39,7 +39,7 @@
                         <i class="fas fa-minus"></i></button>
                     </div> -->
                      <div class="card-tools">
-                        <a class="headerbuttonforAdd addBlogBanar" href="{{route('store.service.report')}}">
+                        <a class="headerbuttonforAdd addBlogServiceReport" href="{{route('service.report.view')}}">
                                     <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
                                 </a>
                         <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -181,8 +181,9 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                <a href="#" class="btn btn-secondary">Cancel</a>
-                <button type="submit"  class="btn btn-success float-right">Create New Banner</button>
+                <!-- <a href="#" class="btn btn-secondary">Cancel</a> -->
+                <button type="submit"  class="btn btn-success float-right">Create New Service Report</button>
+                <a class="btn btn-success" href="{{ route('file-export') }}">Export data</a>
                 </div>
             </div>
             </div>

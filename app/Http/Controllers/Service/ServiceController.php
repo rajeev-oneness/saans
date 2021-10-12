@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Service;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ServiceReport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ServiceReportExport;
 
 class ServiceController extends Controller
 {
@@ -37,24 +39,26 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:1000',
-            'email' => 'required|max:10',
-            'phone' => 'required|max:10',
-            'address' => 'required|max:10',
-            'serial_no' => 'required|max:10',
-            'installed_system' => 'required|max:10',
-            'warranty' => 'required|max:10',
-            'amc_offer_sent' => 'required|max:10',
-            'action_plan' => 'required|max:10',
-            'concern_engineer' => 'required|max:10',
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'serial_no' => 'required',
+            'installed_system' => 'required',
+            'warranty' => 'required',
+            'amc_offer_sent' => 'required',
+            'action_plan' => 'required',
+            'concern_engineer' => 'required',
         ]);
         $service = new ServiceReport;
         $service->company_name = $request->input('company_name');
         $service->name = $request->input('name');
         $service->email = $request->input('email');
         $service->phone = $request->input('phone');
+        $service->address = $request->input('address');
         $service->serial_no = $request->input('serial_no');
         $service->installed_system = $request->input('installed_system');
+        $service->warranty = $request->input('warranty');
         $service->amc_offer_sent = $request->input('amc_offer_sent');
         $service->amc_value = $request->input('amc_value');
         $service->remarks = $request->input('remarks');
@@ -64,6 +68,14 @@ class ServiceController extends Controller
         return redirect('service/service-report')->with('success','Report Added Successfully');
     }
 
+    public function fileImportExport()
+    {
+       return view('file-import');
+    }
+    public function fileExport() 
+    {
+        return Excel::download(new ServiceReportExport, 'reports-collection.xlsx');
+    }  
 
     /**
      * Display the specified resource.

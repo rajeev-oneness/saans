@@ -181,6 +181,10 @@ return [
 
         Barryvdh\DomPDF\ServiceProvider::class,
 
+
+
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
     ],
 
     /*
@@ -240,6 +244,8 @@ return [
 
         // 'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
 
+
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

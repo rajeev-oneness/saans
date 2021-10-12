@@ -38,7 +38,7 @@ $principals = App\Models\Principal::get();
           </div>
         </li>
             <li class="nav-item dropdown"> 
-          <a class="nav-link dropdown-toggle" href="{{ route('front.category') }}" role="button" aria-haspopup="true" aria-expanded="false">                 Products
+          <a class="nav-link" href="{{ route('front.category') }}" role="button" aria-haspopup="true" aria-expanded="false">                 Products
                                     </a>
          
         </li> 

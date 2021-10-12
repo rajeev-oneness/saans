@@ -159,7 +159,7 @@
           </li>
            -->
           @endif
-          @if(Auth::user()->user_type == 3)
+          @if(Auth::user()->user_type != 2)
           <li class="nav-item has-treeview">
             <a href="{{ route('service.report.view') }}" class="nav-link">
               <p>
@@ -167,6 +167,7 @@
               </p>
             </a>
           </li>
+         
           @endif
           <!-- <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">

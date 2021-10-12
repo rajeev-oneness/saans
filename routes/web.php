@@ -183,8 +183,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
       Route::get('/contact-details/edit/{id}', [ContactDetailsController::class,'edit'])->name('edit.contact.details');
       Route::put('/contact-details/update/{id}', [ContactDetailsController::class,'update'])->name('update.contact.details');
       Route::get('/contact-details/delete/{id}', [ContactDetailsController::class,'destroy'])->name('delete.contact.details');
-        
-      
+    //   Route::get('/service-report', [ServiceController::class,'index'])->name('service.report.view');
 });
 
 
@@ -203,6 +202,14 @@ Route::group(['prefix'=>'service','middleware'=>'service'],function(){
         return view('service.dashboard');
     })->name('service.dashboard');
 
+});
+
+Route::group(['prefix'=>'service','middleware'=>'adminService'],function(){
+    // require 'custom/admin.php';
+    Route::get('dashboard',function(){
+        return view('service.dashboard');
+    })->name('service.dashboard');
+
     // ------------------------Service-----------------------------
       Route::get('/service-report', [ServiceController::class,'index'])->name('service.report.view');
       Route::get('/service-report/create', [ServiceController::class,'create'])->name('create.service.report');
@@ -210,6 +217,10 @@ Route::group(['prefix'=>'service','middleware'=>'service'],function(){
     //   Route::get('/service-report/edit/{id}', [ServiceController::class,'edit'])->name('edit.service.report');
     //   Route::put('/service-report/update/{id}', [ServiceController::class,'update'])->name('update.service.report');
     //   Route::get('/service-report/delete/{id}', [ServiceController::class,'destroy'])->name('delete.service.report');
+
+        Route::get('file-import-export', [ServiceController::class, 'fileImportExport']);
+        // Route::post('file-import', [UserController::class, 'fileImport'])->name('file-import');
+        Route::get('file-export', [ServiceController::class, 'fileExport'])->name('file-export');
 });
 
  
