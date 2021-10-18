@@ -80,7 +80,6 @@
                             </tbody>
                         </table>
                         <div>
-                            {{ $contactDetails->links() }}
                         </div>
                     </div>
                 </div>

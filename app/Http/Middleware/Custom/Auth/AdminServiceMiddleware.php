@@ -2,9 +2,8 @@
 
 namespace App\Http\Middleware\Custom\Auth;
 
-use Closure;
+use Closure,Auth,Session;
 use Illuminate\Http\Request;
-use Auth;
 
 class AdminServiceMiddleware
 {

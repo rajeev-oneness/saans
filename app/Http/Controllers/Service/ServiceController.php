@@ -17,7 +17,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('service.service.index');
+        $serviceReports = ServiceReport::get();
+        return view('service.service.index', compact('serviceReports'));
     }
 
     /**
@@ -39,6 +40,7 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'company_name' => 'required',
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
@@ -47,6 +49,7 @@ class ServiceController extends Controller
             'installed_system' => 'required',
             'warranty' => 'required',
             'amc_offer_sent' => 'required',
+            'remarks' => 'required',
             'action_plan' => 'required',
             'concern_engineer' => 'required',
         ]);
@@ -96,7 +99,8 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $serviceReport = ServiceReport::find($id);
+        return view('service.service.index', compact('serviceReport'));
     }
 
     /**

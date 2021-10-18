@@ -68,7 +68,6 @@
                             </tbody>
                         </table>
                         <div>
-                            {{ $subCategories->links() }}
                         </div>
                     </div>
                 </div>

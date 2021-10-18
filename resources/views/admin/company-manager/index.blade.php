@@ -70,7 +70,6 @@
                             </tbody>
                         </table>
                         <div>
-                            {{ $comManagers->links() }}
                         </div>
                     </div>
                 </div>

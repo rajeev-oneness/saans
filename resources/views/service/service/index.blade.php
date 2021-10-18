@@ -41,22 +41,53 @@
                         @if (Session::get('success'))                        
                             <div class="alert alert-success"> {{Session::get('success')}} </div>
                         @endif
-                       <table id="example4" class="table table-striped table-bordered" style="width:100%">
+                       <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>No.</th>
+                                    <th>Company Name</th>
                                     <th>Name</th>
-                                    <th>Category</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
+                                    <th>Serial No</th>
+                                    <th>Installed System</th>
+                                    <th>Warranty</th>
+                                    <th>AMC Offer Sent</th>
+                                    <th>AMC Value</th>
+                                    <th>Remarks</th>
+                                    <th>Action Plan</th>
+                                    <th>Concern Engineer</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- foreach () -->
+                                @foreach($serviceReports as $key =>  $serviceReport)
                                 <tr>
-                                    
-                                    <td><a href="">Edit</a> | <a href="" class="text-danger delete-confirm">Delete</a></td>
-                                </tr>
+                                  <td>{{$key + 1}}</td>
+                                  <td>{{$serviceReport->company_name}}</td>
+                                  <td>{{$serviceReport->name}}</td>
+                                  <td>{{$serviceReport->email}}</td>
+                                  <td>{{$serviceReport->phone}}</td>
+                                  <td>{{$serviceReport->address}}</td>
+                                  <td>{{$serviceReport->serial_no}}</td>
+                                  <td>{{$serviceReport->installed_system}}</td>
+                                  <td>{{$serviceReport->warranty}}</td>
+                                  <td>{{$serviceReport->amc_offer_sent}}</td>
+                                  <td>{{$serviceReport->amc_value}}</td>
+                                  <td>{{$serviceReport->remarks}}</td>
+                                  <td>{{$serviceReport->action_plan}}</td>
+                                  <td>{{$serviceReport->concern_engineer}}</td>
+                                  @if($serviceReport->status == 1)
+                                  <td>Active</td>
+                                  @else
+                                  <td>Inactive</td>
+                                  @endif
+                                  <td><a href="">Edit</a> | 
+                                    <a href="#" class="text-danger delete-confirm" data-id="">Delete</a></td>
+                              </tr>
+                              @endforeach
                                 <!-- endforeach -->
                             </tbody>
                         </table>
@@ -74,5 +105,27 @@
  </div>
  <!-- /.content-wrapper -->
  @section('script')
+ <script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [ {
+            extend: 'excelHtml5',
+            customize: function ( xlsx ){
+                var sheet = xlsx.xl.worksheets['sheet1.xml'];
+ 
+                // jQuery selector to add a border
+                $('row c[r*="10"]', sheet).attr( 's', '25' );
+            },
+            exportOptions: {
+              columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+          },
+        } ]
+    } );
+} );
+        
+</script>
 @stop
+
+
 @endsection

@@ -76,7 +76,6 @@
                             </tbody>
                         </table>
                         <div>
-                            {{ $priproducts->links() }}
                         </div>
                     </div>
                 </div>

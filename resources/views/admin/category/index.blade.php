@@ -69,7 +69,6 @@
             </tbody>
         </table>
         <div>
-            {{ $categories->links() }}
         </div>
       </div>
       <!-- /.card-body -->

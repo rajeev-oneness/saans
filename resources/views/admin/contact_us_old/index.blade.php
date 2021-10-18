@@ -74,7 +74,6 @@
                             </tbody>
                         </table>
                         <div>
-                            {{ $contactUs->links() }}
                         </div>
                     </div>
                 </div>
