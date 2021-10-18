@@ -169,6 +169,16 @@
           </li>
          
           @endif
+          @if(Auth::user()->user_type != 3)
+          <li class="nav-item has-treeview">
+            <a href="{{ route('salse.report.view') }}" class="nav-link">
+              <p>
+                Salse Report
+              </p>
+            </a>
+          </li>
+         
+          @endif
           <!-- <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

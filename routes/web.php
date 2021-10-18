@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\ContactDetailsController;
 use App\Http\Controllers\Service\ServiceController;
+use App\Http\Controllers\Salse\SalseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -194,6 +195,17 @@ Route::group(['prefix'=>'salse','middleware'=>'salse'],function(){
         return view('salse.dashboard');
     })->name('salse.dashboard');
     
+
+    Route::get('/salse-report', [SalseController::class,'index'])->name('salse.report.view');
+      Route::get('/salse-report/create', [SalseController::class,'create'])->name('create.salse.report');
+      Route::post('/salse-report/store', [SalseController::class,'store'])->name('store.salse.report');
+      Route::get('/salse-report/edit/{id}', [SalseController::class,'edit'])->name('edit.salse.report');
+      Route::put('/salse-report/update/{id}', [SalseController::class,'update'])->name('update.salse.report');
+      Route::get('/salse-report/delete/{id}', [SalseController::class,'destroy'])->name('delete.salse.report');
+
+        // Route::get('file-import-export', [SalseController::class, 'fileImportExport']);
+        // // Route::post('file-import', [UserController::class, 'fileImport'])->name('file-import');
+        // Route::get('file-export', [SalseController::class, 'fileExport'])->name('file-export');
 });
 
 Route::group(['prefix'=>'service','middleware'=>'service'],function(){
@@ -214,9 +226,9 @@ Route::group(['prefix'=>'service','middleware'=>'adminService'],function(){
       Route::get('/service-report', [ServiceController::class,'index'])->name('service.report.view');
       Route::get('/service-report/create', [ServiceController::class,'create'])->name('create.service.report');
       Route::post('/service-report/store', [ServiceController::class,'store'])->name('store.service.report');
-    //   Route::get('/service-report/edit/{id}', [ServiceController::class,'edit'])->name('edit.service.report');
-    //   Route::put('/service-report/update/{id}', [ServiceController::class,'update'])->name('update.service.report');
-    //   Route::get('/service-report/delete/{id}', [ServiceController::class,'destroy'])->name('delete.service.report');
+      Route::get('/service-report/edit/{id}', [ServiceController::class,'edit'])->name('edit.service.report');
+      Route::put('/service-report/update/{id}', [ServiceController::class,'update'])->name('update.service.report');
+      Route::get('/service-report/delete/{id}', [ServiceController::class,'destroy'])->name('delete.service.report');
 
         Route::get('file-import-export', [ServiceController::class, 'fileImportExport']);
         // Route::post('file-import', [UserController::class, 'fileImport'])->name('file-import');

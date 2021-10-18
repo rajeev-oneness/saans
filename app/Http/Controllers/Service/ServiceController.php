@@ -99,8 +99,9 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
+        // $Reports = ServiceReport::find($id);
         $serviceReport = ServiceReport::find($id);
-        return view('service.service.index', compact('serviceReport'));
+        return view('service.service.edit', compact('serviceReport'));
     }
 
     /**
@@ -112,7 +113,37 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'company_name' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'serial_no' => 'required',
+            'installed_system' => 'required',
+            'warranty' => 'required',
+            'amc_offer_sent' => 'required',
+            'remarks' => 'required',
+            'action_plan' => 'required',
+            'concern_engineer' => 'required',
+        ]);
+        ServiceReport::where('id', $id)->update([
+            'company_name' => $request->company_name,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'serial_no' => $request->serial_no,
+            'installed_system' => $request->installed_system,
+            'warranty' => $request->warranty,
+            'amc_offer_sent' => $request->amc_offer_sent,
+            'amc_value' => $request->amc_value,
+            'remarks' => $request->remarks,
+            'action_plan' => $request->action_plan,
+            'concern_engineer' => $request->concern_engineer,
+        ]);
+
+        return redirect('salse/service-report')->with('success','Service Report Updated Successfully');
     }
 
     /**
@@ -123,6 +154,7 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ServiceReport::where('id', $id)->delete();
+        return redirect()->route('service.report.view');
     }
 }

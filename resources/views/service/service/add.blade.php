@@ -183,7 +183,7 @@
                 <div class="col-12">
                 <!-- <a href="#" class="btn btn-secondary">Cancel</a> -->
                 <button type="submit"  class="btn btn-success float-right">Create New Service Report</button>
-                <a class="btn btn-success" href="{{ route('file-export') }}">Export data</a>
+                <!-- <a class="btn btn-success" href="{{ route('file-export') }}">Export data</a> -->
                 </div>
             </div>
             </div>
