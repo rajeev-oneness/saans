@@ -48,11 +48,20 @@ class ServiceController extends Controller
             'serial_no' => 'required',
             'installed_system' => 'required',
             'warranty' => 'required',
-            'amc_offer_sent' => 'required',
+            'amc_offer_sent' => 'required|in:yes,no',
+
+            // 'amc_value' => ['sometimes', 'required', 'max:255'],
+
             'remarks' => 'required',
             'action_plan' => 'required',
             'concern_engineer' => 'required',
         ]);
+
+        if($request->amc_offer_sent == 'Yes'){
+            $request->validate([
+                'amc_value' => 'required',
+            ]);
+        }
         $service = new ServiceReport;
         $service->company_name = $request->input('company_name');
         $service->name = $request->input('name');

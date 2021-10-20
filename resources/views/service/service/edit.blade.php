@@ -100,10 +100,10 @@
                     </div>
                     <div class="form-group required">
                         <label for="warranty" class="control-label">Select Warranty</label>
-                        <select class="form-control @error('warranty') is-invalid @enderror" name="warranty" id="warranty" value="{{$serviceReport->warranty}}">
+                        <select class="form-control @error('warranty') is-invalid @enderror" name="warranty" id="warranty" value="{{ old('warranty') }}">
                                 <option selected disabled>Select one</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
+                                <option @if(old('warranty') == 'Yes'){{('selected')}}@endif value="Yes">Yes</option>
+                                <option @if(old('warranty') == 'No'){{('selected')}}@endif value="No">No</option>
                                 <option value="Saans">Saans Warranty</option>
                         </select>
                         @error('warranty')
@@ -114,26 +114,38 @@
                     </div> 
                     <div class="form-group">
                         <label for="amc_offer_sent">AMC offer sent?</label>
-                        <select class="form-control @error('amc_offer_sent') is-invalid @enderror" name="amc_offer_sent" id="amc_offer_sent" value="{{$serviceReport->amc_offer_sent}}">
+                        <select class="form-control @error('amc_offer_sent') is-invalid @enderror" name="amc_offer_sent" id="amc_offer_sent" value="{{ old('amc_offer_sent') }}" onChange="check(this);">
                                 <option selected disabled>Select one</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
+                                <option @if(old('amc_offer_sent') == 'Yes'){{('selected')}}@endif value="Yes" id="yes">Yes</option>
+                                <option @if(old('amc_offer_sent') == 'No'){{('selected')}}@endif value="No"  id="no">No</option>
                         </select>
+                        
                         @error('amc_offer_sent')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror   
                     </div>
-                    <div class="form-group">
+                    @php 
+                        $amc_offer_sentShow = false;
+                        if(old('amc_offer_sent')){
+                            if(old('amc_offer_sent') == 'Yes'){
+                                $amc_offer_sentShow = true;
+                            }
+                        }
+                    @endphp
+                    <div class="form-group amc_value_class" id="amc-value" @if(!$amc_offer_sentShow) style="display:none;" @endif >
                         <label for="amc_value">AMC Value?</label>
-                        <input id="amc_value" type="text" class="form-control @error('amc_value') is-invalid @enderror" name="amc_value" value="{{$serviceReport->amc_value}}" >
+                        <!-- <textarea class="form-control form-control" cols="40" id="feedback_ok" name="feedback_ok" rows="10"></textarea> -->
+                        <textarea id="amc_value" type="text" class="form-control @error('amc_value') is-invalid @enderror" name="amc_value">{{ old('amc_value') }}</textarea>
                         @error('amc_value')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror   
-                    </div> 
+                    </div>  
+
+
                     <div class="form-group">
                         <label for="remarks">Remarks</label>
                         <input id="remarks" type="text" class="form-control @error('remarks') is-invalid @enderror" name="remarks" value="{{$serviceReport->remarks}}" >
@@ -180,4 +192,18 @@
     color:red;
  }
 </style>
+@endsection
+@section('script')
+    <script>
+        function check(elem) {
+            var amcValueDiv = document.getElementById("amc-value");
+        if (elem.value == 'Yes') {
+            amcValueDiv.style.display = 'block';
+            $('#amc_value').attr('required',true);
+        } else {
+            amcValueDiv.style.display = 'none';
+            $('#amc_value').attr('required',false);
+        }
+    }
+    </script>
 @endsection

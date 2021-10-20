@@ -56,22 +56,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($salseReports as $key => $ssalseReport)
+                                @foreach ($salseReports as $key => $salseReport)
                                 <tr>
                                   <td>{{$key + 1}}</td>
-                                  <td>{{$ssalseReport->customer_name}}</td>
-                                  <td>{{$ssalseReport->contact_person}}</td>
-                                  <td>{{$ssalseReport->email}}</td>
-                                  <td>{{$ssalseReport->phone}}</td>
-                                  <td>{{$ssalseReport->value_inr}}</td>
-                                  <td>{{$ssalseReport->remarks}}</td>
+                                  <td>{{$salseReport->customer_name}}</td>
+                                  <td>{{$salseReport->contact_person}}</td>
+                                  <td>{{$salseReport->email}}</td>
+                                  <td>{{$salseReport->phone}}</td>
+                                  <td>{{$salseReport->value_inr}}</td>
+                                  <td>{{$salseReport->remarks}}</td>
                                   <!-- if(serviceReport->status == 1)
                                   <td>Active</td>
                                   else
                                   <td>Inactive</td>
                                   endif -->
-                                  <td><a href="{{ route('edit.salse.report',['id' => $ssalseReport->id])}}">Edit</a> | 
-                                    <a href="{{ route('delete.salse.report',['id' => $ssalseReport->id])}}" class="text-danger delete-confirm" data-id="">Delete</a></td>
+                                  <td><a href="{{ route('edit.salse.report',['id' => $salseReport->id])}}">Edit</a> | 
+                                    <a href="{{ route('delete.salse.report',['id' => $salseReport->id])}}" class="text-danger delete-confirm" data-id="">Delete</a></td>
                               </tr>
                               @endforeach
                                 <!-- endforeach -->
@@ -104,7 +104,7 @@
                 $('row c[r*="10"]', sheet).attr( 's', '25' );
             },
             exportOptions: {
-              columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+              columns: [0, 1, 2, 3, 4, 5, 6]
           },
         } ]
     } );
