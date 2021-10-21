@@ -56,6 +56,7 @@
                                     <th>Category</th>
                                     <th>Sub-Category</th>
                                     <th>Principal</th>
+                                    <th>Sub-Principal</th>
                                     <th>Feature</th>
                                     <th>Larger Specification</th>
                                     <th>Redirect Link</th>
@@ -79,6 +80,7 @@
                                     <td>{{$product->categoryDetail->name}}</td>
                                     <td>{{$product->subCategoryDetail->sub_category_name}}</td>
                                     <td>{{$product->principalDetail->name}}</td>
+                                     <td>{{$product->subPrincipalDetail->sub_principal}}</td>
                                     <td>{{substr($product->feature, 0,100).'...'}}</td>
                                     <td>{{substr($product->larger_specification, 0,100).'...'}}</td>
                                     <td>{{$product->redirect_link}}</td>

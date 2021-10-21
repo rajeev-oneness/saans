@@ -87,6 +87,14 @@
           </li>
 
           <li class="nav-item has-treeview">
+            <a href="{{ route('sub-principal.view') }}" class="nav-link">
+              <p>
+                Sub Principal
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item has-treeview">
             <a href="{{ route('product.view') }}" class="nav-link">
               <p>
                 Product

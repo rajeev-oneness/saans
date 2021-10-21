@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\PrincipalController;
+use App\Http\Controllers\Admin\SubPrincipalController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\PrincipalProductController;
 use App\Http\Controllers\Admin\VideoController;
@@ -91,6 +92,16 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     Route::get('/sub-category/edit/{id}', [SubCategoryController::class,'edit'])->name('edit.sub-category');
     Route::put('/sub-category/update/{id}', [SubCategoryController::class,'update'])->name('update.sub-category');
     Route::get('/sub-category/delete/{id}', [SubCategoryController::class,'destroy'])->name('delete.sub-category');
+
+     // -----------------Sub Principal-----------------
+    Route::get('/sub-principal', [SubPrincipalController::class,'index'])->name('sub-principal.view');
+    Route::post('/get-sub-principal-by-principal', [SubPrincipalController::class,'subPrincipal']);
+
+    Route::get('/sub-principal/add', [SubPrincipalController::class,'create'])->name('add.sub-principal');
+    Route::post('/sub-principal/store', [SubPrincipalController::class,'store'])->name('store.sub-principal');
+    Route::get('/sub-principal/edit/{id}', [SubPrincipalController::class,'edit'])->name('edit.sub-principal');
+    Route::put('/sub-principal/update/{id}', [SubPrincipalController::class,'update'])->name('update.sub-principal');
+    Route::get('/sub-principal/delete/{id}', [SubPrincipalController::class,'destroy'])->name('delete.sub-principal');
     
     
     // ----------------------Principals------------

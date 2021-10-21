@@ -128,7 +128,7 @@
                         <label for="amc_offer_sent">AMC offer sent?</label>
                         <select class="form-control @error('amc_offer_sent') is-invalid @enderror" name="amc_offer_sent" id="amc_offer_sent" value="{{ old('amc_offer_sent') }}" onChange="check(this);">
                                 <option selected disabled>Select one</option>
-                                <option @if(old('amc_offer_sent') == 'Yes'){{('selected')}}@endif value="Yes" id="yes">Yes</option>
+                                <option @if(old('amc_offer_sent') == 'Yes'){{('selected')}}@endif value=" " id="yes">Yes</option>
                                 <option @if(old('amc_offer_sent') == 'No'){{('selected')}}@endif value="No"  id="no">No</option>
                         </select>
                         

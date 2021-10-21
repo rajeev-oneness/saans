@@ -8,6 +8,8 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\Principal;
+use App\Models\SubPrincipal;
+
 
 class ProductController extends Controller
 {
@@ -23,12 +25,12 @@ class ProductController extends Controller
         return view('admin.product.index',compact('products'));
     }
 
-    public function getSubCat(Request $request)
-    {
-        $data[] = SubCategory::where("categoryId",$request->categoryId)
-                    ->get(["sub_category_name","id"]);
-        return response()->json($data);
-    }
+    // public function getSubCat(Request $request)
+    // {
+    //     $data[] = SubCategory::where("categoryId",$request->categoryId)
+    //                 ->get(["sub_category_name","id"]);
+    //     return response()->json($data);
+    // }
    
 
     /**
@@ -40,19 +42,29 @@ class ProductController extends Controller
     { 
         $categories=Category::get();
         $categorieId=Category::select('id')->get();
-        // dd($categorieId);exit;
+        $pricipalId=Principal::select('id')->get();
+        // dd($pricipalId);exit;
         $subCategories=SubCategory::where('id',$categorieId)->get();
+        $subPrincipals=SubPrincipal::where('id',$pricipalId)->get();
         // dd($subCategories);exit;
         $principals=Principal::get();
         // dd($subCategories);exit;
-        return view('admin.product.add',compact('categories','subCategories','principals'));
+        return view('admin.product.add',compact('categories','subCategories','principals','subPrincipals'));
     }
 
     public function manage(Request $request)
     {
         $categoryid = $request->val;
+        // dd($categoryid);
         $subcategories = SubCategory::where('categoryId',$categoryid)->get();
         return response()->json(['sub' => $subcategories]);
+    }
+
+     public function managePrincipal(Request $request)
+    {
+        $principalid = $request->val;
+        $subPrincipals = SubPrincipal::where('principalId',$principalid)->get();
+        return response()->json(['sub' => $subPrincipals]);
     }
 
     /**
@@ -69,6 +81,7 @@ class ProductController extends Controller
             'categoryId' => 'required',
             'subCategoryId' => 'required',
             'principalId' => 'required',
+            'subPrincipalId' => 'required',
             'feature' => 'required',
             'larger_specification' => 'required',
             'redirect_link' => 'required',
@@ -114,6 +127,7 @@ class ProductController extends Controller
         $product->categoryId = $request->categoryId;
         $product->subCategoryId = $request->subCategoryId;
         $product->principalId = $request->principalId;
+        $product->subPrincipalId = $request->subPrincipalId;
         $product->name = $request->name;
         $product->description = $request->description;
         $product->feature = $request->feature;
@@ -169,8 +183,9 @@ class ProductController extends Controller
         $categories = Category::all();
         $subCategories = SubCategory::all();
         $principals = Principal::all();
+        $subPrincipals = SubPrincipal::all();
         $product = Product::find($id);
-        return view('admin.product.edit',compact('product','categories','subCategories','principals'));
+        return view('admin.product.edit',compact('product','categories','subCategories','principals','subPrincipals'));
     }
 
     /**
@@ -188,6 +203,7 @@ class ProductController extends Controller
             'categoryId' => 'required',
             'subCategoryId' => 'required',
             'principalId' => 'required',
+            'subPrincipalId' => 'required',
             'feature' => 'required|max:200',
             'larger_specification' => 'required|max:200',
             'redirect_link' => 'required',
@@ -272,6 +288,7 @@ class ProductController extends Controller
         'categoryId' => $request->categoryId,
         'subCategoryId' => $request->subCategoryId,
         'principalId' => $request->principalId,
+        'subPrincipalId' => $request->subPrincipalId,
         'name' =>$request->name,
         'description' => $request->description,
         'feature' => $request->feature,

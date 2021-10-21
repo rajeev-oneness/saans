@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/product/manage', [ProductController::class,'manage'])->name('admin.product.manage.category');
+Route::post('/product/manage/principal', [ProductController::class,'managePrincipal'])->name('admin.product.manage.principal');

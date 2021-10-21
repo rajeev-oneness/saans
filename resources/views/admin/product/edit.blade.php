@@ -122,6 +122,25 @@
                                 </span>
                             @enderror  
                         </div>
+
+
+
+                         <div class="form-group required">
+                            <label for="subPrincipalId" class="control-label">Select Sub-Principal</label>
+                            <select id="subPrincipalId" name="subPrincipalId" class="form-control @error('subPrincipalId') is-invalid @enderror">
+                            <option selected disabled>Select one</option>
+                                @foreach ($subPrincipals as $subPrincipal)
+                                <option value="{{$subCategory->id}}" @if($product->subPrincipalId == $subPrincipal->id){{('selected')}}@endif>{{$subPrincipal->sub_principal}}</option>
+                                @endforeach
+                            </select>
+                            @error('subPrincipalId')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror  
+                        </div>
+
+
                         <div class="form-group required">
                             <label for="description" class="control-label">Description</label>
                             <textarea name="description" id="description" rows="3" class="form-control @error('description') is-invalid @enderror">{{$product->description}}</textarea>
@@ -215,5 +234,28 @@
                 });
             });
         });
+
+       $(document).ready(function() {
+
+             $('#principalId').on('change', function () {
+                var principalId = $('#principalId').val();
+                $.ajax({
+                    url : "{{route('admin.product.manage.principal')}}",
+                    type : 'POST',
+                    data : {
+                        _token : '{{csrf_token()}}',
+                        val : principalId
+                    },
+                    success: function(result) {
+                        var options  = '<option value="" selected="" hidden="">Select Sub-Principal</option>';
+                        $.each(result.sub,function(key,val){
+                            options += '<option value="'+val.id+'">'+val.sub_principal+'</option>';
+                        });
+                        $('#subPrincipalId').empty().append(options);
+                        // $res->success = false;
+                    }
+                });
+            });
+      });
     </script>
 @endsection
