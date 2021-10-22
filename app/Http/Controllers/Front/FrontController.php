@@ -15,6 +15,7 @@ use App\Models\AboutUs;
 use App\Models\Banar;
 use App\Models\SubCategory;
 use App\Models\ContactUs;
+use App\Models\SubPrincipal;
 
 
 class FrontController extends Controller
@@ -95,7 +96,9 @@ class FrontController extends Controller
     // }
    public function principalWiseProduct($id)
     {
-        $data = Product::where('principalId', $id)
+        // $subPrincipals = SubPrincipal::where('subPincipalId' , '=' , $id)
+        //         ->get();
+        $data = Product::where('principalId', $id)->where('subPrincipalId', '=', $id)
         ->paginate(6);
         // $data = PrincipalProduct::where('principalId', $id)
         // ->paginate(6);
@@ -103,7 +106,8 @@ class FrontController extends Controller
         //         ->paginate(6);
 
         $principalName = Principal::where('id', '=', $id)->select('name')->first();
-        return view('front.principal-product-details', compact('data','principalName'));
+        $subPrincipalName = SubPrincipal::where('id', '=', $id)->select('sub_principal')->first();
+        return view('front.principal-product-details', compact('data','principalName','subPrincipalName'));
     }
 
     public function PrincipalDetails($id)

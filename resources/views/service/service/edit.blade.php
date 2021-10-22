@@ -100,11 +100,12 @@
                     </div>
                     <div class="form-group required">
                         <label for="warranty" class="control-label">Select Warranty</label>
-                        <select class="form-control @error('warranty') is-invalid @enderror" name="warranty" id="warranty" value="{{ old('warranty') }}">
+                        <select class="form-control @error('warranty') is-invalid @enderror" name="warranty" id="warranty">
+
                                 <option selected disabled>Select one</option>
-                                <option @if(old('warranty') == 'Yes'){{('selected')}}@endif value="Yes">Yes</option>
-                                <option @if(old('warranty') == 'No'){{('selected')}}@endif value="No">No</option>
-                                <option value="Saans">Saans Warranty</option>
+                                <option {{ $serviceReport->warranty == 'Yes' ? 'selected':'' }}>Yes</option>
+                                <option {{ $serviceReport->warranty == 'No' ? 'selected':'' }}>No</option>
+                                <option {{ $serviceReport->warranty == 'Saans Warranty' ? 'selected':'' }}>Saans Warranty</option>
                         </select>
                         @error('warranty')
                             <span class="invalid-feedback" role="alert">
@@ -114,10 +115,10 @@
                     </div> 
                     <div class="form-group">
                         <label for="amc_offer_sent">AMC offer sent?</label>
-                        <select class="form-control @error('amc_offer_sent') is-invalid @enderror" name="amc_offer_sent" id="amc_offer_sent" value="{{ old('amc_offer_sent') }}" onChange="check(this);">
+                        <select class="form-control @error('amc_offer_sent') is-invalid @enderror" name="amc_offer_sent" id="amc_offer_sent" v onChange="check(this);">
                                 <option selected disabled>Select one</option>
-                                <option @if(old('amc_offer_sent') == 'Yes'){{('selected')}}@endif value="Yes" id="yes">Yes</option>
-                                <option @if(old('amc_offer_sent') == 'No'){{('selected')}}@endif value="No"  id="no">No</option>
+                                <option {{ $serviceReport->amc_offer_sent == 'Yes' ? 'selected':'' }} id="yes">Yes</option>
+                                <option {{ $serviceReport->amc_offer_sent == 'No' ? 'selected':'' }} id="no">No</option>
                         </select>
                         
                         @error('amc_offer_sent')
@@ -128,8 +129,8 @@
                     </div>
                     @php 
                         $amc_offer_sentShow = false;
-                        if(old('amc_offer_sent')){
-                            if(old('amc_offer_sent') == 'Yes'){
+                        if($serviceReport->amc_offer_sent){
+                            if($serviceReport->amc_offer_sent == 'Yes'){
                                 $amc_offer_sentShow = true;
                             }
                         }
@@ -137,7 +138,7 @@
                     <div class="form-group amc_value_class" id="amc-value" @if(!$amc_offer_sentShow) style="display:none;" @endif >
                         <label for="amc_value">AMC Value?</label>
                         <!-- <textarea class="form-control form-control" cols="40" id="feedback_ok" name="feedback_ok" rows="10"></textarea> -->
-                        <textarea id="amc_value" type="text" class="form-control @error('amc_value') is-invalid @enderror" name="amc_value">{{ old('amc_value') }}</textarea>
+                        <textarea id="amc_value" type="text" class="form-control @error('amc_value') is-invalid @enderror" name="amc_value">{{ $serviceReport->amc_value }}</textarea>
                         @error('amc_value')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

@@ -6,6 +6,7 @@
         <div class="col-lg-12">
             <div class="heading text-center">
                <h1>{{$principalName->name}}</h1>
+               <h2>{{$subPrincipalName->sub_principal}}</h2>
             </div>
         </div>
     </div>
@@ -29,24 +30,6 @@
 </section>   
 
 
-  <section class="bluebox">
-    <div class="container">
-      <div class="row align-items-center ">
-        <div class="col-lg-7 col-sm-12 wow slideInLeft" data-wow-duration="2s">
-          <div class="sign-up-text mt-3">
-            <h5>KNOW IT ALL FIRST!</h5>
-            <h3>Never Miss Anything By Signing Up To Our Newsletter.</h3> </div>
-        </div>
-        <div class="col-lg-5 col-sm-12 wow slideInRight" data-wow-duration="2s">
-          <form>
-            <div class="input-group">
-              <input type="email" class="form-control" placeholder="Enter your email"> <span class="input-group-btn">
-                                    <button class="btn" type="submit">Subscribe</button>
-                                </span> </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 @endsection
  

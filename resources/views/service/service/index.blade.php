@@ -73,8 +73,18 @@
                                   <td>{{$serviceReport->address}}</td>
                                   <td>{{$serviceReport->serial_no}}</td>
                                   <td>{{$serviceReport->installed_system}}</td>
-                                  <td>{{$serviceReport->warranty}}</td>
-                                  <td>{{$serviceReport->amc_offer_sent}}</td>
+                                  @if($serviceReport->warranty == "Yes")
+                                  <td>Yes</td>
+                                  @elseif($serviceReport->warranty == "No")
+                                  <td>Yes</td>
+                                  @else
+                                  <td>Saans Warramty</td>
+                                  @endif
+                                   @if($serviceReport->amc_offer_sent == "Yes")
+                                  <td>Yes</td>
+                                  @else
+                                  <td>No</td>
+                                  @endif
                                   <td>{{$serviceReport->amc_value}}</td>
                                   <td>{{$serviceReport->remarks}}</td>
                                   <td>{{$serviceReport->action_plan}}</td>

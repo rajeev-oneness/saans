@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSubPrincipalIdOnProductTable extends Migration
+class AddSubPrincipalIdOnProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class AddSubPrincipalIdOnProductTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
+         Schema::table('products', function (Blueprint $table) {
             $table->integer('subPrincipalId')->after('principalId');
         });
         $pro_data=DB::table('products')->get();
         foreach ($pro_data as $key => $product) {
-            DB::table('products')->where('id',$product->id)->update(['subPrincipalId'=>1]);
+            DB::table('products')->where('principalId',1)->update(['subPrincipalId'=>1]);
+             DB::table('products')->where('principalId',2)->update(['subPrincipalId'=>2]);
         }
-    
     }
 
     /**
@@ -30,8 +30,6 @@ class AddSubPrincipalIdOnProductTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn(['subPrincipalId']);
-        });
+        //
     }
 }

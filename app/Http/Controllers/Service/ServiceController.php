@@ -48,7 +48,7 @@ class ServiceController extends Controller
             'serial_no' => 'required',
             'installed_system' => 'required',
             'warranty' => 'required',
-            'amc_offer_sent' => 'required|in:yes,no',
+            'amc_offer_sent' => 'required|in:Yes,No',
 
             // 'amc_value' => ['sometimes', 'required', 'max:255'],
 
@@ -131,11 +131,28 @@ class ServiceController extends Controller
             'serial_no' => 'required',
             'installed_system' => 'required',
             'warranty' => 'required',
-            'amc_offer_sent' => 'required',
+            'amc_offer_sent' => 'required|in:Yes,No',
             'remarks' => 'required',
             'action_plan' => 'required',
             'concern_engineer' => 'required',
         ]);
+
+        if($request->amc_offer_sent == 'Yes'){
+            $request->validate([
+                'amc_value' => 'required',
+            ]);
+             ServiceReport::where('id', $id)->update([
+
+            
+            'amc_value' => $request->amc_value,
+        ]);
+        }else{
+             ServiceReport::where('id', $id)->update([
+
+            'amc_value' =>'',
+        ]);
+        }
+       
         ServiceReport::where('id', $id)->update([
             'company_name' => $request->company_name,
             'name' => $request->name,
@@ -145,14 +162,15 @@ class ServiceController extends Controller
             'serial_no' => $request->serial_no,
             'installed_system' => $request->installed_system,
             'warranty' => $request->warranty,
+
             'amc_offer_sent' => $request->amc_offer_sent,
-            'amc_value' => $request->amc_value,
+            // 'amc_value' => $request->amc_value,
             'remarks' => $request->remarks,
             'action_plan' => $request->action_plan,
             'concern_engineer' => $request->concern_engineer,
         ]);
 
-        return redirect('salse/service-report')->with('success','Service Report Updated Successfully');
+        return redirect('service/service-report')->with('success','Service Report Updated Successfully');
     }
 
     /**

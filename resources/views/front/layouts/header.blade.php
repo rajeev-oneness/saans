@@ -1,6 +1,6 @@
 @php
-$categories = App\Models\Category::get();
-$principals = App\Models\Principal::get();
+  $categories = App\Models\Category::get();
+  $principals = App\Models\Principal::get();
 @endphp
 <header>
     <nav class="navbar navbar-expand-lg bg-nav">
@@ -26,13 +26,15 @@ $principals = App\Models\Principal::get();
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Principals</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
             
-            @foreach($principals as $principal)
-              <a class="nav-link dropdown-toggle" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >{{$principal->name}}
-              <div class="dropdown-menu dropdown-item-2" id="navbarDropdown1">
-                @foreach($categories as $category)
-                    <a href="">{{$category->name}}</a>
+            @foreach($principals as $index => $principal)
+              <a class="nav-link dropdown-toggle" id="navbarDropdown{{$index}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >{{$principal->name}}
+                @if(count($principal->subPrinciple) > 0)
+              <div class="dropdown-menu dropdown-item-2" id="navbarDropdown{{$index}}">
+                @foreach($principal->subPrinciple as $subPrincipal)
+                    <a href="{{url('/principal',$subPrincipal->id)}}">{{$subPrincipal->sub_principal}}</a>
                 @endforeach
                 </div>
+                @endif
                 </a>
             @endforeach
           </div>

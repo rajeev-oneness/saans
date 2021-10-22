@@ -10,4 +10,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Principal extends Model
 {
     use HasFactory,SoftDeletes;
+
+    public function subPrinciple()
+    {
+    	return $this->hasMany('App\Models\SubPrincipal','principalId','id');
+    }
 }
