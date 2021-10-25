@@ -23,32 +23,31 @@
 
 
           <li class="nav-item dropdown"> 
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Principals</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
-            
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Principals</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             @foreach($principals as $index => $principal)
-              <a class="nav-link dropdown-toggle" id="navbarDropdown{{$index}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >{{$principal->name}}
+              <li class="dropdown-submenu">
+                <a class="dropdown-item dropdown-toggle" href="#">{{$principal->name}}</a>
                 @if(count($principal->subPrinciple) > 0)
-              <div class="dropdown-menu dropdown-item-2" id="navbarDropdown{{$index}}">
-                @foreach($principal->subPrinciple as $subPrincipal)
-                    <a href="{{url('/principal',$subPrincipal->id)}}">{{$subPrincipal->sub_principal}}</a>
-                @endforeach
-                </div>
+                <ul class="dropdown-menu">
+                  @foreach($principal->subPrinciple as $subPrincipal)
+                    <li><a class="dropdown-item" href="{{url('/principal',$subPrincipal->id)}}">{{$subPrincipal->sub_principal}}</a></li>
+                  @endforeach
+                  <!-- <li><a class="dropdown-item" href="#">Another submenu action</a></li> -->
+                </ul>
                 @endif
-                </a>
-            @endforeach
-          </div>
-        </li>
+              </li>
+              @endforeach
+            </ul>
             <li class="nav-item dropdown"> 
-          <a class="nav-link" href="{{ route('front.category') }}" role="button" aria-haspopup="true" aria-expanded="false">                 Products
-                                    </a>
+          <a class="nav-link" href="{{ route('front.category') }}" role="button" aria-haspopup="true" aria-expanded="false">Products</a>
          
         </li> 
         
             
             <li class="nav-item"> <a class="nav-link" href="{{ url('/contact')}}">Contact</a> </li>
             <li class="nav-item"> <a class="btn btn-read" href="{{url('login')}}">Login</a> </li>
-            <li class="nav-item"> <a class="btn btn-read" href="{{url('sign-up')}}">Sign-Up</a> </li>
+            <!-- <li class="nav-item"> <a class="btn btn-read" href="{{url('sign-up')}}">Sign-Up</a> </li> -->
           </ul>
     </div>
   </dvi>

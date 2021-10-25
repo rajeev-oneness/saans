@@ -133,18 +133,6 @@
                                     </span>
                                 @enderror 
                             </div>
-                            <!-- <div class="form-group">
-                                <label for="subCategoryId">Sub-Category</label>
-                                <select class="form-control @error('subCategoryId') is-invalid @enderror" name="subCategoryId" id="subCategory" value="{{ old('subCategoryId') }}">
-                                
-                                </select>
-                                @error('subCategoryId')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror 
-                            </div> -->
-
                             <div class="form-group required">
                                 <label for="subCategoryId" class="control-label">Select Sub-Category</label>
                                 <select class="form-control @error('subCategoryId') is-invalid @enderror" name="subCategoryId" id="subCategoryId" value="{{ old('subCategoryId') }}">

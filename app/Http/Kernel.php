@@ -72,5 +72,6 @@ class Kernel extends HttpKernel
         'salse' => \App\Http\Middleware\Custom\Auth\SalseMiddleware::class,
         'service' => \App\Http\Middleware\Custom\Auth\ServiceMiddleware::class,
         'adminService' => \App\Http\Middleware\Custom\Auth\AdminServiceMiddleware::class,
+        'adminSalse' => \App\Http\Middleware\Custom\Auth\AdminSalseMiddleware::class,
     ];
 }

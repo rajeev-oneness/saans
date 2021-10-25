@@ -31,7 +31,7 @@
           <p class="footer-heading">Quick links</p> <span class="animate-border border-black"></span>
           <ul class="footer-list">
             <li><a href="{{ url('about-us') }}">About Us</a></li>
-            <li><a href="#">  Products</a></li>
+            <li><a href="{{ url('category') }}">  Products</a></li>
             <li><a href="#">  My Account</a></li>
             <li><a href="{{ url('contact') }}">  Contact Us</a></li>
           </ul>
@@ -47,8 +47,8 @@
           <ul class="footer-address">
             <li><span><i class="fa fa-map-marker"></i></span>1417, Rajdanga Main Road Block EF-40, Kolkata 700107, West Bengal, India</li>
             <li><span><i class="fa fa-phone"></i></span><a href="tel:+91 3340001735" class="phone">+91 3340001735</a></li>
-            <li><span><i class="fa fa-envelope"></i></span><a href="">sales@saansanalytical.com</a> </li>
-            <li><span><i class="fa fa-envelope"></i></span><a href="">support@saansanalytical.com</a></li>
+            <li><span><i class="fa fa-envelope"></i></span><a href="mailto:sales@saansanalytical.com">sales@saansanalytical.com</a> </li>
+            <li><span><i class="fa fa-envelope"></i></span><a href="mailto:support@saansanalytical.com">support@saansanalytical.com</a></li>
           </ul>
         </div>
         <div class="col-lg-3 col-sm-6 wow slideInLeft" data-wow-duration="2s">
@@ -91,3 +91,32 @@
       </div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+crossorigin="anonymous"></script>
+<script type="text/javascript">
+/// some script
+
+// jquery ready start
+$(document).ready(function() {
+	// jQuery code
+
+	//////////////////////// Prevent closing from click inside dropdown
+    $(document).on('click', '.dropdown-menu', function (e) {
+      e.stopPropagation();
+    });
+
+    // make it as accordion for smaller screens
+    if ($(window).width() < 992) {
+  $('.dropdown-menu a').click(function(e){
+  e.preventDefault();
+        if($(this).next('.submenu').length){
+        $(this).next('.submenu').toggle();
+        }
+        $('.dropdown').on('hide.bs.dropdown', function () {
+   $(this).find('.submenu').hide();
+			})
+  });
+	}
+	
+}); // jquery end
+</script>

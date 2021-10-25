@@ -43,8 +43,8 @@
             </ul>             -->
           </div>
           <div class="details col-lg-6 col-sm-7">
-            <h3 class="product-title">Performance & Power in a Flexible Platform</h3>            
-            <p class="product-description">Hitachi High-Tech's scanning electron microscopes SU3800/SU3900 deliver both operability and expandability. The operator can automate many operations and efficiently utilize their high performance. The SU3900 is equipped with a large multipurpose specimen chamber to accommodate observation of large samples.</p>
+            <h3 class="product-title">{{$product->name}}</h3>            
+            <p class="product-description">{{$product->description}}</p>
           
             <div class="action">
              <a class="btn btn-read mt-2" href="{{ url('/contact') }}">Contact Us</a>

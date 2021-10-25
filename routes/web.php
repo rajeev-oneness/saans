@@ -200,7 +200,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 
 
 
-Route::group(['prefix'=>'salse','middleware'=>'salse'],function(){
+Route::group(['prefix'=>'salse','middleware'=>'adminSalse'],function(){
     // require 'custom/admin.php';
     Route::get('dashboard',function(){
         return view('salse.dashboard');

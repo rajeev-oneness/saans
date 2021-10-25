@@ -76,7 +76,7 @@
             <h4>Our Products</h4>
             <h2><span>Innovation and Implementing Advanced Technology</span></h2> </div>
         </div>
-        <div class="col-sm-4"> <a href="#" class="btn btn-read">View All</a> </div>
+        <!-- <div class="col-sm-4"> <a href="#" class="btn btn-read">View All</a> </div> -->
       </div>
     </div>
   </section>
@@ -96,7 +96,7 @@
               <!-- php
               $category->product = App\Models\Product::where('id', '=', $category->id)->latest()->first();
               endphp -->
-              <p>{{$category->latestProduct->description}} <a href="#" class=""><i class="fa fa-angle-double-right ml-2"></i></a></p>
+              <p>{{$category->latestProduct->description}} <a href="{{ url('product-details',$category->latestProduct->id)}}" class=""><i class="fa fa-angle-double-right ml-2"></i></a></p>
             </div>
           </div>
         </div>
@@ -143,70 +143,12 @@
                     <li> Observation condition: 5kV/15kV/EDX</li>
                     <li>Observation mode: Standard mode</li>
                   </ul> -->
-                   <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
+                   <a href="{{ url('product-details',$product->id)}}" class=""><i class="fa fa-angle-double-right ml-2"></i></a> </div>
               </div>
             </div>
             @endforeach
-            <div class="owl-item">
-              <div class="d-sm-flex justify-content-between align-items-center bg-feature">
-                <div class="feature-img"> <img src="images/f1.png" class="img-fluid mx-auto"> </div>
-                <div class="feature-text">
-                  <h4>TM 3030</h4>
-                  <ul>
-                    <li>Magnification: 15 to 60,000×(digital zoom: 2×, 4×)</li>
-                    <li> Observation condition: 5kV/15kV/EDX</li>
-                    <li>Observation mode: Standard mode</li>
-                  </ul> <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
-              </div>
-            </div>
-            <div class="owl-item">
-              <div class="d-sm-flex justify-content-between align-items-center bg-feature">
-                <div class="feature-img"> <img src="images/f1.png" class="img-fluid mx-auto"> </div>
-                <div class="feature-text">
-                  <h4>TM 3030</h4>
-                  <ul>
-                    <li>Magnification: 15 to 60,000×(digital zoom: 2×, 4×)</li>
-                    <li> Observation condition: 5kV/15kV/EDX</li>
-                    <li>Observation mode: Standard mode</li>
-                  </ul> <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
-              </div>
-            </div>
-            <div class="owl-item">
-              <div class="d-sm-flex justify-content-between align-items-center bg-feature">
-                <div class="feature-img"> <img src="images/f1.png" class="img-fluid mx-auto"> </div>
-                <div class="feature-text">
-                  <h4>TM 3030</h4>
-                  <ul>
-                    <li>Magnification: 15 to 60,000×(digital zoom: 2×, 4×)</li>
-                    <li> Observation condition: 5kV/15kV/EDX</li>
-                    <li>Observation mode: Standard mode</li>
-                  </ul> <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
-              </div>
-            </div>
-            <div class="owl-item">
-              <div class="d-sm-flex justify-content-between align-items-center bg-feature">
-                <div class="feature-img"> <img src="images/f1.png" class="img-fluid mx-auto"> </div>
-                <div class="feature-text">
-                  <h4>TM 3030</h4>
-                  <ul>
-                    <li>Magnification: 15 to 60,000×(digital zoom: 2×, 4×)</li>
-                    <li> Observation condition: 5kV/15kV/EDX</li>
-                    <li>Observation mode: Standard mode</li>
-                  </ul> <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
-              </div>
-            </div>
-            <div class="owl-item">
-              <div class="d-sm-flex justify-content-between align-items-center bg-feature">
-                <div class="feature-img"> <img src="images/f1.png" class="img-fluid mx-auto"> </div>
-                <div class="feature-text">
-                  <h4>TM 3030</h4>
-                  <ul>
-                    <li>Magnification: 15 to 60,000×(digital zoom: 2×, 4×)</li>
-                    <li> Observation condition: 5kV/15kV/EDX</li>
-                    <li>Observation mode: Standard mode</li>
-                  </ul> <a href="#" class=""><i class="fa fa-angle-double-right "></i></a> </div>
-              </div>
-            </div>
+            
+            
           </div>
         </div>
       </div>

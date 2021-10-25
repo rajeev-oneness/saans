@@ -80,7 +80,7 @@
                                     <td>{{$product->categoryDetail->name}}</td>
                                     <td>{{$product->subCategoryDetail->sub_category_name}}</td>
                                     <td>{{$product->principalDetail->name}}</td>
-                                     <td>{{$product->subPrincipalDetail->sub_principal}}</td>
+                                    <td>{{($product->subPrincipalDetail ? $product->subPrincipalDetail->sub_principal : 'N/A')}}</td>
                                     <td>{{substr($product->feature, 0,100).'...'}}</td>
                                     <td>{{substr($product->larger_specification, 0,100).'...'}}</td>
                                     <td>{{$product->redirect_link}}</td>
