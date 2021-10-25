@@ -148,10 +148,7 @@
                             <div class="form-group required">
                                 <label for="subCategoryId" class="control-label">Select Sub-Category</label>
                                 <select class="form-control @error('subCategoryId') is-invalid @enderror" name="subCategoryId" id="subCategoryId" value="{{ old('subCategoryId') }}">
-                                        <option selected disabled>Select one</option>
-                                    @foreach ($subCategories as $subCategory)
-                                        <option value="{{$subCategory->id}}">{{$subCategory->sub_category_name}}</option>
-                                    @endforeach
+                                    <option selected disabled>Select one</option>
                                 </select>
                             </div>
                             <div class="form-group required">
@@ -166,10 +163,7 @@
                             <div class="form-group required">
                                 <label for="subPrincipalId" class="control-label">Select Sub-Principal</label>
                                 <select class="form-control @error('subPrincipalId') is-invalid @enderror" name="subPrincipalId" id="subPrincipalId" value="{{ old('subPrincipalId') }}">
-                                        <option selected disabled>Select one</option>
-                                    @foreach ($subPrincipals as $subPrincipal)
-                                        <option value="{{$subPrincipal->id}}">{{$subPrincipal->sub_principal}}</option>
-                                    @endforeach
+                                    <option selected disabled>Select one</option>
                                 </select>
                             </div> 
                             <div class="form-group">

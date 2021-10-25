@@ -41,15 +41,8 @@ class ProductController extends Controller
     public function create()
     { 
         $categories=Category::get();
-        $categorieId=Category::select('id')->get();
-        $pricipalId=Principal::select('id')->get();
-        // dd($pricipalId);exit;
-        $subCategories=SubCategory::where('id',$categorieId)->get();
-        $subPrincipals=SubPrincipal::where('id',$pricipalId)->get();
-        // dd($subCategories);exit;
         $principals=Principal::get();
-        // dd($subCategories);exit;
-        return view('admin.product.add',compact('categories','subCategories','principals','subPrincipals'));
+        return view('admin.product.add',compact('categories','principals'));
     }
 
     public function manage(Request $request)
