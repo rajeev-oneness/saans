@@ -32,7 +32,7 @@
           <ul class="footer-list">
             <li><a href="{{ url('about-us') }}">About Us</a></li>
             <li><a href="{{ url('category') }}">  Products</a></li>
-            <li><a href="#">  My Account</a></li>
+            <!-- <li><a href="#">  My Account</a></li> -->
             <li><a href="{{ url('contact') }}">  Contact Us</a></li>
           </ul>
           <ul class="social">

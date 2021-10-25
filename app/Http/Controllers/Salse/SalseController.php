@@ -41,7 +41,7 @@ class SalseController extends Controller
             'customer_name' => 'required',
             'contact_person' => 'required',
             'email' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|min:11|numeric',
             'value_inr' => 'required',
             'remarks' => 'required'
         ]);
@@ -92,7 +92,7 @@ class SalseController extends Controller
             'customer_name' => 'required',
             'contact_person' => 'required',
             'email' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|min:11|numeric',
             'value_inr' => 'required',
             'remarks' => 'required'
         ]);
