@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\ContactDetailsController;
 use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Salse\SalseController;
+use App\Http\Controllers\Admin\NewsLetterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,8 @@ Route::get('/principal/{id}', [FrontController::class,'principalWiseProduct'])->
 Route::get('/product-details/{id}', [FrontController::class,'ProductDetails'])->name('front.product.details');
 Route::get('/principal-details/{id}', [FrontController::class,'PrincipalDetails'])->name('front.principal.product.details');
 
+
+Route::post('/news-letter', [FrontController::class,'newsLetter'])->name('front.news-letter');
 
 Route::group(['middleware' => 'auth'],function(){
     Route::get('user/profile', [HomeController::class,'userProfile'])->name('user.profile');
@@ -196,6 +199,10 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
       Route::put('/contact-details/update/{id}', [ContactDetailsController::class,'update'])->name('update.contact.details');
       Route::get('/contact-details/delete/{id}', [ContactDetailsController::class,'destroy'])->name('delete.contact.details');
     //   Route::get('/service-report', [ServiceController::class,'index'])->name('service.report.view');
+    // --------------------------News Letter---------------------------------
+    
+    Route::get('/news-letter', [NewsLetterController::class,'index'])->name('news-letter.view');
+
 });
 
 

@@ -14,9 +14,10 @@
             <h3>Never Miss Anything By Signing Up To Our Newsletter.</h3> </div>
         </div>
         <div class="col-lg-5 col-sm-12 wow slideInRight" data-wow-duration="2s">
-          <form>
+          <form action="{{ route('front.news-letter') }}" method="POST">
+            @csrf
             <div class="input-group">
-              <input type="email" class="form-control" placeholder="Enter your email"> <span class="input-group-btn">
+              <input type="email" name="email" class="form-control" placeholder="Enter your email"> <span class="input-group-btn">
                                     <button class="btn" type="submit">Subscribe</button>
                                 </span> </div>
           </form>

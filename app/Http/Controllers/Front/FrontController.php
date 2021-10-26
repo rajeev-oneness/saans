@@ -16,6 +16,7 @@ use App\Models\Banar;
 use App\Models\SubCategory;
 use App\Models\ContactUs;
 use App\Models\SubPrincipal;
+use App\Models\NewsLetter;
 
 
 class FrontController extends Controller
@@ -131,10 +132,13 @@ class FrontController extends Controller
     {
         return view('front.sign-up');
     }
-    // public function about()
-    // {
-    //     return view('front.about');
-    // }
+    public function newsLetter(Request $request)
+    {
+        $newsLetter = new NewsLetter;
+        $newsLetter->email = $request->input('email');
+        $newsLetter->save();
+        return redirect('/')->with('success','Subscribe Successfully');
+    }
     // public function about()
     // {
     //     return view('front.about');
