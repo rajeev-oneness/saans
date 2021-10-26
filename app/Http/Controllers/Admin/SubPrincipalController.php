@@ -40,7 +40,7 @@ class SubPrincipalController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'sub_principal' => 'required|string',
+            'sub_principal' => 'required|unique:sub_principals,name',
             'principalId' => 'required'
         ]);
       
@@ -88,7 +88,7 @@ class SubPrincipalController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'sub_principal' => 'required|string',
+            'sub_principal' => 'required|unique:sub_principals,name',
             'principalId' => 'required'
         ]);
       

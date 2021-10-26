@@ -181,7 +181,7 @@
           <li class="nav-item has-treeview">
             <a href="{{ route('salse.report.view') }}" class="nav-link">
               <p>
-                Salse Report
+                Sales Report
               </p>
             </a>
           </li>
@@ -529,20 +529,7 @@
                   <p>Contact Us</p>
                 </a>
               </li>
-              <li class="nav-item d-none d-sm-inline-block">
-                <!-- <a href="{{ route('logout') }}" class="nav-link">Logout</a> -->
-
-                <a  class="nav-link" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                      document.getElementById('logout-form').submit();">
-                    <i class="far fa-circle nav-icon"></i>
-                    Logout
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-
-              </li>
+              
               <!-- <li class="nav-item">
                 <a href="pages/examples/register.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

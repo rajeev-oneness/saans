@@ -38,7 +38,7 @@ class PrincipalController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:categories,name'
+            'name' => 'required|unique:principals,name'
         ]);
         $principal = new Principal;
         $principal->name = $request->input('name');
@@ -80,7 +80,7 @@ class PrincipalController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string'
+            'name' => 'required|unique:principals,name'
         ]);
         Principal::where('id', $id)->update([
             'name' => $request->name

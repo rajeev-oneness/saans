@@ -8,7 +8,7 @@
 <section class="bluebox">
     <div class="container">
       <div class="row align-items-center ">
-        <div class="col-lg-7 col-sm-12 wow slideInLeft" data-wow-duration="2s">
+        <div class="col-lg-7 col-sm-12" data-wow-duration="2s">
           <div class="sign-up-text mt-3">
             <h5>KNOW IT ALL FIRST!</h5>
             <h3>Never Miss Anything By Signing Up To Our Newsletter.</h3> </div>
@@ -27,48 +27,39 @@
 <section id="footer">
     <div class="container">
       <div class="row">
-        <div class="col-lg-2 col-sm-6 wow slideInLeft" data-wow-duration="2s">
+        <div class="col-lg-2 col-sm-6" data-wow-duration="2s">
           <p class="footer-heading">Quick links</p> <span class="animate-border border-black"></span>
           <ul class="footer-list">
             <li><a href="{{ url('about-us') }}">About Us</a></li>
             <li><a href="{{ url('category') }}">  Products</a></li>
-            <!-- <li><a href="#">  My Account</a></li> -->
+            <li><a href="{{ url('login') }}">  My Account</a></li>
             <li><a href="{{ url('contact') }}">  Contact Us</a></li>
           </ul>
+          
+        </div>
+        <div class="col-lg-4 col-sm-6" data-wow-duration="2s">
+          <p class="footer-heading">Address</p> <span class="animate-border border-black"></span>
+          <ul class="footer-address">
+            <li><span><i class="fa fa-map-marker"></i></span>1417, Rajdanga Main Road Block EF-40, Kolkata 700107, West Bengal, India</li>
+            <li><span><i class="fa fa-phone"></i></span><a href="tel:+91 3340001735" class="phone">+91 3340001735</a></li>
+           
+          </ul>
+        </div>
+        <div class="col-lg-3 col-sm-6" data-wow-duration="2s">
+          <p class="footer-heading">Mail </p> <span class="animate-border border-black"></span>
+          <ul class="footer-list">
+          <li><span><i class="fa fa-envelope"></i></span><a href="mailto:sales@saansanalytical.com">sales@saansanalytical.com</a> </li>
+            <li><span><i class="fa fa-envelope"></i></span><a href="mailto:support@saansanalytical.com">support@saansanalytical.com</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-sm-6" data-wow-duration="2s">
+          <p class="footer-heading">Social Media</p> <span class="animate-border border-black"></span>
+          </br>
           <ul class="social">
             <li><a href="{{$mainContacts->facebook_link}}"><i class="fa fa-facebook"></i></a></li>
             <li><a href="{{$mainContacts->twiter_link}}"><i class="fa fa-twitter"></i></a></li>
             <li><a href="{{$mainContacts->google_link}}"><i class="fa fa-google-plus"></i></a></li>
             <li><a href="{{$mainContacts->blog_link}}"><i class="fa fa-rss"></i></a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-sm-6 wow slideInRight" data-wow-duration="2s">
-          <p class="footer-heading">STORE INFORMATION</p> <span class="animate-border border-black"></span>
-          <ul class="footer-address">
-            <li><span><i class="fa fa-map-marker"></i></span>1417, Rajdanga Main Road Block EF-40, Kolkata 700107, West Bengal, India</li>
-            <li><span><i class="fa fa-phone"></i></span><a href="tel:+91 3340001735" class="phone">+91 3340001735</a></li>
-            <li><span><i class="fa fa-envelope"></i></span><a href="mailto:sales@saansanalytical.com">sales@saansanalytical.com</a> </li>
-            <li><span><i class="fa fa-envelope"></i></span><a href="mailto:support@saansanalytical.com">support@saansanalytical.com</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-sm-6 wow slideInLeft" data-wow-duration="2s">
-          <p class="footer-heading">Analytical </p> <span class="animate-border border-black"></span>
-          <ul class="footer-list">
-            <li><a href="#">Scanning Electron Microscope</a></li>
-            <li><a href="#">Universal Testing Machine</a></li>
-            <li><a href="#">Fatigue Testing Machine</a></li>
-            <li><a href="#">Micro XRF System</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-sm-6 wow slideInRight" data-wow-duration="2s">
-          <p class="footer-heading">Medical</p> <span class="animate-border border-black"></span>
-          <ul class="footer-list">
-            <li><a href="#">Scanning Electron Microscope</a></li>
-            <li><a href="#">Universal Testing Machine</a></li>
-            <li><a href="#">Fatigue Testing Machine</a></li>
-            <li><a href="#">Micro XRF</a></li>
-            <li><a href="#">Atomic Absorption Spectroscopy</a></li>
-            <li><a href="#"> Atomic Fluorescence  Spectroscopy</a></li>
           </ul>
         </div>
         <!--      <div class="col-lg-3 col-sm-6">           

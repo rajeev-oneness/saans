@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,8 +24,8 @@
       <!-- <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li> -->
-      <!-- <li class="nav-item d-none d-sm-inline-block">
-        <a  class="nav-link" href="{{ route('logout') }}"
+      <li class="nav-item d-none d-sm-inline-block">
+        <a  class="btn btn-navbar" href="{{ route('logout') }}"
            onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">
             Logout
@@ -39,9 +33,9 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
         </form>
-      </li> -->
+      </li>
     </ul>
-
+    <!-- <li class="nav-item"> <a class="btn btn-read" href="{{url('login')}}">Login</a> </li> -->
     <!-- SEARCH FORM -->
     <!-- <form class="form-inline ml-3">
       <div class="input-group input-group-sm">

@@ -200,19 +200,19 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 
 
 
-Route::group(['prefix'=>'salse','middleware'=>'adminSalse'],function(){
+Route::group(['prefix'=>'sales','middleware'=>'adminSalse'],function(){
     // require 'custom/admin.php';
     Route::get('dashboard',function(){
         return view('salse.dashboard');
     })->name('salse.dashboard');
     
 
-    Route::get('/salse-report', [SalseController::class,'index'])->name('salse.report.view');
-      Route::get('/salse-report/create', [SalseController::class,'create'])->name('create.salse.report');
-      Route::post('/salse-report/store', [SalseController::class,'store'])->name('store.salse.report');
-      Route::get('/salse-report/edit/{id}', [SalseController::class,'edit'])->name('edit.salse.report');
-      Route::put('/salse-report/update/{id}', [SalseController::class,'update'])->name('update.salse.report');
-      Route::get('/salse-report/delete/{id}', [SalseController::class,'destroy'])->name('delete.salse.report');
+    Route::get('/sales-report', [SalseController::class,'index'])->name('salse.report.view');
+      Route::get('/sales-report/create', [SalseController::class,'create'])->name('create.salse.report');
+      Route::post('/sales-report/store', [SalseController::class,'store'])->name('store.salse.report');
+      Route::get('/sales-report/edit/{id}', [SalseController::class,'edit'])->name('edit.salse.report');
+      Route::put('/sales-report/update/{id}', [SalseController::class,'update'])->name('update.salse.report');
+      Route::get('/sales-report/delete/{id}', [SalseController::class,'destroy'])->name('delete.salse.report');
 
         // Route::get('file-import-export', [SalseController::class, 'fileImportExport']);
         // // Route::post('file-import', [UserController::class, 'fileImport'])->name('file-import');

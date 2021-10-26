@@ -83,7 +83,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
          $request->validate([
-            'name' => 'required|string'
+            'name' => 'required|unique:categories,name'
         ]);
         Category::where('id', $id)->update([
             'name' => $request->name

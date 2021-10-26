@@ -33,7 +33,7 @@ class HomeController extends Controller
                 return redirect('admin/dashboard');
                 break;
             case 2:
-                return redirect('salse/dashboard');
+                return redirect('sales/dashboard');
                 break;
             case 3:
                 return redirect('service/dashboard');

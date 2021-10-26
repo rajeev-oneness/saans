@@ -53,7 +53,7 @@ class SalseController extends Controller
         $salse->value_inr = $request->input('value_inr');
         $salse->remarks = $request->input('remarks');
         $salse->save();
-        return redirect('salse/salse-report')->with('success','Report Added Successfully');
+        return redirect('sales/sales-report')->with('success','Report Added Successfully');
     }
 
     /**
@@ -105,7 +105,7 @@ class SalseController extends Controller
             'remarks' => $request->remarks
         ]);
 
-        return redirect('salse/salse-report')->with('success','Report Update Successfully');
+        return redirect('sales/sales-report')->with('success','Report Update Successfully');
     }
 
     /**

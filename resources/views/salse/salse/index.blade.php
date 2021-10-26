@@ -27,7 +27,7 @@
         <h3 class="card-title">Salse-Report</h3>
 
         <div class="card-tools">
-            <a class="headerbuttonforAdd addBlogSalseReport" href="{{ url('salse/salse-report/create') }}">
+            <a class="headerbuttonforAdd addBlogSalseReport" href="{{ url('sales/sales-report/create') }}">
                 <i class="fa fa-plus" aria-hidden="true"></i>Add
             </a>
             <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
