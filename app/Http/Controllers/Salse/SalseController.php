@@ -15,7 +15,7 @@ class SalseController extends Controller
      */
     public function index()
     {
-        $salseReports = SalseReport::get();
+        $salseReports = SalseReport::orderBy('id', 'DESC')->get();
         return view('salse.salse.index', compact('salseReports'));
     }
 

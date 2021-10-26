@@ -17,7 +17,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $serviceReports = ServiceReport::get();
+        $serviceReports = ServiceReport::orderBy('id', 'DESC')->get();
         return view('service.service.index', compact('serviceReports'));
     }
 
