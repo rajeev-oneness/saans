@@ -13,7 +13,7 @@
   </section>
   <section class="category-list">
       <div class="container">
-          <div class="row">
+          <div class="row justify-content-center">
               @foreach($categories as $category)
                 <div class="col-lg-4 mb-3">
                     <div class="card product-card d-flex flex-column justify-content-center align-items-center">

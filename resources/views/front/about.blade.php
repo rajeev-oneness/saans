@@ -38,13 +38,13 @@
 </section>  
 <div class="container"id="bg-count">
       <div class="row text-center">
-           <div class="col">
+           <!-- <div class="col">
            <div class="counter">
       <h2 class="timer count-title count-number" data-to="1700" data-speed="1500"></h2>
        <p class="count-text ">Happy Clients
 </p>
     </div>
-           </div>
+           </div> -->
               <div class="col">
                <div class="counter">
       <h2 class="timer count-title count-number" data-to="{{$productcount}}" data-speed="1500"></h2>
