@@ -175,11 +175,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $categories = Category::all();
-        $subCategories = SubCategory::all();
-        $principals = Principal::all();
-        $subPrincipals = SubPrincipal::all();
         $product = Product::find($id);
+        $categories = Category::all();
+        $subCategories = SubCategory::where('categoryId',$product->categoryId)->get();
+        $principals = Principal::all();
+        $subPrincipals = SubPrincipal::where('principalId',$product->principalId)->get();
         return view('admin.product.edit',compact('product','categories','subCategories','principals','subPrincipals'));
     }
 

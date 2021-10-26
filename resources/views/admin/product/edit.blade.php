@@ -100,6 +100,7 @@
                             <option selected disabled>Select one</option>
                                 @foreach ($subCategories as $subCategory)
                                 <option value="{{$subCategory->id}}" @if($product->subCategoryId == $subCategory->id){{('selected')}}@endif>{{$subCategory->sub_category_name}}</option>
+                                
                                 @endforeach
                             </select>
                             @error('subCategoryId')
@@ -130,7 +131,7 @@
                             <select id="subPrincipalId" name="subPrincipalId" class="form-control @error('subPrincipalId') is-invalid @enderror">
                             <option selected disabled>Select one</option>
                                 @foreach ($subPrincipals as $subPrincipal)
-                                <option value="{{$subCategory->id}}" @if($product->subPrincipalId == $subPrincipal->id){{('selected')}}@endif>{{$subPrincipal->sub_principal}}</option>
+                                <option value="{{$subPrincipal->id}}" @if($product->subPrincipalId == $subPrincipal->id){{('selected')}}@endif>{{$subPrincipal->sub_principal}}</option>
                                 @endforeach
                             </select>
                             @error('subPrincipalId')

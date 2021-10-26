@@ -96,7 +96,8 @@
               <!-- php
               $category->product = App\Models\Product::where('id', '=', $category->id)->latest()->first();
               endphp -->
-              <p>{{$category->latestProduct->description}} <a href="{{ url('product-details',$category->latestProduct->id)}}" class=""><i class="fa fa-angle-double-right ml-2"></i></a></p>
+              <p>{{$category->latestProduct->description}} </p>
+              <a href="{{ url('product-details',$category->latestProduct->id)}}" class="">Viwe Details</a>
             </div>
           </div>
         </div>
@@ -143,7 +144,7 @@
                     <li> Observation condition: 5kV/15kV/EDX</li>
                     <li>Observation mode: Standard mode</li>
                   </ul> -->
-                   <a href="{{ url('product-details',$product->id)}}" class=""><i class="fa fa-angle-double-right ml-2"></i></a> </div>
+                   <a href="{{ url('product-details',$product->id)}}">View Details</a> </div>
               </div>
             </div>
             @endforeach

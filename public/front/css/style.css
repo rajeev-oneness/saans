@@ -615,9 +615,10 @@ video starts****************************************/
     color: #958787;
 }
 .feature-text a{
-    color: #fe2c22;
-    font-size: 35px;
-    float: right;}
+    color: #007bff;
+    font-size: 17px;
+    float: center;}
+
  .pro-box {
      width: 100%;
      background: #fff;
