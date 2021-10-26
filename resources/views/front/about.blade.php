@@ -74,6 +74,7 @@
             </div> -->
             
             {!! $aboutUs->content2 !!}
+</br>
 @foreach($categories as $category)
 <div class="barWrapper">
  <span class="progressText"><B>{{$category->name}}</B></span>
