@@ -61,6 +61,10 @@
     text-transform: uppercase;
     letter-spacing: 2px;
 }
+.btn:hover {
+    color: #f51205;
+    text-decoration: none;
+}
 </style>
 
   

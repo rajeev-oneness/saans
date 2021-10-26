@@ -25,7 +25,7 @@
         <a href="#" class="nav-link">Contact</a>
       </li> -->
       <li class="nav-item d-none d-sm-inline-block">
-        <a  class="btn btn-read" href="{{ route('logout') }}"
+        <a  class="btn btn-read btn-hover" href="{{ route('logout') }}"
            onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">
             Logout
