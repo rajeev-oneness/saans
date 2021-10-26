@@ -47,6 +47,20 @@
   .menu-open{
     background-color: blue;
   }
+  .btn-read {
+   padding: 10px 31px;
+    border-radius: 55px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    -webkit-box-shadow: 0 10px 11px 0 rgb(60 58 58 / 30%);
+    box-shadow: 0 10px 11px 0 rgb(60 58 58 / 30%);
+   background: #0067ac;
+    transition: 0.6s all;
+    border: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 </style>
 
   
