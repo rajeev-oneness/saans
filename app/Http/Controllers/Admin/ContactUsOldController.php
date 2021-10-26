@@ -15,7 +15,7 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        $contactUs = ContactUs::paginate(10);
+        $contactUs = ContactUs::orderBy('id', 'DESC')->get();
         return view('admin.contact_us.index',compact('contactUs'));
     }
 

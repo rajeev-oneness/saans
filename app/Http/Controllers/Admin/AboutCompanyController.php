@@ -15,7 +15,7 @@ class AboutCompanyController extends Controller
      */
     public function index()
     {
-        $aboutCompanies= AboutCompany::paginate();
+        $aboutCompanies= AboutCompany::orderBy('id', 'DESC')->get();
         return view('admin.about-company.index',compact('aboutCompanies'));
     }
 

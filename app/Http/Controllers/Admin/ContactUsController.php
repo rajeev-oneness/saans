@@ -18,7 +18,7 @@ class ContactUsController extends Controller
         // $contactUs = ContactUs::paginate(10);
         // return view('admin.contact_us.index',compact('contactUs'));
 
-        $contactUs = ContactUs::where('type' , '0')->paginate(10);
+        $contactUs = ContactUs::where('type' , '0')->orderBy('id', 'DESC')->get();
         // dd($contactUs);exit;
         return view('admin.contact_us.index',compact('contactUs'));
     }

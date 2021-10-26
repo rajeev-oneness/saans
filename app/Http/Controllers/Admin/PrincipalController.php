@@ -15,7 +15,7 @@ class PrincipalController extends Controller
      */
     public function index()
     {
-        $principals = Principal::paginate(10);
+        $principals = Principal::orderBy('id', 'DESC')->get();
         return view('admin.principal.index',compact('principals'));
     }
 

@@ -15,7 +15,7 @@ class BanarController extends Controller
      */
     public function index()
     {
-        $banars = Banar::paginate(10);
+        $banars = Banar::orderBy('id', 'DESC')->get();
         return view('admin.banar.index',compact('banars'));
     }
 

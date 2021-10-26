@@ -16,7 +16,7 @@ class SubPrincipalController extends Controller
      */
     public function index()
     {
-        $subPrincipals=SubPrincipal::paginate(10);
+        $subPrincipals=SubPrincipal::orderBy('id', 'DESC')->get();
         return view('admin.sub-principal.index',compact('subPrincipals'));
     }
 

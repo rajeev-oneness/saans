@@ -15,7 +15,7 @@ class ContactDetailsController extends Controller
      */
     public function index()
     {
-        $contactDetails = ContactDetails::paginate(10);
+        $contactDetails = ContactDetails::orderBy('id', 'DESC')->get();
         return view('admin.contact-details.index',compact('contactDetails'));
     }
 

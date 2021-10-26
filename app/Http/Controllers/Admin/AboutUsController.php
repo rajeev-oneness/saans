@@ -15,7 +15,7 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-        $aboutus= AboutUs::paginate();
+        $aboutus= AboutUs::orderBy('id', 'DESC')->get();
         return view('admin.about_us.index',compact('aboutus'));
     }
 

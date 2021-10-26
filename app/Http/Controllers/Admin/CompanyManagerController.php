@@ -15,7 +15,7 @@ class CompanyManagerController extends Controller
      */
     public function index()
     {
-        $comManagers = companyManager::paginate(10);
+        $comManagers = companyManager::orderBy('id', 'DESC')->get();
         return view('admin.company-manager.index',compact('comManagers'));
     }
 
