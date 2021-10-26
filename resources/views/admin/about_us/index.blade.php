@@ -78,7 +78,6 @@
                             </tbody>
                         </table>
                         <div>
-                            {{ $aboutus->links() }}
                         </div>
                     </div>
                 </div>

@@ -72,7 +72,6 @@
                             </tbody>
                         </table>
                         <div>
-                            {{ $banars->links() }}
                         </div>
                     </div>
                 </div>

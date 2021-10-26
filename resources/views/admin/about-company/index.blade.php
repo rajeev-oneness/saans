@@ -72,7 +72,6 @@
                             </tbody>
                         </table>
                         <div>
-                            {{ $aboutCompanies->links() }}
                         </div>
                     </div>
                 </div>
