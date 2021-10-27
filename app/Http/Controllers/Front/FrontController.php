@@ -84,9 +84,13 @@ class FrontController extends Controller
     public function ProductDetails($id)
     {
         $product = Product::where('id', $id)->find($id);
+
+        // $subCategoryName = SubCategory::where('categoryId',$product->categoryId)->select('sub_category_name')->get();
+        // dd($subCategoryName);
         $contacts = ContactUs::where('type' ,'0')->where('key','other')->latest()->get();
         $mainContacts = $contacts->first();
         return view('front.product-details',compact('product','mainContacts'));
+        // return view('front.product-details',compact('product','mainContacts','subCategoryName'));
        
     }
 

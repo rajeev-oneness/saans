@@ -82,7 +82,7 @@
  @section('script')
  <!-- const url = "category/delete/"; -->
      
-  <script>
+  <!-- <script>
       $('.delete-confirm').on('click', function (e) {
         var id = $(this).data('id');
         swal({
@@ -108,6 +108,6 @@
           });
       });
     });
-  </script>
+  </script> -->
 @stop
 @endsection

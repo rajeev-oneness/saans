@@ -3,7 +3,7 @@
   <section id="cmsbanner">
     <div class="container">
        <div class="inner-caption d-md-block">
-                        <p class="head">Scanning Electron Microscopes</p>       
+                        <p class="head">{{$product->subCategoryDetail->sub_category_name}}</p>       
                     </div>
                 </div>
    </section>
@@ -14,9 +14,9 @@
         <div class="col-lg-12">
             <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Scanning Electron Microscopes</a></li>
-    <li class="breadcrumb-item active" aria-current="page">SU3800/SU3900</li>
+    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">{{$product->subCategoryDetail->sub_category_name}}</a></li>
+    <!-- <li class="breadcrumb-item active" aria-current="page">SU3800/SU3900</li> -->
   </ol>
 </nav>
         </div>

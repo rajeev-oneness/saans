@@ -11,8 +11,8 @@
         <div class="col-lg-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Analytical Products</li>
+                    <li class="breadcrumb-item"><a href="{{ url('/') }}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{$categoryName->name}}</li>
                 </ol>
             </nav>
         </div>
@@ -38,7 +38,7 @@
             <div class="row"> 
             <!-- foreach($sub_categories_data as $sub)      -->
             @foreach($subCat->allProductByCat as $dt)    
-                <div class="col-md-3 col-sm-6">
+                <!-- <div class="col-md-3 col-sm-6"> -->
                     <div class="product-grid8">
                         <div class="product-image8">
                             <a href="product-details.html">
@@ -52,7 +52,7 @@
                         </div>
 
                     </div>
-                </div>
+                <!-- </div> -->
                 @endforeach
             </div>
         </div>

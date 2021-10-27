@@ -39,7 +39,7 @@ class AboutCompanyController extends Controller
     {
         $request->validate([
             'content' => 'required|max:1000',
-            'extra_info' => 'required|max:10',
+            'extra_info' => 'required',
             'image' => 'required|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         $fileName = time().'.'.$request->image->extension();
@@ -87,9 +87,8 @@ class AboutCompanyController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'content' => 'required|max:300',
-            'extra_info' => 'required|max:10',
-            'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'content' => 'required|max:1000',
+            'extra_info' => 'required',
         ]);
          if($request->hasFile('image')) {
            

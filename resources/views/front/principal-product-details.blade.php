@@ -21,7 +21,7 @@
                 <h4>{{$dt->name}}</h4>
                 <p>{{$dt->description}}</p>
                 <!-- <a class="btn btn-read" target="_blank"  href="{{$dt->redirect_link}}">View Details</a> -->
-                <a class="btn btn-read" target="_blank"  href="{{ route('front.product.details',['id' => $dt->id]) }}">View Details</a>
+                <a class="btn btn-read" href="{{ route('front.product.details',['id' => $dt->id]) }}">View Details</a>
               </div>
             </div>
         </div>
