@@ -61,8 +61,7 @@
                     @else
                     <td>Inactive</td>
                     @endif
-                    <td><a href="{{route('edit.category',['id' => $category->id])}}">Edit</a> | 
-                      <a href="#" class="text-danger delete-confirm" data-id="{{$category->id}}">Delete</a></td>
+                    <td><a href="{{route('edit.category',['id' => $category->id])}}">Edit</a> | |  <a href="{{ route('delete.category', ['id' => $category->id]) }}" class="text-danger delete-confirm">Delete</a></td>
                 </tr>
                 @endforeach
 
