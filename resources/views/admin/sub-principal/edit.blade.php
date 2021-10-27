@@ -57,7 +57,7 @@
                                 </span>
                             @enderror 
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-success float-right">Update Sub-Principal</button>
                       </form>
                 </div>
             <!-- /.card-body -->

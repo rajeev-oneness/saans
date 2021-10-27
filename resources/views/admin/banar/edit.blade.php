@@ -33,6 +33,7 @@
                      <form method="POST" action="{{ route('update.banar', ['id' => $banar->id]) }}" enctype="multipart/form-data">
                         @csrf
                        @method('PUT')
+                       <img src="{{asset($banar->image)}}" height="200px" width="300px">
                         <div class="form-group required">
                             <label for="image" class="control-label">Image</label>
                             <input type="file" class="form-control-file @error('image') is-invalid @enderror" name="image" value="{{$banar->image}}" id="image">
@@ -62,7 +63,7 @@
                             @enderror
 
                         </div>
-                        <button type="submit" class="btn btn-primary">Update Banner</button>
+                        <button type="submit" cclass="btn btn-success float-right">Update Banner</button>
                       </form>
                 </div>
             <!-- /.card-body -->

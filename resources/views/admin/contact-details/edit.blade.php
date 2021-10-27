@@ -97,7 +97,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-primary">Update Contact Details</button>
+                        <button type="submit" class="btn btn-success float-right">Update Contact Details</button>
                       </form>
                 </div>
             <!-- /.card-body -->

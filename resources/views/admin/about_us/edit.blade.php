@@ -33,15 +33,17 @@
                      <form method="POST" action="{{ route('update.about_us', ['id' => $aboutus->id]) }}" enctype="multipart/form-data">
                         @csrf
                        @method('PUT')
+                       <img src="{{asset($aboutus->main_banar)}}" height="200px" width="300px">
                         <div class="form-group required">
-                            <label for="main_baner" class="control-label">Main Baner</label>
-                            <input type="file" class="form-control-file @error('main_baner') is-invalid @enderror" name="main_baner" value="{{$aboutus->main_baner}}" id="main_baner">
-                            @error('main_baner')
+                            <label for="main_banar" class="control-label">Main Banner</label>
+                            <input type="file" class="form-control-file @error('main_banar') is-invalid @enderror" name="main_banar" value="{{$aboutus->main_banar}}" id="main_banar">
+                            @error('main_banar')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror    
                         </div>
+                        <img src="{{asset($aboutus->image1)}}" height="200px" width="300px">
                         <div class="form-group required">
                             <label for="image1" class="control-label">Image One</label>
                             <input type="file" class="form-control-file @error('image1') is-invalid @enderror" name="image1" value="{{$aboutus->image1}}" id="image1">
@@ -51,6 +53,7 @@
                                 </span>
                             @enderror    
                         </div>
+                        <img src="{{asset($aboutus->image2)}}" height="200px" width="300px">
                         <div class="form-group required">
                             <label for="image2" class="control-label">Image Two</label>
                             <input type="file" class="form-control-file @error('image2') is-invalid @enderror" name="image2" value="{{$aboutus->image2}}" id="image2">
@@ -99,7 +102,7 @@
                             @enderror
 
                         </div>
-                        <button type="submit" class="btn btn-primary">Update About Company</button>
+                        <button type="submit" class="btn btn-success float-right">Update About Company</button>
                       </form>
                 </div>
             <!-- /.card-body -->

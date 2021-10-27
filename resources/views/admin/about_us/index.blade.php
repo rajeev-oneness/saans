@@ -63,8 +63,8 @@
                                     <td><img src="{{asset($about->main_banar)}}" width="60" /></td>
                                     <td><img src="{{asset($about->image1)}}" width="60" /></td>
                                     <td><img src="{{asset($about->image2)}}" width="60" /></td>
-                                    <td>{{$about->content1}}</td>
-                                    <td>{{$about->content2}}</td>
+                                    <td>{{substr($about->content1, 0,100).'...'}}</td>
+                                    <td>{{substr($about->content2, 0,100).'...'}}</td>
                                     <td>{{$about->experience}}</td>
                                     <td>{{$about->winning_awards}}</td>
                                     @if($about->status==1)

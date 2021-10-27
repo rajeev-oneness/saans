@@ -184,7 +184,7 @@
                             
                             <div class="col-12">
                               <!-- <a href="#" class="btn btn-secondary">Cancel</a> -->
-                               <button type="submit"  class="btn btn-success float-right">Add</button>
+                               <button type="submit"  class="btn btn-success float-right">Add New Product</button>
                             </div>
                         </div>
                         <!-- /.card-body -->

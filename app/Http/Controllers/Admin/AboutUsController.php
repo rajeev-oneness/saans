@@ -138,14 +138,14 @@ class AboutUsController extends Controller
         }
 
 
-        if($request->hasFile('image3')) {
+        if($request->hasFile('main_banar')) {
            
             $fileName = time().'.'.$request->main_banar->extension();
             $request->main_banar->move(public_path('uploads/about_us/'), $fileName);
             $main_banar ='uploads/about_us/'.$fileName;
 
             AboutUs::where('id', $id)->update([
-                'image3' => $image3,
+                'main_banar' => $main_banar,
             ]);
         }
 

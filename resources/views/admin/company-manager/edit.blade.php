@@ -46,7 +46,7 @@
                               </span>
                           @enderror 
                         </div>
-                        <button type="submit" class="btn btn-primary">Update Company Manager</button>
+                        <button type="submit" class="btn btn-success float-right">Update Company Manager</button>
                       </form>
                 </div>
             <!-- /.card-body -->

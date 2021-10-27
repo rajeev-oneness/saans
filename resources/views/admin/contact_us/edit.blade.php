@@ -127,7 +127,7 @@
                                 </tr>
                             @endforeach
                         </table>
-                        <button type="submit" class="btn btn-primary">Update Contact Us</button>
+                        <button type="submit" class="btn btn-success float-right">Update Contact Us</button>
                       </form>
                 </div>
                         

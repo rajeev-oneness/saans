@@ -59,7 +59,7 @@
                                 <tr>
                                     <td>{{$key + 1}}</td>
                                     <td><img src="{{asset($aboutCompany->image)}}" width="60" /></td>
-                                    <td>{{$aboutCompany->content}}</td>
+                                    <td>{{substr($aboutCompany->content, 0,100).'...'}}</td>
                                     <td>{{$aboutCompany->extra_info}}</td>
                                     @if($aboutCompany->status==1)
                                     <td>Active</td>

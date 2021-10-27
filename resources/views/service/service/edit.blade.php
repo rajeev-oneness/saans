@@ -174,7 +174,7 @@
                             </span>
                         @enderror   
                     </div>
-                    <button type="submit" class="btn btn-primary">Update Service Report</button>
+                    <button type="submit" class="btn btn-success float-right">Update Service Report</button>
                   </form>
               </div>
             <!-- /.card-body -->
