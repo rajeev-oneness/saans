@@ -18,9 +18,9 @@ class ContactUsController extends Controller
         // $contactUs = ContactUs::paginate(10);
         // return view('admin.contact_us.index',compact('contactUs'));
 
-        $contactUs = ContactUs::where('type' , '0')->orderBy('id', 'DESC')->get();
+        $contactUs = ContactUs::where('type', '0')->orderBy('id', 'DESC')->get();
         // dd($contactUs);exit;
-        return view('admin.contact_us.index',compact('contactUs'));
+        return view('admin.contact_us.index', compact('contactUs'));
     }
 
     /**
@@ -30,7 +30,7 @@ class ContactUsController extends Controller
      */
     public function report()
     {
-        $contactUsReports = ContactUs::where('type' , '1')->paginate(10);
+        $contactUsReports = ContactUs::where('type', '1')->paginate(10);
         return view('admin.contact_us.report', compact('contactUsReports'));
     }
 
@@ -87,10 +87,10 @@ class ContactUsController extends Controller
      */
     public function edit()
     {
-        $contactUs = ContactUs::where('type',"0")->where('key','other')->first();
+        $contactUs = ContactUs::where('type', "0")->where('key', 'other')->first();
         // if($contactUs->location ){
-        $contactUs->location = ContactUs::where('type',"0")->where('key','location')->get();
-        return view('admin.contact_us.edit',compact('contactUs'));
+        $contactUs->location = ContactUs::where('type', "0")->where('key', 'location')->get();
+        return view('admin.contact_us.edit', compact('contactUs'));
         //  }
     }
 
@@ -104,7 +104,7 @@ class ContactUsController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'contactUsId' => 'required|min:1|numeric|in:'.$id,
+            'contactUsId' => 'required|min:1|numeric|in:' . $id,
             'email' => 'email',
             'blog_link' => 'url',
             'google_link' => 'url',
@@ -114,7 +114,7 @@ class ContactUsController extends Controller
             'address_type.*' => 'required|string|max:255',
         ]);
 
-        ContactUs::where('id',$id)->where('type',0)->where('key', 'other')->update([
+        ContactUs::where('id', $id)->where('type', 0)->where('key', 'other')->update([
             'name' => $request->name,
             'blog_link' => $request->blog_link,
             'google_link' => $request->google_link,
@@ -122,9 +122,9 @@ class ContactUsController extends Controller
             'twiter_link' => $request->twiter_link,
         ]);
 
-        if(!empty($request->address_type) && count($request->address_type) > 0){
-            ContactUs::where('type',0)->where('key', 'location')->delete();
-            foreach($request->address_type as $key => $address){
+        if (!empty($request->address_type) && count($request->address_type) > 0) {
+            ContactUs::where('type', 0)->where('key', 'location')->delete();
+            foreach ($request->address_type as $key => $address) {
                 $newLocation = new ContactUs();
                 $newLocation->type = 0;
                 $newLocation->key = 'location';
@@ -134,7 +134,7 @@ class ContactUsController extends Controller
                 $newLocation->save();
             }
         }
-        return redirect('admin/contact_us/edit')->with('success','Contact Updated Successfully');
+        return redirect('admin/contact_us/edit')->with('success', 'Contact Updated Successfully');
     }
 
     /**

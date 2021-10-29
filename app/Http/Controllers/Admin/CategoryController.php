@@ -18,7 +18,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::orderBy('id', 'DESC')->get();
-        return view('admin.category.index',compact('categories'));
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -47,7 +47,7 @@ class CategoryController extends Controller
         // $category->status = 1;
         $category->save();
         // return redirect('admin/category')->with('success','Category Added Successfully');
-        return redirect('admin/category')->with('success','Category Added Successfully');
+        return redirect('admin/category')->with('success', 'Category Added Successfully');
     }
 
     /**
@@ -70,7 +70,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::find($id);
-        return view('admin.category.edit',compact('category'));
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -82,13 +82,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $request->validate([
+        $request->validate([
             'name' => 'required|unique:categories,name'
         ]);
         Category::where('id', $id)->update([
             'name' => $request->name
         ]);
-        return redirect('admin/category')->with('success','Category Updated Successfully');
+        return redirect('admin/category')->with('success', 'Category Updated Successfully');
     }
 
     /**

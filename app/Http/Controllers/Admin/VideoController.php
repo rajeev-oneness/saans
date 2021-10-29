@@ -16,7 +16,7 @@ class VideoController extends Controller
     public function index()
     {
         $videos = Video::orderBy('id', 'DESC')->get();
-        return view('admin.video.index',compact('videos'));
+        return view('admin.video.index', compact('videos'));
     }
 
     /**
@@ -44,7 +44,7 @@ class VideoController extends Controller
         $video->video_link = $request->input('video_link');
         // $category->status = 1;
         $video->save();
-        return redirect('admin/video')->with('success','Video Added Successfully');
+        return redirect('admin/video')->with('success', 'Video Added Successfully');
     }
 
     /**
@@ -67,7 +67,7 @@ class VideoController extends Controller
     public function edit($id)
     {
         $video = Video::find($id);
-        return view('admin.video.edit',compact('video'));
+        return view('admin.video.edit', compact('video'));
     }
 
     /**
@@ -85,7 +85,7 @@ class VideoController extends Controller
         Video::where('id', $id)->update([
             'video_link' => $request->video_link
         ]);
-        return redirect('admin/video')->with('success','Video Link Updated Successfully');
+        return redirect('admin/video')->with('success', 'Video Link Updated Successfully');
     }
 
     /**
@@ -97,6 +97,6 @@ class VideoController extends Controller
     public function destroy($id)
     {
         Video::where('id', $id)->delete();
-        return redirect()->route('video.view');    
+        return redirect()->route('video.view');
     }
 }

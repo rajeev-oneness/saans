@@ -16,8 +16,8 @@ class SubPrincipalController extends Controller
      */
     public function index()
     {
-        $subPrincipals=SubPrincipal::orderBy('id', 'DESC')->get();
-        return view('admin.sub-principal.index',compact('subPrincipals'));
+        $subPrincipals = SubPrincipal::orderBy('id', 'DESC')->get();
+        return view('admin.sub-principal.index', compact('subPrincipals'));
     }
 
     /**
@@ -27,8 +27,8 @@ class SubPrincipalController extends Controller
      */
     public function create()
     {
-        $principals=Principal::get();
-        return view('admin.sub-principal.add',compact('principals'));
+        $principals = Principal::get();
+        return view('admin.sub-principal.add', compact('principals'));
     }
 
     /**
@@ -43,7 +43,7 @@ class SubPrincipalController extends Controller
             'sub_principal' => 'required|unique:sub_principals,sub_principal',
             'principalId' => 'required'
         ]);
-      
+
 
         $subPrincipal = new SubPrincipal;
         $subPrincipal->principalId = $request->principalId;
@@ -51,7 +51,7 @@ class SubPrincipalController extends Controller
         $subPrincipal->save();
 
         // return redirect()->route('product.view');
-        return redirect('admin/sub-principal')->with('success','Sub-Principal Added Successfully');
+        return redirect('admin/sub-principal')->with('success', 'Sub-Principal Added Successfully');
     }
 
     /**
@@ -73,9 +73,9 @@ class SubPrincipalController extends Controller
      */
     public function edit($id)
     {
-        $principals=Principal::get();
+        $principals = Principal::get();
         $subPrincipal = SubPrincipal::find($id);
-        return view('admin.sub-principal.edit',compact('principals','subPrincipal'));
+        return view('admin.sub-principal.edit', compact('principals', 'subPrincipal'));
     }
 
     /**
@@ -91,13 +91,13 @@ class SubPrincipalController extends Controller
             'sub_principal' => 'required|unique:sub_principals,sub_principal',
             'principalId' => 'required'
         ]);
-      
+
         SubPrincipal::where('id', $id)->update([
-        'principalId' => $request->principalId,
-        'sub_principal' =>$request->sub_principal,
+            'principalId' => $request->principalId,
+            'sub_principal' => $request->sub_principal,
         ]);
         // return redirect()->route('product.view');
-        return redirect('admin/sub-principal')->with('success','Sub-Category Updated Successfully');
+        return redirect('admin/sub-principal')->with('success', 'Sub-Category Updated Successfully');
     }
 
     /**
@@ -108,7 +108,7 @@ class SubPrincipalController extends Controller
      */
     public function destroy($id)
     {
-        $subPrincipal=SubPrincipal::findOrFail($id);
+        $subPrincipal = SubPrincipal::findOrFail($id);
         $subPrincipal->delete();
         return redirect()->route('sub-principal.view');
     }

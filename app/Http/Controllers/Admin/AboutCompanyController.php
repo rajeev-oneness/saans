@@ -15,8 +15,8 @@ class AboutCompanyController extends Controller
      */
     public function index()
     {
-        $aboutCompanies= AboutCompany::orderBy('id', 'DESC')->get();
-        return view('admin.about-company.index',compact('aboutCompanies'));
+        $aboutCompanies = AboutCompany::orderBy('id', 'DESC')->get();
+        return view('admin.about-company.index', compact('aboutCompanies'));
     }
 
     /**
@@ -42,16 +42,16 @@ class AboutCompanyController extends Controller
             'extra_info' => 'required',
             'image' => 'required|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        $fileName = time().'.'.$request->image->extension();
+        $fileName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('uploads/about-company/'), $fileName);
-        $image ='uploads/about-company/'.$fileName;
+        $image = 'uploads/about-company/' . $fileName;
         $manar = new AboutCompany;
         $manar->content = $request->input('content');
         $manar->extra_info = $request->input('extra_info');
         $manar->image = $image;
         // $category->status = 1;
         $manar->save();
-        return redirect('admin/about-company')->with('success','About Company Added Successfully');
+        return redirect('admin/about-company')->with('success', 'About Company Added Successfully');
     }
 
     /**
@@ -74,7 +74,7 @@ class AboutCompanyController extends Controller
     public function edit($id)
     {
         $aboutCompany = AboutCompany::find($id);
-        return view('admin.about-company.edit',compact('aboutCompany'));
+        return view('admin.about-company.edit', compact('aboutCompany'));
     }
 
     /**
@@ -90,11 +90,11 @@ class AboutCompanyController extends Controller
             'content' => 'required|max:1000',
             'extra_info' => 'required',
         ]);
-         if($request->hasFile('image')) {
-           
-            $fileName = time().'.'.$request->image->extension();
+        if ($request->hasFile('image')) {
+
+            $fileName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('uploads/about-company/'), $fileName);
-            $image ='uploads/about-company/'.$fileName;
+            $image = 'uploads/about-company/' . $fileName;
             AboutCompany::where('id', $id)->update([
                 'image' => $image,
             ]);
@@ -103,7 +103,7 @@ class AboutCompanyController extends Controller
             'content' => $request->content,
             'extra_info' => $request->extra_info
         ]);
-        return redirect('admin/about-company')->with('success','About Company Updated Successfully');
+        return redirect('admin/about-company')->with('success', 'About Company Updated Successfully');
     }
 
     /**

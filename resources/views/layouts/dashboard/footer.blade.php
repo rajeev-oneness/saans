@@ -13,11 +13,11 @@
 
 
 
-   <!-- Control Sidebar -->
-   <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
@@ -77,26 +77,21 @@
 <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
 
 <script type="text/javascript">
-        $(document).ready(function() {
-        $('.ckeditor').ckeditor();
+  $(document).ready(function() {
+    $('.ckeditor').ckeditor();
 
-          $('.nav-link').on('click', function() {
-            $(this).addClass('active');
-          });
-          
-        });
+    $('.nav-link').on('click', function() {
+      $(this).addClass('active');
+    });
 
-        $(document).ready(function() {
-            $('#example4').DataTable( {
-              
-            } );
-        } );
-        
+  });
 
-        
+  $(document).ready(function() {
+    $('#example4').DataTable({
+
+    });
+  });
 </script>
 </body>
+
 </html>
-
-
-  

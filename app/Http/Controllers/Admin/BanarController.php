@@ -16,7 +16,7 @@ class BanarController extends Controller
     public function index()
     {
         $banars = Banar::orderBy('id', 'DESC')->get();
-        return view('admin.banar.index',compact('banars'));
+        return view('admin.banar.index', compact('banars'));
     }
 
     /**
@@ -42,16 +42,16 @@ class BanarController extends Controller
             'sub_title' => 'required',
             'image' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $fileName = time().'.'.$request->image->extension();
+        $fileName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('uploads/'), $fileName);
-        $image ='uploads/'.$fileName;
+        $image = 'uploads/' . $fileName;
         $banar = new Banar;
         $banar->title = $request->input('title');
         $banar->sub_title = $request->input('sub_title');
         $banar->image = $image;
         // $category->status = 1;
         $banar->save();
-        return redirect('admin/banner')->with('success','Banner Added Successfully');
+        return redirect('admin/banner')->with('success', 'Banner Added Successfully');
     }
 
     /**
@@ -74,7 +74,7 @@ class BanarController extends Controller
     public function edit($id)
     {
         $banar = Banar::find($id);
-        return view('admin.banar.edit',compact('banar'));
+        return view('admin.banar.edit', compact('banar'));
     }
 
     /**
@@ -91,11 +91,11 @@ class BanarController extends Controller
             'sub_title' => 'required',
             'image' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-         if($request->hasFile('image')) {
-           
-            $fileName = time().'.'.$request->image->extension();
+        if ($request->hasFile('image')) {
+
+            $fileName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('uploads/'), $fileName);
-            $image ='uploads/'.$fileName;
+            $image = 'uploads/' . $fileName;
             Banar::where('id', $id)->update([
                 'image' => $image,
             ]);
@@ -104,7 +104,7 @@ class BanarController extends Controller
             'title' => $request->title,
             'sub_title' => $request->sub_title
         ]);
-        return redirect('admin/banner')->with('success','Banner Updated Successfully');
+        return redirect('admin/banner')->with('success', 'Banner Updated Successfully');
     }
 
     /**

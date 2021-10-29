@@ -29,55 +29,55 @@
         <h3 class="card-title">Principals</h3>
 
         <div class="card-tools">
-            <a class="headerbuttonforAdd addBlogCategory" href="{{ url('admin/principal/add') }}">
-                <i class="fa fa-plus" aria-hidden="true"></i>Add
-            </a>
-            <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+          <a class="headerbuttonforAdd addBlogCategory" href="{{ url('admin/principal/add') }}">
+            <i class="fa fa-plus" aria-hidden="true"></i>Add
+          </a>
+          <!-- <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fas fa-minus"></i></button> -->
-            <!-- <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+          <!-- <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
                 <i class="fas fa-times"></i></button> -->
         </div>
       </div>
       <div class="card-body p-0">
-        @if (Session::get('success'))                        
-            <div class="alert alert-success"> {{Session::get('success')}} </div>
+        @if (Session::get('success'))
+        <div class="alert alert-success"> {{Session::get('success')}} </div>
         @endif
-        <table  id="example4" class="table table-striped projects">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Principal Name</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($principals as $key => $principal)
-                <tr>
-                    <td>{{$key + 1}}</td>
-                    <td>{{$principal->name}}</td>
-                    @if($principal->status == 1)
-                    <td>Active</td>
-                    @else
-                    <td>Inactive</td>
-                    @endif
-                    <td><a href="{{route('edit.principal',['id' => $principal->id])}}">Edit</a> | <a href="{{ route('delete.principal', ['id' => $principal->id]) }}" class="text-danger delete-confirm">Delete</a></td>
-                </tr>
-                @endforeach
+        <table id="example4" class="table table-striped projects">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Principal Name</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($principals as $key => $principal)
+            <tr>
+              <td>{{$key + 1}}</td>
+              <td>{{$principal->name}}</td>
+              @if($principal->status == 1)
+              <td>Active</td>
+              @else
+              <td>Inactive</td>
+              @endif
+              <td><a href="{{route('edit.principal',['id' => $principal->id])}}">Edit</a> | <a href="{{ route('delete.principal', ['id' => $principal->id]) }}" class="text-danger delete-confirm">Delete</a></td>
+            </tr>
+            @endforeach
 
-            </tbody>
+          </tbody>
         </table>
         <div>
-        </div>        
+        </div>
       </div>
       <!-- /.card-body -->
     </div>
     <!-- /.card -->
 
   </section>
-   <!-- /.content -->
- </div>
- <!-- /.content-wrapper -->
- @section('script')
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+@section('script')
 @stop
 @endsection

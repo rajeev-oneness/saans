@@ -16,7 +16,7 @@ class PrincipalController extends Controller
     public function index()
     {
         $principals = Principal::orderBy('id', 'DESC')->get();
-        return view('admin.principal.index',compact('principals'));
+        return view('admin.principal.index', compact('principals'));
     }
 
     /**
@@ -43,7 +43,7 @@ class PrincipalController extends Controller
         $principal = new Principal;
         $principal->name = $request->input('name');
         $principal->save();
-        return redirect('admin/principal')->with('success','Principal Added Successfully');
+        return redirect('admin/principal')->with('success', 'Principal Added Successfully');
         // return redirect()->back()->with('success','Principal Added Successfully');
     }
 
@@ -67,7 +67,7 @@ class PrincipalController extends Controller
     public function edit($id)
     {
         $principal = Principal::find($id);
-        return view('admin.principal.edit',compact('principal'));
+        return view('admin.principal.edit', compact('principal'));
     }
 
     /**
@@ -86,7 +86,7 @@ class PrincipalController extends Controller
             'name' => $request->name
         ]);
         // return redirect()->route('principal.view');
-        return redirect('admin/principal')->with('success','Principal Updated Successfully');
+        return redirect('admin/principal')->with('success', 'Principal Updated Successfully');
     }
 
     /**
@@ -97,7 +97,7 @@ class PrincipalController extends Controller
      */
     public function destroy($id)
     {
-        $principal=Principal::findOrFail($id);
+        $principal = Principal::findOrFail($id);
         $principal->delete();
         return redirect()->route('principal.view');
     }

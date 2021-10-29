@@ -17,7 +17,7 @@ class PrincipalProductController extends Controller
     public function index()
     {
         $priproducts = PrincipalProduct::orderBy('id', 'DESC')->get();
-        return view('admin.principal-product.index',compact('priproducts'));
+        return view('admin.principal-product.index', compact('priproducts'));
     }
 
     /**
@@ -28,7 +28,7 @@ class PrincipalProductController extends Controller
     public function create()
     {
         $principals = Principal::all();
-        return view('admin.principal-product.add',compact('principals'));
+        return view('admin.principal-product.add', compact('principals'));
     }
 
     /**
@@ -39,16 +39,16 @@ class PrincipalProductController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
+        $request->validate([
             'name' => 'required|string',
             'description' => 'required',
             'principalId' => 'required',
             'redirect_link' => 'required',
             'image' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $fileName = time().'.'.$request->image->extension();
+        $fileName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('uploads/'), $fileName);
-        $image ='uploads/'.$fileName;
+        $image = 'uploads/' . $fileName;
         $principalPro = new PrincipalProduct;
         $principalPro->principalId = $request->principalId;
         $principalPro->name = $request->name;
@@ -61,8 +61,7 @@ class PrincipalProductController extends Controller
         $principalPro->save();
 
         // return redirect()->route('principal.product.view');
-        return redirect('admin/principal-product')->with('success','Principal Product Added Successfully');
-
+        return redirect('admin/principal-product')->with('success', 'Principal Product Added Successfully');
     }
 
     /**
@@ -86,7 +85,7 @@ class PrincipalProductController extends Controller
     {
         $principals = Principal::all();
         $PrincipalPro = PrincipalProduct::find($id);
-        return view('admin.principal-product.edit',compact('PrincipalPro','principals'));
+        return view('admin.principal-product.edit', compact('PrincipalPro', 'principals'));
     }
 
     /**
@@ -105,11 +104,11 @@ class PrincipalProductController extends Controller
             'redirect_link' => 'required',
             'principalId' => 'required'
         ]);
-        if($request->hasFile('image')) {
-           
-            $fileName = time().'.'.$request->image->extension();
+        if ($request->hasFile('image')) {
+
+            $fileName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('uploads/'), $fileName);
-            $image ='uploads/'.$fileName;
+            $image = 'uploads/' . $fileName;
             PrincipalProduct::where('id', $id)->update([
                 'image' => $image,
             ]);
@@ -121,7 +120,7 @@ class PrincipalProductController extends Controller
             'principalId' => $request->principalId
         ]);
         // return redirect()->route('principal.product.view');
-        return redirect('admin/principal-product')->with('success','Principal Product Updated Successfully');
+        return redirect('admin/principal-product')->with('success', 'Principal Product Updated Successfully');
     }
 
     /**
@@ -132,7 +131,7 @@ class PrincipalProductController extends Controller
      */
     public function destroy($id)
     {
-        $principal=PrincipalProduct::findOrFail($id);
+        $principal = PrincipalProduct::findOrFail($id);
         $principal->delete();
         return redirect()->route('principal.product.view');
     }

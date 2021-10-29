@@ -16,7 +16,7 @@ class LocationController extends Controller
     public function index()
     {
         $locations = Location::orderBy('id', 'DESC')->get();
-        return view('admin.location.index',compact('locations'));
+        return view('admin.location.index', compact('locations'));
     }
 
     /**
@@ -48,7 +48,7 @@ class LocationController extends Controller
         $location->phone = $request->input('phone');
         // $category->status = 1;
         $location->save();
-        return redirect('admin/location')->with('success','Location Added Successfully');
+        return redirect('admin/location')->with('success', 'Location Added Successfully');
     }
 
     /**
@@ -71,7 +71,7 @@ class LocationController extends Controller
     public function edit($id)
     {
         $location = Location::find($id);
-        return view('admin.location.edit',compact('location'));
+        return view('admin.location.edit', compact('location'));
     }
 
     /**
@@ -88,13 +88,13 @@ class LocationController extends Controller
             'address' => 'required',
             'phone' => 'required',
         ]);
-        
+
         Location::where('id', $id)->update([
             'office_type' => $request->office_type,
             'address' => $request->address,
             'phone' => $request->phone
         ]);
-        return redirect('admin/location')->with('success','Location Updated Successfully');
+        return redirect('admin/location')->with('success', 'Location Updated Successfully');
     }
 
     /**

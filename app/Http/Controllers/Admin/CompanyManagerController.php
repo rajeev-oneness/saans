@@ -16,7 +16,7 @@ class CompanyManagerController extends Controller
     public function index()
     {
         $comManagers = companyManager::orderBy('id', 'DESC')->get();
-        return view('admin.company-manager.index',compact('comManagers'));
+        return view('admin.company-manager.index', compact('comManagers'));
     }
 
     /**
@@ -27,7 +27,6 @@ class CompanyManagerController extends Controller
     public function create()
     {
         return view('admin.company-manager.add');
-    
     }
 
     /**
@@ -38,19 +37,19 @@ class CompanyManagerController extends Controller
      */
     public function store(Request $request)
     {
-         $request->validate([
+        $request->validate([
             'redirect_link' => 'required|url',
             'logo' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $fileName = time().'.'.$request->logo->extension();
+        $fileName = time() . '.' . $request->logo->extension();
         $request->logo->move(public_path('uploads/'), $fileName);
-        $logo ='uploads/'.$fileName;
+        $logo = 'uploads/' . $fileName;
         $comManager = new companyManager;
         $comManager->redirect_link = $request->redirect_link;
         $comManager->logo = $logo;
         $comManager->save();
 
-        return redirect('admin/company-manager')->with('success','Manager of Company Added Successfully');
+        return redirect('admin/company-manager')->with('success', 'Manager of Company Added Successfully');
     }
 
     /**
@@ -73,7 +72,7 @@ class CompanyManagerController extends Controller
     public function edit($id)
     {
         $comManager = companyManager::find($id);
-        return view('admin.company-manager.edit',compact('comManager'));
+        return view('admin.company-manager.edit', compact('comManager'));
     }
 
     /**
@@ -85,15 +84,15 @@ class CompanyManagerController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $request->validate([
+        $request->validate([
             'logo' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
             'redirect_link' => 'required|url',
         ]);
-        if($request->hasFile('logo')) {
-           
-            $fileName = time().'.'.$request->logo->extension();
+        if ($request->hasFile('logo')) {
+
+            $fileName = time() . '.' . $request->logo->extension();
             $request->logo->move(public_path('uploads/'), $fileName);
-            $logo ='uploads/'.$fileName;
+            $logo = 'uploads/' . $fileName;
             companyManager::where('id', $id)->update([
                 'logo' => $logo,
             ]);
@@ -101,7 +100,7 @@ class CompanyManagerController extends Controller
         companyManager::where('id', $id)->update([
             'redirect_link' => $request->redirect_link,
         ]);
-        return redirect('admin/company-manager')->with('success','Manager of Company Updated Successfully');
+        return redirect('admin/company-manager')->with('success', 'Manager of Company Updated Successfully');
     }
 
     /**
@@ -112,7 +111,7 @@ class CompanyManagerController extends Controller
      */
     public function destroy($id)
     {
-        $principal=companyManager::findOrFail($id);
+        $principal = companyManager::findOrFail($id);
         $principal->delete();
         return redirect()->route('company.manager.view');
     }

@@ -25,46 +25,46 @@
 
     <!-- Default box -->
     <div class="card">
-      
+
       <div class="card-body">
-                    <div class="table-responsive">
-                        @if (Session::get('success'))                        
-                            <div class="alert alert-success"> {{Session::get('success')}} </div>
-                        @endif
-                        <table id="example4" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>No.</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Message</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($contactUsReports as $key => $contact)
-                                <tr>
-                                    <td>{{$key + 1}}</td>
-                                    <td>{{$contact->name}}</td>
-                                    <td>{{$contact->email}}</td>
-                                    <td>{{$contact->phone}}</td>
-                                    <td>{{$contact->message}}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <div>
-                        </div>
-                    </div>
-                </div>
+        <div class="table-responsive">
+          @if (Session::get('success'))
+          <div class="alert alert-success"> {{Session::get('success')}} </div>
+          @endif
+          <table id="example4" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($contactUsReports as $key => $contact)
+              <tr>
+                <td>{{$key + 1}}</td>
+                <td>{{$contact->name}}</td>
+                <td>{{$contact->email}}</td>
+                <td>{{$contact->phone}}</td>
+                <td>{{$contact->message}}</td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+          <div>
+          </div>
+        </div>
+      </div>
       <!-- /.card-body -->
     </div>
     <!-- /.card -->
 
   </section>
-   <!-- /.content -->
- </div>
- <!-- /.content-wrapper -->
- @section('script')
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+@section('script')
 @stop
 @endsection

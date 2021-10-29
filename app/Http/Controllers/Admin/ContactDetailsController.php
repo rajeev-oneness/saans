@@ -16,7 +16,7 @@ class ContactDetailsController extends Controller
     public function index()
     {
         $contactDetails = ContactDetails::orderBy('id', 'DESC')->get();
-        return view('admin.contact-details.index',compact('contactDetails'));
+        return view('admin.contact-details.index', compact('contactDetails'));
     }
 
     /**
@@ -47,10 +47,10 @@ class ContactDetailsController extends Controller
             'twiter_link' => 'url',
             'banar' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        
-        $fileName = time().'.'.$request->banar->extension();
+
+        $fileName = time() . '.' . $request->banar->extension();
         $request->banar->move(public_path('uploads/'), $fileName);
-        $banar ='uploads/'.$fileName;
+        $banar = 'uploads/' . $fileName;
 
         $contactDetail = new ContactDetails;
         $contactDetail->banar = $banar;
@@ -62,7 +62,7 @@ class ContactDetailsController extends Controller
         $contactDetail->twiter_link = $request->input('twiter_link');
         // $category->status = 1;
         $contactDetail->save();
-        return redirect('admin/contact-details')->with('success','Contact Details Added Successfully');
+        return redirect('admin/contact-details')->with('success', 'Contact Details Added Successfully');
     }
     /**
      * Display the specified resource.
@@ -106,11 +106,11 @@ class ContactDetailsController extends Controller
             'banar' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        if($request->hasFile('banar')) {
-           
-            $fileName = time().'.'.$request->banar->extension();
+        if ($request->hasFile('banar')) {
+
+            $fileName = time() . '.' . $request->banar->extension();
             $request->banar->move(public_path('uploads/'), $fileName);
-            $banar ='uploads/'.$fileName;
+            $banar = 'uploads/' . $fileName;
             ContactDetails::where('id', $id)->update([
                 'banar' => $banar,
             ]);
@@ -125,7 +125,7 @@ class ContactDetailsController extends Controller
             'twiter_link' => $request->twiter_link
         ]);
 
-        return redirect('admin/contact-details')->with('success','Contact Details Updated Successfully');
+        return redirect('admin/contact-details')->with('success', 'Contact Details Updated Successfully');
     }
 
     /**
