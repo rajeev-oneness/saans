@@ -59,16 +59,6 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="image1">Image</label>
-                                        <input type="file" id="image1" name="image1"
-                                            class="form-control @error('image1') is-invalid @enderror">
-                                        @error('image1')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
                                         <label for="pdf">PDF</label>
                                         <input type="file" id="pdf" name="pdf"
                                             class="form-control @error('pdf') is-invalid @enderror">
@@ -79,7 +69,17 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="image2">Image</label>
+                                        <label for="image1">Image One</label>
+                                        <input type="file" id="image1" name="image1"
+                                            class="form-control @error('image1') is-invalid @enderror">
+                                        @error('image1')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image2">Image Two</label>
                                         <input type="file" id="image2" name="image2"
                                             class="form-control @error('image2') is-invalid @enderror">
                                         @error('image2')
@@ -89,7 +89,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="image3">Image</label>
+                                        <label for="image3">Image Three</label>
                                         <input type="file" id="image3" name="image3"
                                             class="form-control @error('image3') is-invalid @enderror">
                                         @error('image3')
@@ -99,7 +99,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="image4">Image</label>
+                                        <label for="image4">Image Four</label>
                                         <input type="file" id="image4" name="image4"
                                             class="form-control @error('image4') is-invalid @enderror">
                                         @error('image4')
@@ -109,7 +109,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="image5">Image</label>
+                                        <label for="image5">Image Five</label>
                                         <input type="file" id="image5" name="image5"
                                             class="form-control @error('image5') is-invalid @enderror">
                                         @error('image5')

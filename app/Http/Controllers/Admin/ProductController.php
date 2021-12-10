@@ -136,11 +136,11 @@ class ProductController extends Controller
         $product->redirect_link = $request->redirect_link;
         $product->image1 = $image1;
         $product->pdf = $pdf;
-        // $product->image2 = $image2;
-        // $product->image3 = $image3;
+        $product->image2 = $image2;
+        $product->image3 = $image3;
 
-        // $product->image4 = $image4;
-        // $product->image5 = $image5;
+        $product->image4 = $image4;
+        $product->image5 = $image5;
         $product->save();
 
         // return redirect()->route('product.view');
@@ -201,7 +201,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'description' => 'required|max:200',
+            'description' => 'required',
             'categoryId' => 'required',
             'subCategoryId' => 'required',
             'principalId' => 'required',
