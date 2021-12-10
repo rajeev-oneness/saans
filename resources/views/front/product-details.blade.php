@@ -34,6 +34,8 @@
                             <div class="tab-pane active" id="pic-1"><img src="{{ asset($product->image1) }}" /></div>
                             <div class="tab-pane" id="pic-2"><img src="{{ asset($product->image2) }}" /></div>
                             <div class="tab-pane" id="pic-3"><img src="{{ asset($product->image3) }}" /></div>
+                            <div class="tab-pane" id="pic-3"><img src="{{ asset($product->image4) }}" /></div>
+                            <div class="tab-pane" id="pic-3"><img src="{{ asset($product->image5) }}" /></div>
                         </div>
                     </div>
 
@@ -42,12 +44,14 @@
                                     src="{{ asset($product->image1) }}" /></a></li>
                         <li><a data-target="#pic-2" data-toggle="tab"><img src="{{ asset($product->image2) }}" /></a></li>
                         <li><a data-target="#pic-3" data-toggle="tab"><img src="{{ asset($product->image3) }}" /></a></li>
+                        <li><a data-target="#pic-3" data-toggle="tab"><img src="{{ asset($product->image4) }}" /></a></li>
+                        <li><a data-target="#pic-3" data-toggle="tab"><img src="{{ asset($product->image5) }}" /></a></li>
                     </ul>
                 </div>
                 <div class="details col-lg-6 col-sm-7">
                     <h3 class="product-title">{{ $product->name }}</h3>
-                    <p class="product-description">{{ $product->description }}</p>
-                    <a href="{{ $product->redirect_link }}" class="text-danger">More</a>
+                    <p class="product-description">{{ $product->description }}....                     
+                      <a href="{{ $product->redirect_link }}" class="text-danger d-inline-block">More</a>                    </p>
 
                     <div class="action">
                         <a class="btn btn-read mt-2" href="{{ url('/contact') }}">Contact Us</a>
