@@ -16,7 +16,7 @@ class NewsLetterController extends Controller
     public function index()
     {
         $newsletters = NewsLetter::orderBy('id', 'DESC')->get();
-        return view('admin.news_letter.index',compact('newsletters'));
+        return view('admin.news_letter.index', compact('newsletters'));
     }
 
     /**

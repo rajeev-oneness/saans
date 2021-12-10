@@ -23,8 +23,7 @@ class ProductController extends Controller
 
         $products = Product::orderBy('id', 'DESC')->get();
         // dd($products);
-        return view('admin.product.index',compact('products'));
-
+        return view('admin.product.index', compact('products'));
     }
 
     // public function getSubCat(Request $request)
@@ -33,7 +32,7 @@ class ProductController extends Controller
     //                 ->get(["sub_category_name","id"]);
     //     return response()->json($data);
     // }
-   
+
 
     /**
      * Show the form for creating a new resource.
@@ -41,24 +40,24 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { 
-        $categories=Category::get();
-        $principals=Principal::get();
-        return view('admin.product.add',compact('categories','principals'));
+    {
+        $categories = Category::get();
+        $principals = Principal::get();
+        return view('admin.product.add', compact('categories', 'principals'));
     }
 
     public function manage(Request $request)
     {
         $categoryid = $request->val;
         // dd($categoryid);
-        $subcategories = SubCategory::where('categoryId',$categoryid)->get();
+        $subcategories = SubCategory::where('categoryId', $categoryid)->get();
         return response()->json(['sub' => $subcategories]);
     }
 
-     public function managePrincipal(Request $request)
+    public function managePrincipal(Request $request)
     {
         $principalid = $request->val;
-        $subPrincipals = SubPrincipal::where('principalId',$principalid)->get();
+        $subPrincipals = SubPrincipal::where('principalId', $principalid)->get();
         return response()->json(['sub' => $subPrincipals]);
     }
 
@@ -87,18 +86,51 @@ class ProductController extends Controller
             'image4' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
             'image5' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+<<<<<<< HEAD
         // $fileName = time().'.'.$request->image1->extension();
         // $request->image1->move(public_path('uploads/product/'), $fileName);
         // $image1 ='uploads/product/'.$fileName;
+=======
+        $fileName = time() . '.' . $request->image1->extension();
+        $request->image1->move(public_path('uploads/product/'), $fileName);
+        $image1 = 'uploads/product/' . $fileName;
+>>>>>>> 6164ba17443eb19f4f05f1fe1f999d7a7017a9bb
 
-        $fileName = time().'.'.$request->pdf->extension();
+        $fileName = time() . '.' . $request->pdf->extension();
         $request->pdf->move(public_path('uploads/product/pdf/'), $fileName);
+<<<<<<< HEAD
         $pdf ='uploads/product/pdf/'.$fileName;
         if($request->hasFile('image1')) {
             $fileName = time().'.'.$request->image1->extension();
             $request->image1->move(public_path('uploads/product/'), $fileName);
             $image1 ='uploads/product/'.$fileName;
         }
+=======
+        $pdf = 'uploads/product/pdf/' . $fileName;
+        // if($request->hasFile('image1')) {
+
+
+        // $fileName = time().'.'.$request->image1->extension();
+        // $request->image1->move(public_path('uploads/product/'), $fileName);
+        // $image1 ='uploads/product/'.$fileName;
+        // }
+
+        // $fileName = time().'.'.$request->image2->extension();
+        // $request->image2->move(public_path('uploads/product/'), $fileName);
+        // $image2 ='uploads/product/'.$fileName;
+
+        // $fileName = time().'.'.$request->image3->extension();
+        // $request->image3->move(public_path('uploads/product/'), $fileName);
+        // $image3 ='uploads/product/'.$fileName;
+
+        // $fileName = time().'.'.$request->image4->extension();
+        // $request->image4->move(public_path('uploads/product/'), $fileName);
+        // $image4 ='uploads/product/'.$fileName;
+
+        // $fileName = time().'.'.$request->image5->extension();
+        // $request->image5->move(public_path('uploads/product/'), $fileName);
+        // $image5 ='uploads/product/'.$fileName;
+>>>>>>> 6164ba17443eb19f4f05f1fe1f999d7a7017a9bb
 
         if($request->hasFile('image2')) {
             $fileName = time().'.'.$request->image2->extension();
@@ -143,7 +175,7 @@ class ProductController extends Controller
         $product->save();
 
         // return redirect()->route('product.view');
-        return redirect('admin/product')->with('success','Product Added Successfully');
+        return redirect('admin/product')->with('success', 'Product Added Successfully');
     }
 
     /**
@@ -160,10 +192,10 @@ class ProductController extends Controller
     public function pdfview(Request $request)
     {
         $items = Product::get();
-        view()->share('items',$items);
+        view()->share('items', $items);
 
 
-        if($request->has('download')){
+        if ($request->has('download')) {
             $pdf = PDF::loadView('admin/product');
             return $pdf->download('pdfview.pdf');
         }
@@ -182,10 +214,10 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $categories = Category::all();
-        $subCategories = SubCategory::where('categoryId',$product->categoryId)->get();
+        $subCategories = SubCategory::where('categoryId', $product->categoryId)->get();
         $principals = Principal::all();
-        $subPrincipals = SubPrincipal::where('principalId',$product->principalId)->get();
-        return view('admin.product.edit',compact('product','categories','subCategories','principals','subPrincipals'));
+        $subPrincipals = SubPrincipal::where('principalId', $product->principalId)->get();
+        return view('admin.product.edit', compact('product', 'categories', 'subCategories', 'principals', 'subPrincipals'));
     }
 
     /**
@@ -214,33 +246,41 @@ class ProductController extends Controller
             'image5' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
-       
 
-        if($request->hasFile('image1')) {
-           
-            $fileName = time().'.'.$request->image1->extension();
+
+        if ($request->hasFile('image1')) {
+
+            $fileName = time() . '.' . $request->image1->extension();
             $request->image1->move(public_path('uploads/product/'), $fileName);
-            $image1 ='uploads/product/'.$fileName;
+            $image1 = 'uploads/product/' . $fileName;
             Product::where('id', $id)->update([
                 'image1' => $image1,
             ]);
         }
 
-        if($request->hasFile('pdf')) {
-           
-            $fileName = time().'.'.$request->pdf->extension();
+        if ($request->hasFile('pdf')) {
+
+            $fileName = time() . '.' . $request->pdf->extension();
             $request->pdf->move(public_path('uploads/product/pdf/'), $fileName);
-            $pdf ='uploads/product/pdf/'.$fileName;
+            $pdf = 'uploads/product/pdf/' . $fileName;
             Product::where('id', $id)->update([
                 'pdf' => $pdf,
             ]);
         }
 
+<<<<<<< HEAD
         if($request->hasFile('image2')) {
            
             $fileName = time().'.'.$request->image2->extension();
             $request->image2->move(public_path('uploads/product/'), $fileName);
             $image2 ='uploads/product/'.$fileName;
+=======
+        // if($request->hasFile('image2')) {
+
+        //    $fileName = time().'.'.$request->image2->extension();
+        //     $request->image2->move(public_path('uploads/product/'), $fileName);
+        //     $image2 ='uploads/product/'.$fileName;
+>>>>>>> 6164ba17443eb19f4f05f1fe1f999d7a7017a9bb
 
             Product::where('id', $id)->update([
                 'image2' => $image2,
@@ -248,11 +288,19 @@ class ProductController extends Controller
         }
 
 
+<<<<<<< HEAD
         if($request->hasFile('image3')) {
            
             $fileName = time().'.'.$request->image3->extension();
             $request->image3->move(public_path('uploads/product/'), $fileName);
             $image3 ='uploads/product/'.$fileName;
+=======
+        // if($request->hasFile('image3')) {
+
+        //     $fileName = time().'.'.$request->image3->extension();
+        //     $request->image3->move(public_path('uploads/product/'), $fileName);
+        //     $image3 ='uploads/product/'.$fileName;
+>>>>>>> 6164ba17443eb19f4f05f1fe1f999d7a7017a9bb
 
             Product::where('id', $id)->update([
                 'image3' => $image3,
@@ -260,17 +308,26 @@ class ProductController extends Controller
         }
 
 
+<<<<<<< HEAD
         if($request->hasFile('image4')) {
            
             $fileName = time().'.'.$request->image4->extension();
             $request->image4->move(public_path('uploads/product/'), $fileName);
             $image4 ='uploads/product/'.$fileName;
+=======
+        // if($request->hasFile('image4')) {
+
+        //     $fileName = time().'.'.$request->image4->extension();
+        //     $request->image4->move(public_path('uploads/product/'), $fileName);
+        //     $image4 ='uploads/product/'.$fileName;
+>>>>>>> 6164ba17443eb19f4f05f1fe1f999d7a7017a9bb
 
             Product::where('id', $id)->update([
                 'image4' => $image4,
             ]);
         }
 
+<<<<<<< HEAD
         if($request->hasFile('image5')) {
            
             $fileName = time().'.'.$request->image5->extension();
@@ -280,23 +337,34 @@ class ProductController extends Controller
                 'image5' => $image5,
             ]);
         }
+=======
+        // if($request->hasFile('image5')) {
+
+        //     $fileName = time().'.'.$request->image5->extension();
+        //     $request->image5->move(public_path('uploads/product/'), $fileName);
+        //     $image5 ='uploads/product/'.$fileName;
+        //     Product::where('id', $id)->update([
+        //         'image5' => $image5,
+        //     ]);
+        // }
+>>>>>>> 6164ba17443eb19f4f05f1fe1f999d7a7017a9bb
 
 
 
 
         Product::where('id', $id)->update([
-        'categoryId' => $request->categoryId,
-        'subCategoryId' => $request->subCategoryId,
-        'principalId' => $request->principalId,
-        'subPrincipalId' => $request->subPrincipalId,
-        'name' =>$request->name,
-        'description' => $request->description,
-        'feature' => $request->feature,
-        'larger_specification' => $request->larger_specification,
-        'redirect_link' => $request->redirect_link,
+            'categoryId' => $request->categoryId,
+            'subCategoryId' => $request->subCategoryId,
+            'principalId' => $request->principalId,
+            'subPrincipalId' => $request->subPrincipalId,
+            'name' => $request->name,
+            'description' => $request->description,
+            'feature' => $request->feature,
+            'larger_specification' => $request->larger_specification,
+            'redirect_link' => $request->redirect_link,
         ]);
         // return redirect()->route('product.view');
-        return redirect('admin/product')->with('success','Product Updated Successfully');
+        return redirect('admin/product')->with('success', 'Product Updated Successfully');
     }
 
     /**
@@ -307,9 +375,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product=Product::findOrFail($id);
+        $product = Product::findOrFail($id);
         $product->delete();
         return redirect()->route('product.view');
     }
 }
-

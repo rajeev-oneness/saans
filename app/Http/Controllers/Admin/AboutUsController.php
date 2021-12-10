@@ -15,8 +15,8 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-        $aboutus= AboutUs::orderBy('id', 'DESC')->get();
-        return view('admin.about_us.index',compact('aboutus'));
+        $aboutus = AboutUs::orderBy('id', 'DESC')->get();
+        return view('admin.about_us.index', compact('aboutus'));
     }
 
     /**
@@ -46,17 +46,17 @@ class AboutUsController extends Controller
             'image2' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'main_banar' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $fileName = time().'.'.$request->main_banar->extension();
+        $fileName = time() . '.' . $request->main_banar->extension();
         $request->main_banar->move(public_path('uploads/about_us/'), $fileName);
-        $main_banar ='uploads/about_us/'.$fileName;
+        $main_banar = 'uploads/about_us/' . $fileName;
 
-        $fileName = time().'.'.$request->image1->extension();
+        $fileName = time() . '.' . $request->image1->extension();
         $request->image1->move(public_path('uploads/about_us/'), $fileName);
-        $image1 ='uploads/about_us/'.$fileName;
+        $image1 = 'uploads/about_us/' . $fileName;
 
-        $fileName = time().'.'.$request->image2->extension();
+        $fileName = time() . '.' . $request->image2->extension();
         $request->image2->move(public_path('uploads/about_us'), $fileName);
-        $image2 ='uploads/about_us/'.$fileName;
+        $image2 = 'uploads/about_us/' . $fileName;
 
         $aboutus = new AboutUs;
         $aboutus->content1 = $request->content1;
@@ -69,7 +69,7 @@ class AboutUsController extends Controller
         $aboutus->save();
 
         // return redirect()->route('product.view');
-        return redirect('admin/about_us')->with('success','About Us Added Successfully');
+        return redirect('admin/about_us')->with('success', 'About Us Added Successfully');
     }
 
     /**
@@ -92,7 +92,7 @@ class AboutUsController extends Controller
     public function edit($id)
     {
         $aboutus = AboutUs::find($id);
-        return view('admin.about_us.edit',compact('aboutus'));
+        return view('admin.about_us.edit', compact('aboutus'));
     }
 
     /**
@@ -114,23 +114,23 @@ class AboutUsController extends Controller
             'main_banar' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
-       
 
-        if($request->hasFile('image1')) {
-           
-            $fileName = time().'.'.$request->image1->extension();
+
+        if ($request->hasFile('image1')) {
+
+            $fileName = time() . '.' . $request->image1->extension();
             $request->image1->move(public_path('uploads/about_us/'), $fileName);
-            $image1 ='uploads/about_us/'.$fileName;
+            $image1 = 'uploads/about_us/' . $fileName;
             AboutUs::where('id', $id)->update([
                 'image1' => $image1,
             ]);
         }
 
-        if($request->hasFile('image2')) {
-           
-           $fileName = time().'.'.$request->image2->extension();
+        if ($request->hasFile('image2')) {
+
+            $fileName = time() . '.' . $request->image2->extension();
             $request->image2->move(public_path('uploads/about_us/'), $fileName);
-            $image2 ='uploads/about_us/'.$fileName;
+            $image2 = 'uploads/about_us/' . $fileName;
 
             AboutUs::where('id', $id)->update([
                 'image2' => $image2,
@@ -138,11 +138,11 @@ class AboutUsController extends Controller
         }
 
 
-        if($request->hasFile('main_banar')) {
-           
-            $fileName = time().'.'.$request->main_banar->extension();
+        if ($request->hasFile('main_banar')) {
+
+            $fileName = time() . '.' . $request->main_banar->extension();
             $request->main_banar->move(public_path('uploads/about_us/'), $fileName);
-            $main_banar ='uploads/about_us/'.$fileName;
+            $main_banar = 'uploads/about_us/' . $fileName;
 
             AboutUs::where('id', $id)->update([
                 'main_banar' => $main_banar,
@@ -150,13 +150,13 @@ class AboutUsController extends Controller
         }
 
         AboutUs::where('id', $id)->update([
-        'content1' => $request->content1,
-        'content2' =>$request->content2,
-        'experience' => $request->experience,
-        'winning_awards' => $request->winning_awards,
+            'content1' => $request->content1,
+            'content2' => $request->content2,
+            'experience' => $request->experience,
+            'winning_awards' => $request->winning_awards,
         ]);
         // return redirect()->route('product.view');
-        return redirect('admin/about_us')->with('success','About Us Updated Successfully');
+        return redirect('admin/about_us')->with('success', 'About Us Updated Successfully');
     }
 
 
