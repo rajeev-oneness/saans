@@ -72,7 +72,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'description' => 'required|max:200',
+            'description' => 'required',
             'categoryId' => 'required',
             'subCategoryId' => 'required',
             'principalId' => 'required',
@@ -82,42 +82,47 @@ class ProductController extends Controller
             'redirect_link' => 'required',
             'image1' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'pdf' => 'required|mimes:pdf',
-            // 'image2' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'image3' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'image4' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'image5' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image2' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image3' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image4' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image5' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $fileName = time().'.'.$request->image1->extension();
-        $request->image1->move(public_path('uploads/product/'), $fileName);
-        $image1 ='uploads/product/'.$fileName;
+        // $fileName = time().'.'.$request->image1->extension();
+        // $request->image1->move(public_path('uploads/product/'), $fileName);
+        // $image1 ='uploads/product/'.$fileName;
 
         $fileName = time().'.'.$request->pdf->extension();
         $request->pdf->move(public_path('uploads/product/pdf/'), $fileName);
         $pdf ='uploads/product/pdf/'.$fileName;
-        // if($request->hasFile('image1')) {
-           
-           
-            // $fileName = time().'.'.$request->image1->extension();
-            // $request->image1->move(public_path('uploads/product/'), $fileName);
-            // $image1 ='uploads/product/'.$fileName;
-        // }
+        if($request->hasFile('image1')) {
+            $fileName = time().'.'.$request->image1->extension();
+            $request->image1->move(public_path('uploads/product/'), $fileName);
+            $image1 ='uploads/product/'.$fileName;
+        }
 
-        // $fileName = time().'.'.$request->image2->extension();
-        // $request->image2->move(public_path('uploads/product/'), $fileName);
-        // $image2 ='uploads/product/'.$fileName;
-
-        // $fileName = time().'.'.$request->image3->extension();
-        // $request->image3->move(public_path('uploads/product/'), $fileName);
-        // $image3 ='uploads/product/'.$fileName;
-
-        // $fileName = time().'.'.$request->image4->extension();
-        // $request->image4->move(public_path('uploads/product/'), $fileName);
-        // $image4 ='uploads/product/'.$fileName;
-
-        // $fileName = time().'.'.$request->image5->extension();
-        // $request->image5->move(public_path('uploads/product/'), $fileName);
-        // $image5 ='uploads/product/'.$fileName;
-
+        if($request->hasFile('image2')) {
+            $fileName = time().'.'.$request->image2->extension();
+            $request->image2->move(public_path('uploads/product/'), $fileName);
+            $image2 ='uploads/product/'.$fileName;
+        }
+        
+        if($request->hasFile('image3')) {
+            $fileName = time().'.'.$request->image3->extension();
+            $request->image3->move(public_path('uploads/product/'), $fileName);
+            $image3 ='uploads/product/'.$fileName;
+        }
+        
+        if($request->hasFile('image4')) {
+            $fileName = time().'.'.$request->image4->extension();
+            $request->image4->move(public_path('uploads/product/'), $fileName);
+            $image4 ='uploads/product/'.$fileName;
+        }
+        
+        if($request->hasFile('image5')) {
+            $fileName = time().'.'.$request->image5->extension();
+            $request->image5->move(public_path('uploads/product/'), $fileName);
+            $image5 ='uploads/product/'.$fileName;
+        }
         $product = new Product;
         $product->categoryId = $request->categoryId;
         $product->subCategoryId = $request->subCategoryId;
@@ -203,10 +208,10 @@ class ProductController extends Controller
             'larger_specification' => 'required|max:200',
             'redirect_link' => 'required',
             'pdf' => 'mimes:pdf',
-            // 'image2' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'image3' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'image4' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'image5' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image2' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image3' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image4' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image5' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
        
@@ -231,50 +236,50 @@ class ProductController extends Controller
             ]);
         }
 
-        // if($request->hasFile('image2')) {
+        if($request->hasFile('image2')) {
            
-        //    $fileName = time().'.'.$request->image2->extension();
-        //     $request->image2->move(public_path('uploads/product/'), $fileName);
-        //     $image2 ='uploads/product/'.$fileName;
+            $fileName = time().'.'.$request->image2->extension();
+            $request->image2->move(public_path('uploads/product/'), $fileName);
+            $image2 ='uploads/product/'.$fileName;
 
-        //     Product::where('id', $id)->update([
-        //         'image2' => $image2,
-        //     ]);
-        // }
+            Product::where('id', $id)->update([
+                'image2' => $image2,
+            ]);
+        }
 
 
-        // if($request->hasFile('image3')) {
+        if($request->hasFile('image3')) {
            
-        //     $fileName = time().'.'.$request->image3->extension();
-        //     $request->image3->move(public_path('uploads/product/'), $fileName);
-        //     $image3 ='uploads/product/'.$fileName;
+            $fileName = time().'.'.$request->image3->extension();
+            $request->image3->move(public_path('uploads/product/'), $fileName);
+            $image3 ='uploads/product/'.$fileName;
 
-        //     Product::where('id', $id)->update([
-        //         'image3' => $image3,
-        //     ]);
-        // }
+            Product::where('id', $id)->update([
+                'image3' => $image3,
+            ]);
+        }
 
 
-        // if($request->hasFile('image4')) {
+        if($request->hasFile('image4')) {
            
-        //     $fileName = time().'.'.$request->image4->extension();
-        //     $request->image4->move(public_path('uploads/product/'), $fileName);
-        //     $image4 ='uploads/product/'.$fileName;
+            $fileName = time().'.'.$request->image4->extension();
+            $request->image4->move(public_path('uploads/product/'), $fileName);
+            $image4 ='uploads/product/'.$fileName;
 
-        //     Product::where('id', $id)->update([
-        //         'image4' => $image4,
-        //     ]);
-        // }
+            Product::where('id', $id)->update([
+                'image4' => $image4,
+            ]);
+        }
 
-        // if($request->hasFile('image5')) {
+        if($request->hasFile('image5')) {
            
-        //     $fileName = time().'.'.$request->image5->extension();
-        //     $request->image5->move(public_path('uploads/product/'), $fileName);
-        //     $image5 ='uploads/product/'.$fileName;
-        //     Product::where('id', $id)->update([
-        //         'image5' => $image5,
-        //     ]);
-        // }
+            $fileName = time().'.'.$request->image5->extension();
+            $request->image5->move(public_path('uploads/product/'), $fileName);
+            $image5 ='uploads/product/'.$fileName;
+            Product::where('id', $id)->update([
+                'image5' => $image5,
+            ]);
+        }
 
 
 

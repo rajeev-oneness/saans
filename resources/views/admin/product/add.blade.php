@@ -74,7 +74,7 @@
                                     </span>
                                 @enderror 
                             </div>
-                            <!-- <div class="form-group">
+                             <div class="form-group">
                                 <label for="image2">Image</label>
                                 <input type="file" id="image2" name="image2" class="form-control @error('image2') is-invalid @enderror">
                                 @error('image2')
@@ -109,7 +109,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror 
-                            </div> -->
+                            </div> 
                             <div class="form-group">
                                 <label for="description">Description</label>
                                 <input type="description" id="description" name="description" class="form-control @error('description') is-invalid @enderror">

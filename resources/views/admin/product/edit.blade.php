@@ -55,7 +55,7 @@
                             @enderror 
                         </div>
                         
-                        <!-- <div class="form-group required">
+                       <div class="form-group required">
                             <label for="image2" class="control-label">Image</label>
                             <input type="file" class="form-control-file" name="image2" value="{{$product->image2}}" id="image2">
                         </div>
@@ -70,7 +70,7 @@
                         <div class="form-group required">
                             <label for="image5" class="control-label">Image</label>
                             <input type="file" class="form-control-file" name="image5" value="{{$product->image5}}" id="image5image">
-                        </div> -->
+                        </div>
                         <div class="form-group required">
                           <label for="name" class="control-label">Name</label>
                           <input type="text" name="name" id="name" value="{{$product->name}}"  placeholder="Course name" class="form-control @error('name') is-invalid @enderror">
