@@ -14,7 +14,7 @@
         </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
+<!-- Main content -->
     <section class="content">
         <div class="row">
             <div class="col-md-12">
@@ -45,19 +45,6 @@
 
 
 
-<<<<<<< HEAD
-                        <div class="form-group">
-                            <label for="pdf">PDF</label>
-                            <input type="file" id="pdf" name="pdf" class="form-control">
-                            @error('pdf')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror 
-                        </div>
-                        
-                       <div class="form-group required">
-=======
                                 <div class="form-group">
                                     <label for="pdf">PDF</label>
                                     <input type="file" id="pdf" name="pdf" class="form-control">
@@ -68,8 +55,7 @@
                                     @enderror
                                 </div>
 
-                                <!-- <div class="form-group required">
->>>>>>> 6164ba17443eb19f4f05f1fe1f999d7a7017a9bb
+                        <div class="form-group required">
                             <label for="image2" class="control-label">Image</label>
                             <input type="file" class="form-control-file" name="image2" value="{{$product->image2}}" id="image2">
                         </div>
@@ -84,19 +70,11 @@
                         <div class="form-group required">
                             <label for="image5" class="control-label">Image</label>
                             <input type="file" class="form-control-file" name="image5" value="{{$product->image5}}" id="image5image">
-<<<<<<< HEAD
                         </div>
-                        <div class="form-group required">
-                          <label for="name" class="control-label">Name</label>
-                          <input type="text" name="name" id="name" value="{{$product->name}}"  placeholder="Course name" class="form-control @error('name') is-invalid @enderror">
-                          @error('name')
-=======
-                        </div> -->
                                 <div class="form-group required">
                                     <label for="name" class="control-label">Name</label>
                                     <input type="text" name="name" id="name" value="{{$product->name}}" placeholder="Course name" class="form-control @error('name') is-invalid @enderror">
                                     @error('name')
->>>>>>> 6164ba17443eb19f4f05f1fe1f999d7a7017a9bb
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
