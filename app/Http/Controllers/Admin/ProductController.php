@@ -69,6 +69,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'name' => 'required|string',
             'description' => 'required',
@@ -81,47 +82,47 @@ class ProductController extends Controller
             'redirect_link' => 'required',
             'image1' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'pdf' => 'required|mimes:pdf',
-            'image2' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image3' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image4' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image5' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image2' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image3' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image4' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image5' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         // $fileName = time() . '.' . $request->image1->extension();
         // $request->image1->move(public_path('uploads/product/'), $fileName);
         // $image1 = 'uploads/product/' . $fileName;
 
-        $fileName = time() . '.' . $request->pdf->extension();
+        $fileName = uniqid() . '' . date('ymdhis') . '' . uniqid() . '.' . $request->pdf->extension();
         $request->pdf->move(public_path('uploads/product/pdf/'), $fileName);
         $pdf = 'uploads/product/pdf/' . $fileName;
 
-        if($request->hasFile('image1')) {
-            $fileName = time().'.'.$request->image1->extension();
+        if ($request->hasFile('image1')) {
+            $fileName = uniqid() . '' . date('ymdhis') . '' . uniqid() . '.' . $request->image1->extension();
             $request->image1->move(public_path('uploads/product/'), $fileName);
-            $image1 ='uploads/product/'.$fileName;
+            $image1 = 'uploads/product/' . $fileName;
         }
 
-        if($request->hasFile('image2')) {
-            $fileName = time().'.'.$request->image2->extension();
+        if ($request->hasFile('image2')) {
+            $fileName = uniqid() . '' . date('ymdhis') . '' . uniqid() . '.' . $request->image2->extension();
             $request->image2->move(public_path('uploads/product/'), $fileName);
-            $image2 ='uploads/product/'.$fileName;
+            $image2 = 'uploads/product/' . $fileName;
         }
 
-        if($request->hasFile('image3')) {
-            $fileName = time().'.'.$request->image3->extension();
+        if ($request->hasFile('image3')) {
+            $fileName = uniqid() . '' . date('ymdhis') . '' . uniqid() . '.' . $request->image3->extension();
             $request->image3->move(public_path('uploads/product/'), $fileName);
-            $image3 ='uploads/product/'.$fileName;
+            $image3 = 'uploads/product/' . $fileName;
         }
 
-        if($request->hasFile('image4')) {
-            $fileName = time().'.'.$request->image4->extension();
+        if ($request->hasFile('image4')) {
+            $fileName = uniqid() . '' . date('ymdhis') . '' . uniqid() . '.' . $request->image4->extension();
             $request->image4->move(public_path('uploads/product/'), $fileName);
-            $image4 ='uploads/product/'.$fileName;
+            $image4 = 'uploads/product/' . $fileName;
         }
 
-        if($request->hasFile('image5')) {
-            $fileName = time().'.'.$request->image5->extension();
+        if ($request->hasFile('image5')) {
+            $fileName = uniqid() . '' . date('ymdhis') . '' . uniqid() . '.' . $request->image5->extension();
             $request->image5->move(public_path('uploads/product/'), $fileName);
-            $image5 ='uploads/product/'.$fileName;
+            $image5 = 'uploads/product/' . $fileName;
         }
 
         $product = new Product;
@@ -146,7 +147,7 @@ class ProductController extends Controller
         // return redirect()->route('product.view');
         return redirect('admin/product')->with('success', 'Product Added Successfully');
     }
-    
+
 
     /**
      * Display the specified resource.

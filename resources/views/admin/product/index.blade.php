@@ -78,8 +78,8 @@
                 <td>{{$product->name}}</td>
                 <td>{{substr($product->description, 0,100).'...'}}</td>
                 <td>{{$product->categoryDetail->name}}</td>
-                <td>{{$product->subCategoryDetail->sub_category_name}}</td>
-                <td>{{$product->principalDetail->name}}</td>
+                <td>{{$product->subCategoryDetail->sub_category_name ? $product->subCategoryDetail->sub_category_name : 'N/A'}}</td>
+                <td>{{$product->principalDetail->name  ? $product->principalDetail->name : 'N/A'}}</td>
                 <td>{{($product->subPrincipalDetail ? $product->subPrincipalDetail->sub_principal : 'N/A')}}</td>
                 <td>{{substr($product->feature, 0,100).'...'}}</td>
                 <td>{{substr($product->larger_specification, 0,100).'...'}}</td>
