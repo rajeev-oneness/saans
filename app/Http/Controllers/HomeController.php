@@ -70,6 +70,7 @@ class HomeController extends Controller
 
     public function updateUserPassword(Request $req)
     {
+        dd($request->all());
         $req->validate([
             'old_password' => ['required', 'string'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],

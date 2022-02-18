@@ -62,7 +62,7 @@
                 <td><img src="{{asset($priproduct->image)}}" width="60" /></td>
                 <td>{{$priproduct->name}}</td>
                 <td>{{$priproduct->description}}</td>
-                <td>{{$priproduct->principalDetail->name}}</td>
+                <td>{{$priproduct->principalDetail ? $priproduct->principalDetail->name : 'N/A'}}</td>
                 <td>{{$priproduct->redirect_link}}</td>
                 @if($priproduct->status==1)
                 <td>Active</td>

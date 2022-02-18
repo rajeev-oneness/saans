@@ -55,7 +55,7 @@
               <tr>
                 <td>{{$key + 1}}</td>
                 <td>{{$subPrincipal->sub_principal}}</td>
-                <td>{{$subPrincipal->principal->name ? $subPrincipal->principal->name : 'N/A'}}</td>
+                <td>{{$subPrincipal->principal ? $subPrincipal->principal->name : 'N/A'}}</td>
                 @if($subPrincipal->status==1)
                 <td>Active</td>
                 @else

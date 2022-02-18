@@ -55,7 +55,7 @@
               <tr>
                 <td>{{$key + 1}}</td>
                 <td>{{$subCategory->sub_category_name}}</td>
-                <td>{{$subCategory->category->name ? $subCategory->category->name : 'N/A'}}</td>
+                <td>{{$subCategory->category ? $subCategory->category->name : 'N/A'}}</td>
                 @if($subCategory->status==1)
                 <td>Active</td>
                 @else
